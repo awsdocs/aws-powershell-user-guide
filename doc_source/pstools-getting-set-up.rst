@@ -4,7 +4,6 @@
 Setting up the |TWPlong|
 ########################
 
-
 .. contents:: **Topics**
     :local:
     :depth: 1
@@ -41,20 +40,17 @@ The |TWPlong| is one of the optional components that you can install by running 
 Windows installer :file:`.msi`. Download the installer by opening the following webpage, and
 clicking :guilabel:`AWS Tools for Windows`.
 
-.. code-block:: none
+* http://aws.amazon.com/powershell/
 
-    `http://aws.amazon.com/powershell/ <http://aws.amazon.com/powershell/>`_
-
-The installer for the |TWP| installs the most recent version of the |sdk-net|_. If you have 
-Microsoft Visual Studio installed, the installer can also install the 
-:tvs-ug`AWS Toolkit for Visual Studio <welcome>`.
+The installer for the |TWP| installs the most recent version of the |sdk-net|_. If you have
+Microsoft Visual Studio installed, the installer can also install the :tvs-ug`AWS Toolkit for Visual
+Studio <welcome>`.
 
 All Windows Amazon Machine Images (AMIs) have the |TWPlong| pre-installed. For an example of using
-the |TWP| on an Amazon EC2 instance, see the following sample in the AWS SDK for .NET.
+the |TWP| on an Amazon EC2 instance, view the AWS EC2 sample from within Visual Studio, by
+selecting:
 
-.. code-block:: none
-
-     New | Project... | AWS | Compute and Networking | AWS EC2 Sample
+* :guilabel:`New | Project... | AWS | Compute and Networking | AWS EC2 Sample`
 
 
 .. _enable-script-execution:
@@ -90,7 +86,7 @@ If you do not have the execution policy set correctly, PowerShell generates the 
     At line:1 char:2
     + . <<<<  'C:\Users\teslan\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1'
         + CategoryInfo          : NotSpecified: (:) [], PSSecurityException
-        + FullyQualifiedErrorId : RuntimeException 
+        + FullyQualifiedErrorId : RuntimeException
 
 The installer for the |TWP| updates the `PSModulePath
 <http://msdn.microsoft.com/en-us/library/windows/desktop/dd878326.aspx>`_ to include the location of
@@ -105,7 +101,7 @@ Because the :code:`PSModulePath` includes the location of the AWS module's direc
 .. code-block:: none
 
     PS C:\> Get-Module -ListAvailable
-    
+
     ModuleType Name                      ExportedCommands
     ---------- ----                      ----------------
     Manifest   AppLocker                 {}
@@ -215,17 +211,17 @@ version of the |TWP| you have installed, run the `Get-AWSPowerShellVersion
 .. code-block:: none
 
     PS C:\> Get-AWSPowerShellVersion
-    
+
     AWS Tools for Windows PowerShell
     Version 3.1.76.0
     Copyright 2012-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-    
+
     Amazon Web Services SDK for .NET
     Core Runtime Version 3.1.7.0
     Copyright 2009-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-    
+
     Release notes: https://aws.amazon.com/releasenotes/PowerShell
-    
+
     This software includes third party software subject to the following copyrights:
     - Logging from log4net, Apache License
     [http://logging.apache.org/log4net/license.html]
@@ -237,22 +233,22 @@ services are supported in the current version of the tools.
 .. code-block:: none
 
     PS C:\> Get-AWSPowerShellVersion -ListServices
-    
+
     AWS Tools for Windows PowerShell
     Version 3.1.76.0
     Copyright 2012-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-    
+
     Amazon Web Services SDK for .NET
     Core Runtime Version 3.1.7.0
     Copyright 2009-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-    
+
     Release notes: https://aws.amazon.com/releasenotes/PowerShell
-    
+
     This software includes third party software subject to the following copyrights:
     - Logging from log4net, Apache License
     [http://logging.apache.org/log4net/license.html]
-    
-    
+
+
     Service                            Noun Prefix Version
     -------                            ----------- -------
     AWS Certificate Manager            ACM         2015-12-08
@@ -326,7 +322,7 @@ the contents of the $PSVersionTable `automatic variable
 .. code-block:: none
 
     PS C:\> $PSVersionTable
-    
+
     Name                           Value
     ----                           -----
     PSVersion                      5.0.10586.117
@@ -350,7 +346,7 @@ checking for an updated |TWP| package is every two to three weeks.
 
 If the download version is a higher number than the version you have installed, close all |TWP|
 consoles, then uninstall :guilabel:`AWS Tools for Windows` by selecting it in the :guilabel:`Control
-Panel>Programs and Features>Uninstall a program` dialog box, and then clicking
+Panel | Programs and Features | Uninstall a program` dialog box, and then clicking
 :guilabel:`Uninstall`. Wait for uninstallation to finish.
 
 Install the newer version of the |TWP| by running the MSI package you downloaded.
