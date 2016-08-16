@@ -43,8 +43,8 @@ clicking :guilabel:`AWS Tools for Windows`.
 * http://aws.amazon.com/powershell/
 
 The installer for the |TWP| installs the most recent version of the |sdk-net|_. If you have
-Microsoft Visual Studio installed, the installer can also install the :tvs-ug`AWS Toolkit for Visual
-Studio <welcome>`.
+Microsoft Visual Studio installed, the installer can also install the :tvs-ug:`AWS Toolkit for
+Visual Studio <welcome>`.
 
 All Windows Amazon Machine Images (AMIs) have the |TWPlong| pre-installed. For an example of using
 the |TWP| on an Amazon EC2 instance, view the AWS EC2 sample from within Visual Studio, by
@@ -360,9 +360,12 @@ See Also
 
 * :ref:`pstools-using`
 
+* :doc:`pstools-appendix-sign-up`
+
 .. toctree::
     :titlesonly:
     :maxdepth: 1
+    :hidden:
 
     pstools-appendix-sign-up
 

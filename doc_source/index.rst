@@ -11,6 +11,7 @@
 .. toctree::
    :titlesonly:
    :maxdepth: 1
+   :includehidden:
 
    pstools-welcome
    Getting Set Up <pstools-getting-set-up>
