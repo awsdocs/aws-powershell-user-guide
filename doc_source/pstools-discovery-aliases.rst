@@ -14,7 +14,7 @@ Cmdlet Discovery
 ----------------
 
 To get the cmdlet name that corresponds to an AWS service API name, use the AWS
-:code:`Get-AWSCmdletName` cmdlet along with the :code:`?ApiOperation` parameter and the AWS service
+:code:`Get-AWSCmdletName` cmdlet along with the :code:`-ApiOperation` parameter and the AWS service
 API name. For example, to get all of the possible cmdlet names that correspond to any available
 :code:`DescribeInstances` AWS service API:
 
@@ -27,7 +27,7 @@ API name. For example, to get all of the possible cmdlet names that correspond t
     Get-EC2Instance         DescribeInstances        Amazon Elastic Compute Cloud        EC2
     Get-OPSInstances        DescribeInstances        AWS OpsWorks                        OPS
 
-Note that you can omit the :code:`?ApiOperation` parameter name in the preceding call, so the
+Note that you can omit the :code:`-ApiOperation` parameter name in the preceding call, so the
 following is equivalent:
 
 .. code-block:: none
@@ -35,16 +35,16 @@ following is equivalent:
     PS C:\> Get-AWSCmdletName DescribeInstances
 
 If you know the names of both the desired AWS service API and the AWS service, add the
-:code:`?Service` parameter along with either the cmdlet noun prefix or some portion of the AWS
+:code:`-Service` parameter along with either the cmdlet noun prefix or some portion of the AWS
 service name. (For instance, the cmdlet noun prefix for |EC2| is :code:`EC2`.) For example, to get
 the cmdlet name that corresponds to the :code:`DescribeInstances` API in the |EC2| service, call one
 of the following:
 
 .. code-block:: none
 
-    PS C:\> Get-AWSCmdletName ?ApiOperation DescribeInstances -Service EC2
-    PS C:\> Get-AWSCmdletName ?ApiOperation DescribeInstances -Service Compute
-    PS C:\> Get-AWSCmdletName ?ApiOperation DescribeInstances -Service "Compute Cloud"
+    PS C:\> Get-AWSCmdletName -ApiOperation DescribeInstances -Service EC2
+    PS C:\> Get-AWSCmdletName -ApiOperation DescribeInstances -Service Compute
+    PS C:\> Get-AWSCmdletName -ApiOperation DescribeInstances -Service "Compute Cloud"
     
     CmdletName              ServiceOperation         ServiceName                         CmdletNounPrefix
     ----------              ----------------         -----------                         ----------------
@@ -53,12 +53,12 @@ of the following:
 Note that the parameter values in these calls are case-insensitive.
 
 If you do not know the name of either the desired AWS service API or the AWS service, use the
-:code:`?ApiOperation` parameter along with the pattern to match and the :code:`-MatchWithRegex`
+:code:`-ApiOperation` parameter along with the pattern to match and the :code:`-MatchWithRegex`
 parameter. For example, to get all of the available cmdlet names that contain :code:`SecurityGroup`:
 
 .. code-block:: none
 
-    PS C:\> Get-AWSCmdletName ?ApiOperation SecurityGroup -MatchWithRegex
+    PS C:\> Get-AWSCmdletName -ApiOperation SecurityGroup -MatchWithRegex
     
     CmdletName                              ServiceOperation                        ServiceName                            CmdletNounPrefix
     ----------                              ----------------                        -----------                            ----------------
@@ -87,13 +87,13 @@ parameter. For example, to get all of the available cmdlet names that contain :c
     Revoke-RSClusterSecurityGroupIngress    RevokeClusterSecurityGroupIngress       Amazon Redshift                        RS
 
 If you know the name of the desired AWS service but not the AWS service API, use the
-:code:`-MatchWithRegex` parameter along with the :code:`?Service` parameter to scope the search to a
+:code:`-MatchWithRegex` parameter along with the :code:`-Service` parameter to scope the search to a
 single service. For example, to get all of the possible cmdlet names that contain
 :code:`SecurityGroup` in just the |EC2| service:
 
 .. code-block:: none
 
-    PS C:\> Get-AWSCmdletName ?ApiOperation SecurityGroup ?MatchWithRegex ?Service EC2
+    PS C:\> Get-AWSCmdletName -ApiOperation SecurityGroup -MatchWithRegex -Service EC2
     
     CmdletName                              ServiceOperation                        ServiceName                            CmdletNounPrefix
     ----------                              ----------------                        -----------                            ----------------
@@ -105,7 +105,7 @@ single service. For example, to get all of the possible cmdlet names that contai
     Revoke-EC2SecurityGroupEgress           RevokeSecurityGroupEgress               Amazon Elastic Compute Cloud           EC2
     Revoke-EC2SecurityGroupIngress          RevokeSecurityGroupIngress              Amazon Elastic Compute Cloud           EC2
 
-If you know the name of the |CLIlong| (|CLI|) command, use the :code:`?AwsCliCommand` parameter
+If you know the name of the |CLIlong| (|CLI|) command, use the :code:`-AwsCliCommand` parameter
 along with the desired |CLI| command call to get the corresponding cmdlet name. For example, to get
 the cmdlet name that corresponds to the :code:`authorize-security-group-ingress` |CLI| command call
 in the |EC2| service:

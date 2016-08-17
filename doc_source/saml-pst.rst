@@ -79,7 +79,7 @@ users.
 .. image:: images/Powershell_SamlAuth_using_vsd.png
     :scale: 100
 
-1. The |TWP| authenticate against AD FS by using the Windows user?s current credentials, or
+1. The |TWP| authenticate against AD FS by using the Windows user's current credentials, or
    interactively, when a cmdlet that requires credentials to call into AWS is run.
 
 2. AD FS authenticates the user.
@@ -122,7 +122,7 @@ The |TWP| include two new cmdlets that provide SAML support.
 
   Just as with AWS credential profiles, you assign a friendly name to the role profile. You can
   use the same friendly name with the :code:`Set-AWSCredentials` cmdlet, or as the value of the
-  :code:`?ProfileName` parameter for any cmdlet that invokes AWS service APIs.
+  :code:`-ProfileName` parameter for any cmdlet that invokes AWS service APIs.
 
 Open a new |TWP| session. If you are running PowerShell 3.0 or newer, the |TWP| module is
 automatically imported when you run any of its cmdlets. If you are running PowerShell 2.0, you must
@@ -155,7 +155,7 @@ How to Run the :code:`Set-AWSSamlEndpoint` and :code:`Set-AWSSamlRoleProfile` Cm
 
       PS C:\> $epName = Set-AWSSamlEndpoint -Endpoint $endpoint -StoreAs ADFS-Demo -AuthenticationType NTLM
 
-   The cmdlet returns the friendly name you assigned by using the :code:`?StoreAs` parameter, so
+   The cmdlet returns the friendly name you assigned by using the :code:`-StoreAs` parameter, so
    you can use it when you run :code:`Set-AWSSamlRoleProfile` in the next line.
 
 3. Now, you run the :code:`Set-AWSSamlRoleProfile` cmdlet to authenticate with the AD FS identity
@@ -199,8 +199,8 @@ How to Run the :code:`Set-AWSSamlEndpoint` and :code:`Set-AWSSamlRoleProfile` Cm
 
    .. code-block:: none
    
-      PS C:\> $params = @{? "NetworkCredential"=$credential, "PrincipalARN"="{arn:aws:iam::012345678912:saml-provider/ADFS}" "RoleARN"="{arn:aws:iam::012345678912:role/ADFS-Dev}"
-      }?
+      PS C:\> $params = @{ "NetworkCredential"=$credential, "PrincipalARN"="{arn:aws:iam::012345678912:saml-provider/ADFS}" "RoleARN"="{arn:aws:iam::012345678912:role/ADFS-Dev}"
+      }
       PS C:\> $epName | Set-AWSSamlRoleProfile @params -StoreAs SAMLDemoProfile1 -Verbose
 
 5. You can create profiles for all roles in a single command by adding the :code:`StoreAllRoles`
@@ -266,7 +266,7 @@ administrators who manage |S3| from the PowerShell command line.
 
 .. code-block:: none
 
-    PS C:\> Get-S3Bucket ?ProfileName SAMLDemoProfile
+    PS C:\> Get-S3Bucket -ProfileName SAMLDemoProfile
      
     CreationDate                                                BucketName
     ------------                                                ----------
@@ -301,7 +301,7 @@ region.
 
 .. code-block:: none
 
-    PS C:\> (Get-Ec2Instance ?ProfileName ADFS-Production ?Region ap-southeast-2).Instances | Select InstanceType, @{Name="Servername";Expression={$_.tags | where key -eq "Name" | Select Value -Expand Value}}
+    PS C:\> (Get-Ec2Instance -ProfileName ADFS-Production -Region ap-southeast-2).Instances | Select InstanceType, @{Name="Servername";Expression={$_.tags | where key -eq "Name" | Select Value -Expand Value}}
     
      InstanceType                                                Servername
      ------------                                                ----------
