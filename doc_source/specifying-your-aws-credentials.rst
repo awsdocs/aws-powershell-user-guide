@@ -222,3 +222,43 @@ available set.
    For more information about using |IAM| roles for |EC2| Instances, see the |sdk-net|_.
 
 If this search fails to locate the specified credentials, the command throws an exception.
+
+Credential Handling in AWS Tools for PowerShell Core
+----------------------------------------------------
+
+Cmdlets in AWS Tools for PowerShell Core accept AWS access and secret keys or the names of credential profiles when they run, similarly to the |TWPlong|. When they run on Windows, both modules have access to the AWS SDK for .NET credential store file (stored in the per-user :code:`AppData\Local\AWSToolkit\RegisteredAccounts.json` file). This file stores your keys in encrypted format, and cannot be used on a different computer. It is the first file that the AWS Tools for PowerShell searches for a credential profile, and is also the file where the AWS Tools for PowerShell stores credential profiles. The AWS Tools for PowerShell module does not currently support writing credentials to other files or locations.
+
+Both modules can read profiles from the :code:`ini`-format shared credentials file that is used by other AWS SDKs and the AWS CLI. On Windows, the default location for this file is :code:`C:\Users\<userid>\.aws\credentials`. On non-Windows platforms, this file is stored at :code:`~/.aws/credentials`. The :code:`-ProfilesLocation` parameter can be used to point to a non-default file name or file location.
+
+The SDK credential store holds your credentials in encrypted form by using Windows cryptographic APIs. These APIs are not available on other platforms, so the AWS Tools for PowerShell Core module uses the :code:`ini`-format shared credentials file exclusively, and supports writing new credential profiles to the shared credential file. This support is slated for a future release of the AWS Tools for Windows PowerShell.
+
+The following examples that use the :code:`Set-AWSCredentials` cmdlet show the options for handling credential profiles on Windows with either the :guilabel:`AWSPowerShell` or :guilabel:`AWSPowerShell.NetCore` modules:
+
+    .. code-block:: none
+	# Writes a new (or updates existing) profile with name "myProfileName"
+	# in the encrypted SDK store file
+	Set-AWSCredentials -AccessKey akey -SecretKey skey -StoreAs myProfileName
+	# Checks the encrypted SDK credential store for the profile and then
+	# falls back to the shared credentials file in the default location
+	Set-AWSCredentials -ProfileName myProfileName
+	# Bypasses the encrypted SDK credential store and attempts to load the
+	# profile from the ini-format credentials file "mycredentials" in the
+	# folder C:\MyCustomPath
+	Set-AWSCredentials -ProfileName myProfileName -ProfilesLocation C:\MyCustomPath\mycredentials
+	
+
+The following examples show the behavior of the :guilabel:`AWSPowerShell.NetCore` module on the Linux or Mac OS X operating systems:
+
+    .. code-block:: none
+	# Writes a new (or updates existing) profile with name "myProfileName"
+	# in the default shared credentials file ~/.aws/credentials
+	Set-AWSCredentials -AccessKey akey -SecretKey skey -StoreAs myProfileName
+	# Writes a new (or updates existing) profile with name "myProfileName"
+	# into an ini-format credentials file "~/mycustompath/mycredentials"
+	Set-AWSCredentials -AccessKey akey -SecretKey skey -StoreAs myProfileName -ProfilesLocation ~/mycustompath/mycredentials
+	# Reads the default shared credential file looking for the profile "myProfileName"
+	Set-AWSCredentials -ProfileName myProfileName
+	# Reads the specified credential file looking for the profile "myProfileName"
+	Set-AWSCredentials -ProfileName myProfileName -ProfilesLocation ~/mycustompath/mycredentials
+	
+

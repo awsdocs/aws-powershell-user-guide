@@ -13,14 +13,14 @@ Setting up the |TWPlong|
 Prerequisites
 =============
 
-To use the |TWPlong|, you must have an AWS account. If you do not yet have an AWS account, see
+To use the |TWPlong| or the AWS Tools for PowerShell Core, you must have an AWS account. If you do not yet have an AWS account, see
 :ref:`pstools-appendix-sign-up` for instructions on how to sign up.
 
 To use the |TWPlong|, your installed system must meet the following prerequisites:
 
 * Microsoft Windows XP or later
 
-* Windows PowerShell 2.0 or later
+* Windows PowerShell 2.0 or later (PowerShell 5.1 or later for the Tools for PowerShell Core)
 
 Windows 7 and Windows Server 2008 R2 come with Windows PowerShell 2.0 installed. Windows 8 and
 Windows Server 2012 come with Windows PowerShell 3.0 installed. For earlier releases of Windows,
@@ -35,6 +35,8 @@ PowerShell 2.0 by installing the Windows Management Framework.
 
 Download and Install the |TWPlong|
 ==================================
+
+**Install the |TWPlong| on a Windows-based computer**
 
 The |TWPlong| is one of the optional components that you can install by running the AWS Tools for
 Windows installer :file:`.msi`. Download the installer by opening the following webpage, and
@@ -52,6 +54,33 @@ selecting:
 
 * :guilabel:`New | Project... | AWS | Compute and Networking | AWS EC2 Sample`
 
+**Install the AWS Tools for PowerShell Core**
+
+The AWS Tools for PowerShell Core can be installed on computers that are running Microsoft PowerShell 5.1 or a later
+release of PowerShell. AWS Tools for PowerShell Core is therefore supported on the following operating systems.
+For more information about how to install PowerShell 5.1 on computers that do not run Windows, see 
+`Package installation instructions <https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md>`_ 
+For more information about how to install PowerShell 5.1 on computers that run Windows 8.1 or Windows 10, see `Package installation instructions 
+<https://github.com/PowerShell/PowerShell/blob/master/docs/installation/windows.md>`_ in the GitHub repository for the Microsoft PowerShell project.
+
+* Ubuntu 14.04 LTS and later
+* CentOS Linux 7
+* Mac OS X
+* Windows 8.1 Enterprise
+* Windows Server 2012 R2
+* Windows 10 for Business
+
+After you have PowerShell 5.1 installed, you can find the AWS Tools for PowerShell Core on 
+Microsoft's `PowerShell Gallery <https://www.powershellgallery.com/packages/AWSPowerShell.NetCore>`_ website.
+The simplest way to install the Tools for PowerShell Core is by running the :code:`Install-Package` cmdlet. We currently recommend 
+using the NuGet provider to avoid installation errors. A suggested destination path on Linux systems is :code:`~/.local/share/powershell/Modules`.
+
+.. code-block:: none
+        PS C:\> Install-Package -Name AWSPowerShell.NetCore -Source
+		https://www.powershellgallery.com/api/v2/ -ProviderName NuGet -ExcludeVersion
+		-Destination :replaceable:`path to destination folder`
+
+For more information about the release of AWS Tools for PowerShell Core, see the AWS blog post, `Introducing AWS Tools for PowerShell Core Edition <https://blogs.aws.amazon.com/net/post/TxTUNCCDVSG05F/Introducing-AWS-Tools-for-PowerShell-Core-Edition>`_.
 
 .. _enable-script-execution:
 
@@ -335,14 +364,20 @@ the contents of the $PSVersionTable `automatic variable
 
 
 
-Updating the |TWPlong|
-======================
+Updating the |TWPlong| and AWS Tools for PowerShell Core
+========================================================
 
-Periodically, as updated versions of the |TWP| are released, update your installed |TWP| by
-downloading the most recent version of the MSI package from `AWS Tools for Windows PowerShell
+Periodically, as updated versions of the |TWP| or Tools for PowerShell Core are released, you'll want 
+to update the version that you are running locally. Run the :code:`Get-AWSPowerShellVersion` cmdlet to 
+determine the version that you are running, and compare that with the version of |TWP| that is available at `AWS Tools for Windows PowerShell
+<powershell/>`_ or `PowerShell Gallery <https://www.powershellgallery.com/packages/AWSPowerShell.NetCore>`_. 
+A suggested time period for checking for an updated AWS Tools for PowerShell package is every two to three weeks. 
+
+**Update the |TWP|**
+
+Update your installed |TWP| by downloading the most recent version of the MSI package from `AWS Tools for Windows PowerShell
 <powershell/>`_ and comparing the package version number in the MSI file name with the version
-number you get when you run the :code:`Get-AWSPowerShellVersion` cmdlet. A suggested time period for
-checking for an updated |TWP| package is every two to three weeks.
+number you get when you run the :code:`Get-AWSPowerShellVersion` cmdlet.
 
 If the download version is a higher number than the version you have installed, close all |TWP|
 consoles, then uninstall :guilabel:`AWS Tools for Windows` by selecting it in the :guilabel:`Control
@@ -350,6 +385,23 @@ Panel | Programs and Features | Uninstall a program` dialog box, and then clicki
 :guilabel:`Uninstall`. Wait for uninstallation to finish.
 
 Install the newer version of the |TWP| by running the MSI package you downloaded.
+
+**Update the Tools for PowerShell Core**
+
+Before you install a newer release of the AWS Tools for PowerShell Core, uninstall the existing package. Close any open 
+PowerShell or AWS Tools for PowerShell sessions before you uninstall the existing Tools for PowerShell Core package. Run the following command 
+to uninstall the package.
+
+.. code-block:: none
+        PS C:\> Uninstall-Package -Name AWSPowerShell.NetCore -AllVersions
+		
+
+When uninstallation is finished, install the updated package by running the following command. By default, 
+this command installs the latest version of the AWS Tools for PowerShell Core.
+
+.. code-block:: none
+        PS C:\> Install-Package -Name AWSPowerShell.NetCore -ProviderName NuGet
+		-Destination :replaceable:`path to destination folder`
 
 .. _pstools-seealso-setup:
 
