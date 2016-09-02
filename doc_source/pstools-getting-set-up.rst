@@ -59,9 +59,9 @@ selecting:
 The AWS Tools for PowerShell Core can be installed on computers that are running Microsoft PowerShell 5.1 or a later
 release of PowerShell. AWS Tools for PowerShell Core is therefore supported on the following operating systems.
 For more information about how to install PowerShell 5.1 on computers that do not run Windows, see 
-`Package installation instructions <https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md>`_ in the GitHub repositoryfor the Microsoft PowerShell project. 
+`Package installation instructions <https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md>`_ in the GitHub repository for the Microsoft PowerShell project. 
 For more information about how to install PowerShell 5.1 on computers that run Windows 8.1 or Windows 10, see `Package installation instructions 
-<https://github.com/PowerShell/PowerShell/blob/master/docs/installation/windows.md>`_ in the GitHub repository for the Microsoft PowerShell project.
+<https://github.com/PowerShell/PowerShell/blob/master/docs/installation/windows.md>`_, also in the GitHub repository for PowerShell.
 
 * Ubuntu 14.04 LTS and later
 * CentOS Linux 7
@@ -76,9 +76,10 @@ The simplest way to install the Tools for PowerShell Core is by running the :cod
 using the NuGet provider to avoid installation errors. A suggested destination path on Linux systems is :code:`~/.local/share/powershell/Modules`.
 
 .. code-block:: none
-        PS C:\> Install-Package -Name AWSPowerShell.NetCore -Source
-		https://www.powershellgallery.com/api/v2/ -ProviderName NuGet -ExcludeVersion
-		-Destination :replaceable:`path to destination folder`
+
+    PS C:\> Install-Package -Name AWSPowerShell.NetCore -Source
+    https://www.powershellgallery.com/api/v2/ -ProviderName NuGet -ExcludeVersion
+    -Destination :replaceable:`path to destination folder`
 
 For more information about the release of AWS Tools for PowerShell Core, see the AWS blog post, `Introducing AWS Tools for PowerShell Core Edition <https://blogs.aws.amazon.com/net/post/TxTUNCCDVSG05F/Introducing-AWS-Tools-for-PowerShell-Core-Edition>`_.
 
@@ -393,15 +394,16 @@ PowerShell or AWS Tools for PowerShell sessions before you uninstall the existin
 to uninstall the package.
 
 .. code-block:: none
-        PS C:\> Uninstall-Package -Name AWSPowerShell.NetCore -AllVersions
-		
+
+    PS C:\> Uninstall-Package -Name AWSPowerShell.NetCore -AllVersions
 
 When uninstallation is finished, install the updated package by running the following command. By default, 
 this command installs the latest version of the AWS Tools for PowerShell Core.
 
 .. code-block:: none
-        PS C:\> Install-Package -Name AWSPowerShell.NetCore -ProviderName NuGet
-		-Destination :replaceable:`path to destination folder`
+
+    PS C:\> Install-Package -Name AWSPowerShell.NetCore -ProviderName NuGet
+    -Destination :replaceable:`path to destination folder`
 
 .. _pstools-seealso-setup:
 
