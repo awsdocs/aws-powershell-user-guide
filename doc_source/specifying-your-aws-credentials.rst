@@ -235,30 +235,43 @@ The SDK credential store holds your credentials in encrypted form by using Windo
 The following examples that use the :code:`Set-AWSCredentials` cmdlet show the options for handling credential profiles on Windows with either the :guilabel:`AWSPowerShell` or :guilabel:`AWSPowerShell.NetCore` modules:
 
     .. code-block:: none
-	# Writes a new (or updates existing) profile with name "myProfileName"
-	# in the encrypted SDK store file
-	Set-AWSCredentials -AccessKey akey -SecretKey skey -StoreAs myProfileName
-	# Checks the encrypted SDK credential store for the profile and then
-	# falls back to the shared credentials file in the default location
-	Set-AWSCredentials -ProfileName myProfileName
-	# Bypasses the encrypted SDK credential store and attempts to load the
-	# profile from the ini-format credentials file "mycredentials" in the
-	# folder C:\MyCustomPath
-	Set-AWSCredentials -ProfileName myProfileName -ProfilesLocation C:\MyCustomPath\mycredentials
-	
+
+    # Writes a new (or updates existing) profile with name "myProfileName"
+    # in the encrypted SDK store file
+    
+    Set-AWSCredentials -AccessKey akey -SecretKey skey -StoreAs myProfileName
+    
+    # Checks the encrypted SDK credential store for the profile and then
+    # falls back to the shared credentials file in the default location
+    
+    Set-AWSCredentials -ProfileName myProfileName
+    
+    # Bypasses the encrypted SDK credential store and attempts to load the
+    # profile from the ini-format credentials file "mycredentials" in the
+    # folder C:\MyCustomPath
+    
+    Set-AWSCredentials -ProfileName myProfileName -ProfilesLocation C:\MyCustomPath\mycredentials
 
 The following examples show the behavior of the :guilabel:`AWSPowerShell.NetCore` module on the Linux or Mac OS X operating systems:
 
     .. code-block:: none
-	# Writes a new (or updates existing) profile with name "myProfileName"
-	# in the default shared credentials file ~/.aws/credentials
-	Set-AWSCredentials -AccessKey akey -SecretKey skey -StoreAs myProfileName
-	# Writes a new (or updates existing) profile with name "myProfileName"
-	# into an ini-format credentials file "~/mycustompath/mycredentials"
-	Set-AWSCredentials -AccessKey akey -SecretKey skey -StoreAs myProfileName -ProfilesLocation ~/mycustompath/mycredentials
-	# Reads the default shared credential file looking for the profile "myProfileName"
-	Set-AWSCredentials -ProfileName myProfileName
-	# Reads the specified credential file looking for the profile "myProfileName"
-	Set-AWSCredentials -ProfileName myProfileName -ProfilesLocation ~/mycustompath/mycredentials
-	
+
+    # Writes a new (or updates existing) profile with name "myProfileName"
+    # in the default shared credentials file ~/.aws/credentials
+    
+    Set-AWSCredentials -AccessKey akey -SecretKey skey -StoreAs myProfileName
+    
+    # Writes a new (or updates existing) profile with name "myProfileName"
+    # into an ini-format credentials file "~/mycustompath/mycredentials"
+    
+    Set-AWSCredentials -AccessKey akey -SecretKey skey -StoreAs myProfileName -ProfilesLocation ~/mycustompath/mycredentials
+    
+    # Reads the default shared credential file looking for the profile "myProfileName"
+    
+    Set-AWSCredentials -ProfileName myProfileName
+    
+    # Reads the specified credential file looking for the profile "myProfileName"
+    
+    Set-AWSCredentials -ProfileName myProfileName -ProfilesLocation ~/mycustompath/mycredentials
+    
 
