@@ -36,7 +36,7 @@ PowerShell 2.0 by installing the Windows Management Framework.
 Download and Install the |TWPlong|
 ==================================
 
-**Install the |TWPlong| on a Windows-based computer**
+**Install the AWS Tools for Windows PowerShell on a Windows-based computer**
 
 The |TWPlong| is one of the optional components that you can install by running the AWS Tools for
 Windows installer :file:`.msi`. Download the installer by opening the following webpage, and
