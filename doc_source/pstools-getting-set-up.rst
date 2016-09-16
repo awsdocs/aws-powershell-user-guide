@@ -79,7 +79,7 @@ using the NuGet provider to avoid installation errors. A suggested destination p
 
     PS C:\> Install-Package -Name AWSPowerShell.NetCore -Source
     https://www.powershellgallery.com/api/v2/ -ProviderName NuGet -ExcludeVersion
-    -Destination :replaceable:`path to destination folder`
+    -Destination <path to destination folder>
 
 For more information about the release of AWS Tools for PowerShell Core, see the AWS blog post, `Introducing AWS Tools for PowerShell Core Edition <https://blogs.aws.amazon.com/net/post/TxTUNCCDVSG05F/Introducing-AWS-Tools-for-PowerShell-Core-Edition>`_.
 
@@ -403,7 +403,7 @@ this command installs the latest version of the AWS Tools for PowerShell Core.
 .. code-block:: none
 
     PS C:\> Install-Package -Name AWSPowerShell.NetCore -ProviderName NuGet
-    -Destination :replaceable:`path to destination folder`
+    -Destination <path to destination folder>
 
 .. _pstools-seealso-setup:
 
