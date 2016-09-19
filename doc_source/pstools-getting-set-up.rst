@@ -374,7 +374,7 @@ determine the version that you are running, and compare that with the version of
 <https://aws.amazon.com/powershell/>`_ or `PowerShell Gallery <https://www.powershellgallery.com/packages/AWSPowerShell.NetCore>`_. 
 A suggested time period for checking for an updated AWS Tools for PowerShell package is every two to three weeks. 
 
-**Update the |TWP|**
+**Update the Tools for Windows PowerShell**
 
 Update your installed |TWP| by downloading the most recent version of the MSI package from `AWS Tools for Windows PowerShell
 <https://aws.amazon.com/powershell/>`_ and comparing the package version number in the MSI file name with the version
