@@ -377,7 +377,7 @@ A suggested time period for checking for an updated AWS Tools for PowerShell pac
 **Update the |TWP|**
 
 Update your installed |TWP| by downloading the most recent version of the MSI package from `AWS Tools for Windows PowerShell
-<powershell/>`_ and comparing the package version number in the MSI file name with the version
+<https://aws.amazon.com/powershell/>`_ and comparing the package version number in the MSI file name with the version
 number you get when you run the :code:`Get-AWSPowerShellVersion` cmdlet.
 
 If the download version is a higher number than the version you have installed, close all |TWP|
