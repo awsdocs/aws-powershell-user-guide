@@ -43,7 +43,7 @@ From the PowerShell command prompt, type the following command:
 
    PS C:\> Get-DefaultAWSRegion
    
-   SystemName            Name                                IsShellDefault
+   Region                Name                                IsShellDefault
    ----------            ----                                --------------
    us-west-1             US West (N. California)             True
 
