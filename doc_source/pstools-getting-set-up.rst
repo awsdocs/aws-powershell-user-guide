@@ -371,7 +371,7 @@ Updating the |TWPlong| and AWS Tools for PowerShell Core
 Periodically, as updated versions of the |TWP| or Tools for PowerShell Core are released, you'll want 
 to update the version that you are running locally. Run the :code:`Get-AWSPowerShellVersion` cmdlet to 
 determine the version that you are running, and compare that with the version of |TWP| that is available at `AWS Tools for Windows PowerShell
-<https://aws.amazon.com/powershell/>`_ or `PowerShell Gallery <https://www.powershellgallery.com/packages/AWSPowerShell.NetCore>`_. 
+<https://aws.amazon.com/powershell/>`_ or `PowerShell Gallery <https://www.powershellgallery.com/packages/AWSPowerShell>`_. 
 A suggested time period for checking for an updated AWS Tools for PowerShell package is every two to three weeks. 
 
 **Update the Tools for Windows PowerShell**
@@ -398,7 +398,9 @@ to uninstall the package.
     PS C:\> Uninstall-Package -Name AWSPowerShell.NetCore -AllVersions
 
 When uninstallation is finished, install the updated package by running the following command. By default, 
-this command installs the latest version of the AWS Tools for PowerShell Core.
+this command installs the latest version of the AWS Tools for PowerShell Core. This package is available on the 
+`PowerShell Gallery <https://www.powershellgallery.com/packages/AWSPowerShell.NetCore>`_, 
+but the easiest method of installation is to run :code:`Install-Package`.
 
 .. code-block:: none
 
