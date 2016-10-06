@@ -234,7 +234,7 @@ The SDK credential store holds your credentials in encrypted form by using Windo
 
 The following examples that use the :code:`Set-AWSCredentials` cmdlet show the options for handling credential profiles on Windows with either the :guilabel:`AWSPowerShell` or :guilabel:`AWSPowerShell.NetCore` modules:
 
-    .. code-block:: none
+.. code-block:: none
 
     # Writes a new (or updates existing) profile with name "myProfileName"
     # in the encrypted SDK store file
@@ -254,7 +254,7 @@ The following examples that use the :code:`Set-AWSCredentials` cmdlet show the o
 
 The following examples show the behavior of the :guilabel:`AWSPowerShell.NetCore` module on the Linux or Mac OS X operating systems:
 
-    .. code-block:: none
+.. code-block:: none
 
     # Writes a new (or updates existing) profile with name "myProfileName"
     # in the default shared credentials file ~/.aws/credentials
