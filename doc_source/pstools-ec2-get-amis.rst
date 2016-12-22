@@ -28,7 +28,7 @@ refers to the user who corresponds to the credentials with which the cmdlet is i
 
 .. code-block:: none
 
-    PS C:\> :code:`Get-EC2Image -Owner amazon, self`
+    PS C:\> Get-EC2Image -Owner amazon, self
 
 You can scope the results using the :code:`-Filter` parameter. To specify the filter, create an
 object of type :code:`Amazon.EC2.Model.Filter`. For example, use the following filter to display
@@ -37,7 +37,7 @@ PowerShell for AWS window.)
 
 .. code-block:: none
 
-    PS C:\> :code:`$platform_values = New-Object 'collections.generic.list[string]' $platform_values.add("windows") $filter_platform = New-Object Amazon.EC2.Model.Filter -Property @{Name = "platform"; Values = $platform_values} Get-EC2Image -Owner amazon, self -Filter $filter_platform`
+    PS C:\> $platform_values = New-Object 'collections.generic.list[string]' $platform_values.add("windows") $filter_platform = New-Object Amazon.EC2.Model.Filter -Property @{Name = "platform"; Values = $platform_values} Get-EC2Image -Owner amazon, self -Filter $filter_platform`
 
 The following is an example of one of the AMIs returned by the cmdlet; the actual output of the
 previous command provides information for many AMIs.
@@ -80,7 +80,7 @@ When run with no parameters, as follows, the cmdlet emits the complete set of cu
 
 .. code-block:: none
 
-    PS C:\> :code:`Get-EC2ImageByName`
+    PS C:\> Get-EC2ImageByName
     
     WINDOWS_2012R2_BASE
     WINDOWS_2012R2_SQL_SERVER_EXPRESS_2014
@@ -112,7 +112,7 @@ parameter.
 
 .. code-block:: none
 
-    PS C:\> :code:`Get-EC2ImageByName -Names WINDOWS_2012R2_SQL_SERVER_EXPRESS_2014`
+    PS C:\> Get-EC2ImageByName -Names WINDOWS_2012R2_SQL_SERVER_EXPRESS_2014
     
     Architecture        : x86_64
     BlockDeviceMappings : {/dev/sda1, xvdca, xvdcb, xvdcc...}

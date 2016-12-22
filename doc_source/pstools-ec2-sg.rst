@@ -53,7 +53,7 @@ cmdlet.
 
 .. code-block:: none
 
-    PS C:\> :code:`Get-EC2SecurityGroup -GroupNames myPSSecurityGroup`
+    PS C:\> Get-EC2SecurityGroup -GroupNames myPSSecurityGroup
     
     OwnerId             : 123456789012
     GroupName           : myPSSecurityGroup

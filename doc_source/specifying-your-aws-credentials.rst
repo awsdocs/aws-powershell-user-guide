@@ -161,7 +161,7 @@ profile overrides any default or session profiles. For example:
        PS C:\> Initialize-AWSDefaults -ProfileName {MyProfileName} -Region {us-west-2}
 
 By default, the credentials file is assumed to be in the user's home folder
-(:file:`C:\users\username\.aws`). To specify a credentials file in another location, include a
+(:file:`C:\\Users\\username\\.aws`). To specify a credentials file in another location, include a
 :code:`-ProfilesLocation` parameter, set to the credentials file path. The following example
 specifies a non-default credentials file for a specific command.
 
