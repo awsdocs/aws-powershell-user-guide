@@ -79,7 +79,7 @@ For more information about these canned ACL settings, see
 Note Regarding Multipart Upload
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you use the |S3| API to upload a file that is larger than 16 GB in size, you need to use
+If you use the |S3| API to upload a file that is larger than 5 GB in size, you need to use
 multipart upload. However, the :code:`Write-S3Object` cmdlet provided by the |TWP| can transparently
 handle file uploads that are greater than 5 GB.
 

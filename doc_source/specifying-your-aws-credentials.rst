@@ -73,7 +73,7 @@ command with the locally stored credentials fails with the following error messa
 
         The AWS Access Key Id you provided does not exist in our records.
 
-You can update a profile by repeating the:code:`Set-AWSCredentials` command for the profile, and 
+You can update a profile by repeating the :code:`Set-AWSCredentials` command for the profile, and 
 passing it the new access and secret keys.
 
 List profiles

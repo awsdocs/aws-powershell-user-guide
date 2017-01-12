@@ -244,7 +244,7 @@ version of the |TWP| you have installed, run the `Get-AWSPowerShellVersion
 
     AWS Tools for Windows PowerShell
     Version 3.1.76.0
-    Copyright 2012-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+    Copyright 2012-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
     Amazon Web Services SDK for .NET
     Core Runtime Version 3.1.7.0
@@ -266,7 +266,7 @@ services are supported in the current version of the tools.
 
     AWS Tools for Windows PowerShell
     Version 3.1.76.0
-    Copyright 2012-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+    Copyright 2012-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
     Amazon Web Services SDK for .NET
     Core Runtime Version 3.1.7.0
