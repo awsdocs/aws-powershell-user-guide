@@ -9,7 +9,7 @@ the corresponding web service request. You can specify credentials per-command, 
 all sessions. As a best practice, to avoid exposing your credentials, do not put literal credentials
 in a command. Instead, create a profile for each set of credentials that you want to use, and store
 the profile in either of two credentials stores. Specify the correct profile by name in your
-command, and the |TWP| retrieve the associated credentials. For a general discussion of how to
+command, and the |TWP| will retrieve the associated credentials. For a general discussion of how to
 safely manage AWS credentials, see 
 :aws-gr:`Best Practices for Managing AWS Access Keys <aws-access-keys-best-practices>`.
 
