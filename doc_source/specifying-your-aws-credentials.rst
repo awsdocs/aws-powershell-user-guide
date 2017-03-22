@@ -25,7 +25,7 @@ safely manage AWS credentials, see
 .. _specifying-your-aws-credentials-store:
 
 Managing Profiles
------------------
+=================
 
 The |TWP| can use either of two credentials stores.
 
@@ -47,6 +47,7 @@ programmatically by using the |sdk-net|_. For directions about how to manage pro
 credentials file, see :aws-gr:`Best Practices for Managing AWS Access Keys <aws-access-keys-best-practices>`.
 
 Add a new profile
+-----------------
 
 To add a new profile to the AWS SDK store, call :code:`Set-AWSCredentials` as follows:
 
@@ -64,6 +65,7 @@ To add a new profile to the AWS SDK store, call :code:`Set-AWSCredentials` as fo
 
 
 Update a profile
+----------------
 
 The AWS SDK store must be maintained manually. If you later change credentials on the
 service|mdash|for example, by using the `IAM console <iam/home#s=Users>`_ |mdash| running a
@@ -77,6 +79,7 @@ You can update a profile by repeating the :code:`Set-AWSCredentials` command for
 passing it the new access and secret keys.
 
 List profiles
+-------------
 
 You can check the current list of names as follows:
 
@@ -85,20 +88,24 @@ You can check the current list of names as follows:
         PS C:\> Get-AWSCredentials -ListStoredCredentials
 
 Remove a profile
+----------------
 
 To remove a profile, use the following command: 
 
     .. code-block:: none
 
-        PS C:\> Clear-AWSCredentials -StoredCredentials {MyProfileName}
+        PS C:\> Remove-AWSCredentialProfile -ProfileName {MyProfileName}
 
-The :code:`-StoredCredentials` parameter specifies the profile name.
+The :code:`-ProfileName` parameter specifies the profile name.
+
+You can continue to use `Clear-AWSCredentials <http://docs.aws.amazon.com/powershell/latest/reference/items/Clear-AWSCredentials.html>`_ for backward
+compatibility, but :code:`Remove-AWSCredentialProfile` is preferred.
 
 
 .. _specifying-your-aws-credentials-use:
 
 Specifying Credentials
-----------------------
+======================
 
 There are several ways to specify credentials. The preferred approach is to use a profile rather
 than incorporating literal credentials into your command line. The |TWP| locates the profile using a
@@ -119,6 +126,7 @@ task.
    :code:`-StoredCredentials` is still supported.
 
 Default profile (recommended)
+-----------------------------
 
 Use :code:`Initialize-AWSDefaults` to specify a default profile for every PowerShell session.
 
@@ -130,6 +138,7 @@ Use :code:`Initialize-AWSDefaults` to specify a default profile for every PowerS
        The command overwrites any existing profile with that name.
 
 Session profile
+---------------
 
 Use :code:`Set-AWSCredentials` to specify a default profile for a particular session. This 
 profile overrides any default profile for the duration of the session.
@@ -143,6 +152,7 @@ profile overrides any default profile for the duration of the session.
        We recommend using a more recent version of the |TWP|.
 
 Command profile
+---------------
 
 Add the :code:`-ProfileName` parameter to specify a profile for a particular command. This 
 profile overrides any default or session profiles. For example: 
@@ -182,7 +192,7 @@ specifies a non-default credentials file for a specific command.
 .. _pstools-cred-provider-chain:
 
 Credentials Search Order
-------------------------
+========================
 
 When you run a command, the |TWP| search for credentials in the following order, and uses the first
 available set.
@@ -224,7 +234,7 @@ available set.
 If this search fails to locate the specified credentials, the command throws an exception.
 
 Credential Handling in AWS Tools for PowerShell Core
-----------------------------------------------------
+====================================================
 
 Cmdlets in AWS Tools for PowerShell Core accept AWS access and secret keys or the names of credential profiles when they run, similarly to the |TWPlong|. When they run on Windows, both modules have access to the AWS SDK for .NET credential store file (stored in the per-user :code:`AppData\Local\AWSToolkit\RegisteredAccounts.json` file). This file stores your keys in encrypted format, and cannot be used on a different computer. It is the first file that the AWS Tools for PowerShell searches for a credential profile, and is also the file where the AWS Tools for PowerShell stores credential profiles. The AWS Tools for PowerShell module does not currently support writing credentials to other files or locations.
 

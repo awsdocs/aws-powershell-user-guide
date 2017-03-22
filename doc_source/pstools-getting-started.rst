@@ -16,6 +16,7 @@ cmdlets.
    :maxdepth: 1
 
    AWS Credentials <specifying-your-aws-credentials>
+   Shared Credentials <shared-credentials-in-aws-powershell>
    AWS Regions <pstools-installing-specifying-region>
    pstools-discovery-aliases
    pstools-pipelines
