@@ -36,7 +36,7 @@ The |TWP| can use either of two credentials stores.
 * The credentials file, which is also located in your home folder, but stores credentials as plain
   text.
 
-  By default, the credentials file is stored here: :file:`C:\\Users\\username\\.aws`. The AWS SDKs
+  By default, the credentials file is stored here: :file:`C:\\Users\\username\\.aws\\credentials`. The AWS SDKs
   and the |CLIlong| can also use the credentials file. If you are running a script outside of your
   AWS user context, be sure that the file that contains your credentials is copied to a location
   where all user accounts (local system and user) can access your credentials.
@@ -49,7 +49,7 @@ credentials file, see :aws-gr:`Best Practices for Managing AWS Access Keys <aws-
 Add a new profile
 -----------------
 
-To add a new profile to the AWS SDK store, call :code:`Set-AWSCredentials` as follows:
+To add a new profile to the AWS SDK store, run :code:`Set-AWSCredentials`. Your access key and secret key are stored in your default credentials file.
 
     .. code-block:: none
 
@@ -68,7 +68,7 @@ Update a profile
 ----------------
 
 The AWS SDK store must be maintained manually. If you later change credentials on the
-service|mdash|for example, by using the `IAM console <iam/home#s=Users>`_ |mdash| running a
+service |mdash| for example, by using the `IAM console <iam/home#s=Users>`_ |mdash| running a
 command with the locally stored credentials fails with the following error message: 
 
     .. code-block:: none
@@ -85,7 +85,7 @@ You can check the current list of names as follows:
 
     .. code-block:: none
 
-        PS C:\> Get-AWSCredentials -ListStoredCredentials
+        PS C:\> Get-AWSCredentials -ListProfileDetail
 
 Remove a profile
 ----------------
@@ -121,8 +121,8 @@ task-performing user to complete the credential setup steps, create a profile th
 that user, and then log off and log on again by using your own credentials to set up the scheduled
 task.
 
-.. note:: You use the :code:`-ProfileName` parameter to specify a profile. This parameter is equivalent to the
-   :code:`-StoredCredentials` parameter used by earlier |TWP| releases. For backward compatibility,
+.. note:: Use the :code:`-ProfileName` common parameter to specify a profile. This parameter is equivalent to the
+   :code:`-StoredCredentials` parameter in earlier |TWP| releases. For backward compatibility,
    :code:`-StoredCredentials` is still supported.
 
 Default profile (recommended)
