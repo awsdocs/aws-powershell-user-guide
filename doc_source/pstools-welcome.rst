@@ -1,8 +1,8 @@
 .. _pstools-welcome:
 
-#######################
+######################################
 What are the AWS Tools for PowerShell?
-#######################
+######################################
 
 The |TWPlong| and AWS Tools for PowerShell Core are PowerShell modules that are built on the functionality exposed by the
 |sdk-net|. The AWS PowerShell Tools enable you to script operations on your AWS resources from the PowerShell

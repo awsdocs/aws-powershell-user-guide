@@ -1,8 +1,8 @@
 .. _shared-credentials-in-aws-powershell:
 
-#####################
+##############################################
 Shared Credentials in AWS Tools for PowerShell
-#####################
+##############################################
 
 The |sdk-net|_, |TWP|, and the AWS Toolkit for Visual Studio now support the use of
 the |CLI| credentials file, similarly to other AWS SDKs. The |TWP| now support reading and writing of :code:`basic`, :code:`session`,
@@ -34,13 +34,13 @@ The behavior of the :code:`ProfilesLocation` common parameter also changes. You 
 file as well as instruct a cmdlet to read from the credential file. Adding the :code:`-ProfilesLocation` parameter controls whether |TWP| uses the shared credential
 file or the .NET credential file. The following table describes how the parameter works in |TWP|.
 
-+---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| Profile Location Value                                  | Profile Resolution Behavior                                                                                                                         |
-+=========================================================+=====================================================================================================================================================+
-| null (not set) or empty                                 | First, search the .NET credential file for a profile with the specified name. If the profile isn't found, search :code:`(user's home directory)\.aws\credentials`.   |
-+---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| The path to a file in the shared credential file format | Search only the specified file for a profile with the given name.                                                                                   |
-+---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
++---------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Profile Location Value                                  | Profile Resolution Behavior                                                                                                                                       |
++=========================================================+===================================================================================================================================================================+
+| null (not set) or empty                                 | First, search the .NET credential file for a profile with the specified name. If the profile isn't found, search :code:`(user's home directory)\.aws\credentials`.|
++---------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| The path to a file in the shared credential file format | Search only the specified file for a profile with the given name.                                                                                                 |
++---------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Using the Credential Profile Types
 ==================================
@@ -50,7 +50,7 @@ To set a credential profile type, understand which parameters provide the inform
 +------------------+---------------------------------------------------------------------+
 | Credentials Type | Parameter Combination                                               |
 +==================+=====================================================================+
-| Basic            | -AccessKey and -SecretKey values                          |
+| Basic            | -AccessKey and -SecretKey values                                    |
 +------------------+---------------------------------------------------------------------+
 | Session          | -AccessKey, -SecretKey, -SessionToken                               |
 +------------------+---------------------------------------------------------------------+

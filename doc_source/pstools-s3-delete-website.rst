@@ -52,6 +52,6 @@ See Also
 
 * :ref:`pstools-using`
 
-* `Delete Object (Amazon S3 API Reference) <http:///AmazonS3/latest/API/RESTObjectDELETE.html>`_
+* `Delete Object (Amazon S3 API Reference) <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectDELETE.html>`_
 
-* `DeleteBucket (Amazon S3 API Reference) <http:///AmazonS3/latest/API/RESTBucketDELETE.html>`_
+* `DeleteBucket (Amazon S3 API Reference) <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketDELETE.html>`_
