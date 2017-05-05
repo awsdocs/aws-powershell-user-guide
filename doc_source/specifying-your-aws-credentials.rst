@@ -53,7 +53,7 @@ To add a new profile to the AWS SDK store, run :code:`Set-AWSCredentials`. Your 
 
     .. code-block:: none
 
-        PS C:\> Set-AWSCredentials -AccessKey {AKIAIOSFODNN7EXAMPLE} -SecretKey {wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY} -StoreAs {MyProfileName}
+        PS C:\> Set-AWSCredentials -AccessKey AKIAIOSFODNN7EXAMPLE -SecretKey wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY -StoreAs MyProfileName
 
     * :code:`-AccessKey` |ndash| The access key.
 
@@ -94,7 +94,7 @@ To remove a profile, use the following command:
 
     .. code-block:: none
 
-        PS C:\> Remove-AWSCredentialProfile -ProfileName {MyProfileName}
+        PS C:\> Remove-AWSCredentialProfile -ProfileName MyProfileName
 
 The :code:`-ProfileName` parameter specifies the profile name.
 
@@ -132,7 +132,7 @@ Use :code:`Initialize-AWSDefaults` to specify a default profile for every PowerS
 
     .. code-block:: none
 
-        PS C:\> Initialize-AWSDefaults -ProfileName {MyProfileName} -Region {us-west-2}
+        PS C:\> Initialize-AWSDefaults -ProfileName MyProfileName -Region us-west-2
 
     .. note:: The default credentials are included in the AWS SDK store under the :code:`default` profile name.
        The command overwrites any existing profile with that name.
@@ -145,10 +145,10 @@ profile overrides any default profile for the duration of the session.
 
     .. code-block:: none
 
-        PS C:\> Set-AWSCredentials -ProfileName {MyProfileName}
+        PS C:\> Set-AWSCredentials -ProfileName MyProfileName
 
     .. note:: In versions of the |TWP| that are older than 1.1, the :code:`Set-AWSCredentials` 
-       command did not work correctly, and would overwrite the profile specified by {MyProfileName}. 
+       command did not work correctly, and would overwrite the profile specified by "MyProfileName". 
        We recommend using a more recent version of the |TWP|.
 
 Command profile
@@ -159,7 +159,7 @@ profile overrides any default or session profiles. For example:
 
     .. code-block:: none
 
-        PS C:\> Get-EC2Instance -ProfileName {MyProfileName}
+        PS C:\> Get-EC2Instance -ProfileName MyProfileName
 
 .. tip:: When you specify a default or session profile, you can also add a :code:`-Region` parameter to
    specify a default or session region. For more information, see
@@ -168,7 +168,7 @@ profile overrides any default or session profiles. For example:
 
     .. code-block:: none
 
-       PS C:\> Initialize-AWSDefaults -ProfileName {MyProfileName} -Region {us-west-2}
+       PS C:\> Initialize-AWSDefaults -ProfileName MyProfileName -Region us-west-2
 
 By default, the credentials file is assumed to be in the user's home folder
 (:file:`C:\\Users\\username\\.aws`). To specify a credentials file in another location, include a
@@ -177,7 +177,7 @@ specifies a non-default credentials file for a specific command.
 
 .. code-block:: none
 
-   PS C:\> Get-EC2Instance -ProfileName {MyProfileName} -ProfilesLocation C:\aws_service_credentials\credentials
+   PS C:\> Get-EC2Instance -ProfileName MyProfileName -ProfilesLocation C:\aws_service_credentials\credentials
 
 .. tip:: If you are running a PowerShell script during a time that you are not normally signed in to
    AWS |mdash| for example, you are running a PowerShell script as a scheduled task outside of your
