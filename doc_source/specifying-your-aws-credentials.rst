@@ -49,11 +49,11 @@ credentials file, see :aws-gr:`Best Practices for Managing AWS Access Keys <aws-
 Add a new profile
 -----------------
 
-To add a new profile to the AWS SDK store, run :code:`Set-AWSCredentials`. Your access key and secret key are stored in your default credentials file.
+To add a new profile to the AWS SDK store, run :code:`Set-AWSCredential`. Your access key and secret key are stored in your default credentials file.
 
     .. code-block:: none
 
-        PS C:\> Set-AWSCredentials -AccessKey AKIAIOSFODNN7EXAMPLE -SecretKey wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY -StoreAs MyProfileName
+        PS C:\> Set-AWSCredential -AccessKey AKIAIOSFODNN7EXAMPLE -SecretKey wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY -StoreAs MyProfileName
 
     * :code:`-AccessKey` |ndash| The access key.
 
@@ -85,7 +85,7 @@ You can check the current list of names as follows:
 
     .. code-block:: none
 
-        PS C:\> Get-AWSCredentials -ListProfileDetail
+        PS C:\> Get-AWSCredential -ListProfileDetail
 
 Remove a profile
 ----------------
@@ -98,7 +98,7 @@ To remove a profile, use the following command:
 
 The :code:`-ProfileName` parameter specifies the profile name.
 
-You can continue to use `Clear-AWSCredentials <http://docs.aws.amazon.com/powershell/latest/reference/items/Clear-AWSCredentials.html>`_ for backward
+You can continue to use `Clear-AWSCredential <http://docs.aws.amazon.com/powershell/latest/reference/items/Clear-AWSCredential.html>`_ for backward
 compatibility, but :code:`Remove-AWSCredentialProfile` is preferred.
 
 
@@ -128,11 +128,11 @@ task.
 Default profile (recommended)
 -----------------------------
 
-Use :code:`Initialize-AWSDefaults` to specify a default profile for every PowerShell session.
+Use :code:`Initialize-AWSDefaultConfiguration` to specify a default profile for every PowerShell session.
 
     .. code-block:: none
 
-        PS C:\> Initialize-AWSDefaults -ProfileName MyProfileName -Region us-west-2
+        PS C:\> Initialize-AWSDefaultConfiguration -ProfileName MyProfileName -Region us-west-2
 
     .. note:: The default credentials are included in the AWS SDK store under the :code:`default` profile name.
        The command overwrites any existing profile with that name.
@@ -140,14 +140,14 @@ Use :code:`Initialize-AWSDefaults` to specify a default profile for every PowerS
 Session profile
 ---------------
 
-Use :code:`Set-AWSCredentials` to specify a default profile for a particular session. This 
+Use :code:`Set-AWSCredential` to specify a default profile for a particular session. This 
 profile overrides any default profile for the duration of the session.
 
     .. code-block:: none
 
-        PS C:\> Set-AWSCredentials -ProfileName MyProfileName
+        PS C:\> Set-AWSCredential -ProfileName MyProfileName
 
-    .. note:: In versions of the |TWP| that are older than 1.1, the :code:`Set-AWSCredentials` 
+    .. note:: In versions of the |TWP| that are older than 1.1, the :code:`Set-AWSCredential` 
        command did not work correctly, and would overwrite the profile specified by "MyProfileName". 
        We recommend using a more recent version of the |TWP|.
 
@@ -168,23 +168,23 @@ profile overrides any default or session profiles. For example:
 
     .. code-block:: none
 
-       PS C:\> Initialize-AWSDefaults -ProfileName MyProfileName -Region us-west-2
+       PS C:\> Initialize-AWSDefaultConfiguration -ProfileName MyProfileName -Region us-west-2
 
 By default, the credentials file is assumed to be in the user's home folder
 (:file:`C:\\Users\\username\\.aws`). To specify a credentials file in another location, include a
-:code:`-ProfilesLocation` parameter, set to the credentials file path. The following example
+:code:`-ProfileLocation` parameter, set to the credentials file path. The following example
 specifies a non-default credentials file for a specific command.
 
 .. code-block:: none
 
-   PS C:\> Get-EC2Instance -ProfileName MyProfileName -ProfilesLocation C:\aws_service_credentials\credentials
+   PS C:\> Get-EC2Instance -ProfileName MyProfileName -ProfileLocation C:\aws_service_credentials\credentials
 
 .. tip:: If you are running a PowerShell script during a time that you are not normally signed in to
    AWS |mdash| for example, you are running a PowerShell script as a scheduled task outside of your
-   normal work hours |mdash| add the :code:`-ProfilesLocation` parameter when you specify the
+   normal work hours |mdash| add the :code:`-ProfileLocation` parameter when you specify the
    profile that you want to use, and set the value to the path of the file that stores your
    credentials. To be certain that your |TWP| script runs with the correct account credentials, you
-   should add the :code:`-ProfilesLocation` parameter whenever your script runs in a context or
+   should add the :code:`-ProfileLocation` parameter whenever your script runs in a context or
    process that does not use an AWS account. You can also copy your credentials file to a location
    that is accessible to the local system or other account that your scripts use to perform tasks.
 
@@ -214,7 +214,7 @@ available set.
    If the specified profile or location is not found, the command throws an exception. Search
    proceeds to the following steps only if you have not specified a profile or location.
 
-3. Use credentials specified by the :code:`-Credentials` parameter.
+3. Use credentials specified by the :code:`-Credential` parameter.
 
 4. Use a session profile.
 
@@ -238,29 +238,29 @@ Credential Handling in AWS Tools for PowerShell Core
 
 Cmdlets in AWS Tools for PowerShell Core accept AWS access and secret keys or the names of credential profiles when they run, similarly to the |TWPlong|. When they run on Windows, both modules have access to the AWS SDK for .NET credential store file (stored in the per-user :code:`AppData\Local\AWSToolkit\RegisteredAccounts.json` file). This file stores your keys in encrypted format, and cannot be used on a different computer. It is the first file that the AWS Tools for PowerShell searches for a credential profile, and is also the file where the AWS Tools for PowerShell stores credential profiles. The AWS Tools for PowerShell module does not currently support writing credentials to other files or locations.
 
-Both modules can read profiles from the :code:`ini`-format shared credentials file that is used by other AWS SDKs and the AWS CLI. On Windows, the default location for this file is :code:`C:\Users\<userid>\.aws\credentials`. On non-Windows platforms, this file is stored at :code:`~/.aws/credentials`. The :code:`-ProfilesLocation` parameter can be used to point to a non-default file name or file location.
+Both modules can read profiles from the :code:`ini`-format shared credentials file that is used by other AWS SDKs and the AWS CLI. On Windows, the default location for this file is :code:`C:\Users\<userid>\.aws\credentials`. On non-Windows platforms, this file is stored at :code:`~/.aws/credentials`. The :code:`-ProfileLocation` parameter can be used to point to a non-default file name or file location.
 
 The SDK credential store holds your credentials in encrypted form by using Windows cryptographic APIs. These APIs are not available on other platforms, so the AWS Tools for PowerShell Core module uses the :code:`ini`-format shared credentials file exclusively, and supports writing new credential profiles to the shared credential file. This support is slated for a future release of the AWS Tools for Windows PowerShell.
 
-The following examples that use the :code:`Set-AWSCredentials` cmdlet show the options for handling credential profiles on Windows with either the :guilabel:`AWSPowerShell` or :guilabel:`AWSPowerShell.NetCore` modules:
+The following examples that use the :code:`Set-AWSCredential` cmdlet show the options for handling credential profiles on Windows with either the :guilabel:`AWSPowerShell` or :guilabel:`AWSPowerShell.NetCore` modules:
 
 .. code-block:: none
 
     # Writes a new (or updates existing) profile with name "myProfileName"
     # in the encrypted SDK store file
     
-    Set-AWSCredentials -AccessKey akey -SecretKey skey -StoreAs myProfileName
+    Set-AWSCredential -AccessKey akey -SecretKey skey -StoreAs myProfileName
     
     # Checks the encrypted SDK credential store for the profile and then
     # falls back to the shared credentials file in the default location
     
-    Set-AWSCredentials -ProfileName myProfileName
+    Set-AWSCredential -ProfileName myProfileName
     
     # Bypasses the encrypted SDK credential store and attempts to load the
     # profile from the ini-format credentials file "mycredentials" in the
     # folder C:\MyCustomPath
     
-    Set-AWSCredentials -ProfileName myProfileName -ProfilesLocation C:\MyCustomPath\mycredentials
+    Set-AWSCredential -ProfileName myProfileName -ProfileLocation C:\MyCustomPath\mycredentials
 
 The following examples show the behavior of the :guilabel:`AWSPowerShell.NetCore` module on the Linux or Mac OS X operating systems:
 
@@ -269,19 +269,19 @@ The following examples show the behavior of the :guilabel:`AWSPowerShell.NetCore
     # Writes a new (or updates existing) profile with name "myProfileName"
     # in the default shared credentials file ~/.aws/credentials
     
-    Set-AWSCredentials -AccessKey akey -SecretKey skey -StoreAs myProfileName
+    Set-AWSCredential -AccessKey akey -SecretKey skey -StoreAs myProfileName
     
     # Writes a new (or updates existing) profile with name "myProfileName"
     # into an ini-format credentials file "~/mycustompath/mycredentials"
     
-    Set-AWSCredentials -AccessKey akey -SecretKey skey -StoreAs myProfileName -ProfilesLocation ~/mycustompath/mycredentials
+    Set-AWSCredential -AccessKey akey -SecretKey skey -StoreAs myProfileName -ProfileLocation ~/mycustompath/mycredentials
     
     # Reads the default shared credential file looking for the profile "myProfileName"
     
-    Set-AWSCredentials -ProfileName myProfileName
+    Set-AWSCredential -ProfileName myProfileName
     
     # Reads the specified credential file looking for the profile "myProfileName"
     
-    Set-AWSCredentials -ProfileName myProfileName -ProfilesLocation ~/mycustompath/mycredentials
+    Set-AWSCredential -ProfileName myProfileName -ProfileLocation ~/mycustompath/mycredentials
     
 

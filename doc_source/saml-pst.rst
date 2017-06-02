@@ -121,7 +121,7 @@ The |TWP| include two new cmdlets that provide SAML support.
   authorized to perform.
 
   Just as with AWS credential profiles, you assign a friendly name to the role profile. You can
-  use the same friendly name with the :code:`Set-AWSCredentials` cmdlet, or as the value of the
+  use the same friendly name with the :code:`Set-AWSCredential` cmdlet, or as the value of the
   :code:`-ProfileName` parameter for any cmdlet that invokes AWS service APIs.
 
 Open a new |TWP| session. If you are running PowerShell 3.0 or newer, the |TWP| module is
@@ -217,11 +217,11 @@ How to Use Role Profiles to Run Cmdlets that Require AWS Credentials
 --------------------------------------------------------------------
 
 To run cmdlets that require AWS credentials, you can use role profiles. Provide the name of a role
-profile to :code:`Set-AWSCredentials` (or as the value for any :code:`ProfileName` parameter in the
+profile to :code:`Set-AWSCredential` (or as the value for any :code:`ProfileName` parameter in the
 |TWP|) to get temporary AWS credentials automatically for the role that is described in the profile.
 
 Although you use only one role profile at a time, you can switch between profiles within a shell
-session. The :code:`Set-AWSCredentials` cmdlet does not authenticate and get credentials when you
+session. The :code:`Set-AWSCredential` cmdlet does not authenticate and get credentials when you
 run it by itself; the cmdlet records that you want to use a specified role profile. Until you run a
 cmdlet that requires AWS credentials, no authentication or request for credentials occurs.
 
@@ -231,17 +231,17 @@ profiles.
 
 
 
-Example 1: Set a Default Role with :code:`Set-AWSCredentials`
+Example 1: Set a Default Role with :code:`Set-AWSCredential`
 -------------------------------------------------------------
 
-This example sets a default role for a |TWP| session by using :code:`Set-AWSCredentials`. Then, you
+This example sets a default role for a |TWP| session by using :code:`Set-AWSCredential`. Then, you
 can run cmdlets that require credentials, and are authorized by the specified role. This example
 lists all |EC2long| instances in the |uswest2-name| that are associated with the profile you
-specified with the :code:`Set-AWSCredentials` cmdlet.
+specified with the :code:`Set-AWSCredential` cmdlet.
 
 .. code-block:: none
 
-    PS C:\> Set-AWSCredentials -ProfileName SAMLDemoProfile
+    PS C:\> Set-AWSCredential -ProfileName SAMLDemoProfile
     PS C:\> Get-EC2Instance -Region us-west-2 | Format-Table -Property Instances,GroupNames
     
     Instances                                                   GroupNames
@@ -277,7 +277,7 @@ administrators who manage |S3| from the PowerShell command line.
 
 Note that the :code:`Get-S3Bucket` cmdlet specifies the name of the profile created by running the
 :code:`Set-AWSSamlRoleProfile` cmdlet. This command could be useful if you had set a role profile
-earlier in your session (for example, by running the :code:`Set-AWSCredentials` cmdlet) and wanted
+earlier in your session (for example, by running the :code:`Set-AWSCredential` cmdlet) and wanted
 to use a different role profile for the :code:`Get-S3Bucket` cmdlet. The profile manager makes
 temporary credentials available to the :code:`Get-S3Bucket` cmdlet.
 
