@@ -85,7 +85,7 @@ You can check the current list of names as follows:
 
     .. code-block:: none
 
-        PS C:\> Get-AWSCredentials -ListProfileDetail
+        PS C:\> Get-AWSCredential -ListProfileDetail
 
 Remove a profile
 ----------------
@@ -98,7 +98,7 @@ To remove a profile, use the following command:
 
 The :code:`-ProfileName` parameter specifies the profile name.
 
-You can continue to use `Clear-AWSCredentials <http://docs.aws.amazon.com/powershell/latest/reference/items/Clear-AWSCredentials.html>`_ for backward
+You can continue to use `Clear-AWSCredential <http://docs.aws.amazon.com/powershell/latest/reference/items/Clear-AWSCredentials.html>`_ for backward
 compatibility, but :code:`Remove-AWSCredentialProfile` is preferred.
 
 
