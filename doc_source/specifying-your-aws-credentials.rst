@@ -85,7 +85,7 @@ You can check the current list of names as follows:
 
     .. code-block:: none
 
-        PS C:\> Get-AWSCredentials -ListProfileDetail
+        PS C:\> Get-AWSCredential -ListProfileDetail
 
 Remove a profile
 ----------------
