@@ -463,7 +463,6 @@ See Also
 .. toctree::
     :titlesonly:
     :maxdepth: 1
-    :hidden:
 
     pstools-appendix-sign-up
 

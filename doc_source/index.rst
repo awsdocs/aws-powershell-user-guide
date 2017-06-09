@@ -1,9 +1,8 @@
-.. _aws-unified-cli:
-
 .. meta::
     :description:
         Use |TWPlong| to script operations on your AWS resources from the PowerShell command line.
 
+.. _aws-unified-cli:
 ########################
 |TWPlong| User Guide 1.0
 ########################
