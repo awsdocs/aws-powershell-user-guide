@@ -418,9 +418,5 @@ See Also
 
 * :doc:`pstools-appendix-sign-up`
 
-.. toctree::
-    :titlesonly:
-    :maxdepth: 1
-
     pstools-appendix-sign-up
 
