@@ -11,10 +11,6 @@ Setting up the |TWPlong|
     
    pstools-appendix-sign-up
 
-.. contents:: **Topics**
-    :local:
-    :depth: 1
-
 .. _pstools-installing-prerequisites:
 
 Prerequisites
