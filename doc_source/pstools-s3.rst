@@ -4,6 +4,18 @@
 |S3| from the |TWPlong|
 #######################
 
+.. toctree::
+   :titlesonly:
+   :caption: S3 Topics
+   :maxdepth: 1
+    
+   pstools-s3-bucket-create
+   pstools-s3-create-website
+   pstools-s3-upload-object
+   pstools-s3-delete-website
+   pstools-s3-upload-in-line-text
+
+
 In this section, we create a static website from PowerShell using |S3| and |CF|. In the process, we
 demonstrate a number of common tasks with these services. This walkthrough is modeled after the
 Getting Started Guide for :gsg-aws:`AWS Static Website Hosting <website-hosting-intro>`. which 
@@ -22,14 +34,3 @@ See Also
 
 * :console:`Amazon S3 Console <s3>`
 
-
-.. toctree::
-   :titlesonly:
-   :caption: S3 Topics
-   :maxdepth: 1
-    
-   pstools-s3-bucket-create
-   pstools-s3-create-website
-   pstools-s3-upload-object
-   pstools-s3-delete-website
-   pstools-s3-upload-in-line-text

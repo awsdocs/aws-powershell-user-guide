@@ -4,6 +4,13 @@
 Setting up the |TWPlong|
 ########################
 
+.. toctree::
+   :titlesonly:
+   :caption: S3 Topics
+   :maxdepth: 1
+    
+   pstools-appendix-sign-up
+
 .. contents:: **Topics**
     :local:
     :depth: 1
@@ -458,7 +465,6 @@ See Also
 
 * :ref:`pstools-using`
 
-* :doc:`pstools-appendix-sign-up`
+* :ref:`pstools-appendix-sign-up`
 
-    pstools-appendix-sign-up
 

@@ -4,9 +4,18 @@
 Using the |TWPlong|
 ###################
 
-.. contents:: **Topics**
-    :local:
-    :depth: 1
+
+.. toctree::
+   :titlesonly:
+   :caption: S3 Topics
+   :maxdepth: 1
+    
+   pstools-s3
+   pstools-iam
+   pstools-ec2
+   pstools-sqs-queue-sns-topic
+   pstools-cw
+
 
 This section provides examples of using the |TWPlong| to access AWS services. These examples are
 intended to demonstrate how to use the cmdlets to perform actual administrative tasks.
@@ -87,12 +96,4 @@ See Also
 ========
 
 * :ref:`pstools-getting-started`
-
-     Amazon EC2 <pstools-ec2>
-     Amazon S3 <pstools-s3>
-     Amazon Identity and Access Management <pstools-iam>
-     Amazon SNS and SQS <pstools-sqs-queue-sns-topic>
-     CloudWatch <pstools-cw>
-
-
 
