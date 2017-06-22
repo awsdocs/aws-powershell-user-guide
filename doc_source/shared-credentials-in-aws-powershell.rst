@@ -10,9 +10,9 @@ and :code:`assume role` credential profiles to both the .NET credentials file an
 enabled by a new :code:`Amazon.Runtime.CredentialManagement` namespace.
 
 The new profile types and access to the shared credential file are supported by the following parameters that have been added to the 
-credentials-related cmdlets, `Initialize-AWSDefaults <http://docs.aws.amazon.com/powershell/latest/reference/items/Initialize-AWSDefaults.html>`_,
-`New-AWSCredentials <http://docs.aws.amazon.com/powershell/latest/reference/items/New-AWSCredentials.html>`_, and 
-`Set-AWSCredentials <http://docs.aws.amazon.com/powershell/latest/reference/items/Set-AWSCredentials.html>`_.  In service cmdlets, you can refer to new profiles by adding the 
+credentials-related cmdlets, `Initialize-AWSDefaultConfiguration <http://docs.aws.amazon.com/powershell/latest/reference/items/Initialize-AWSDefaultConfiguration.html>`_,
+`New-AWSCredential <http://docs.aws.amazon.com/powershell/latest/reference/items/New-AWSCredential.html>`_, and 
+`Set-AWSCredential <http://docs.aws.amazon.com/powershell/latest/reference/items/Set-AWSCredential.html>`_.  In service cmdlets, you can refer to new profiles by adding the 
 common parameter, :code:`-ProfileName`.
 
 +----------------+------------------------------------------------------------------------------------------+
@@ -30,8 +30,8 @@ common parameter, :code:`-ProfileName`.
 The :code:`ProfilesLocation` Common Parameter
 =============================================
 
-The behavior of the :code:`ProfilesLocation` common parameter also changes. You can use :code:`-ProfilesLocation` to write to the shared credential
-file as well as instruct a cmdlet to read from the credential file. Adding the :code:`-ProfilesLocation` parameter controls whether |TWP| uses the shared credential
+The behavior of the :code:`ProfileLocation` common parameter also changes. You can use :code:`-ProfileLocation` to write to the shared credential
+file as well as instruct a cmdlet to read from the credential file. Adding the :code:`-ProfileLocation` parameter controls whether |TWP| uses the shared credential
 file or the .NET credential file. The following table describes how the parameter works in |TWP|.
 
 +---------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -65,9 +65,9 @@ In the second line, you set up the assume role profile itself. The third line sh
 
 .. code-block:: none
 
-    PS C:\> Set-AWSCredentials -StoreAs source_profile -AccessKey access_key -SecretKey secret_key
-    PS C:\> Set-AWSCredentials -StoreAs assume_role_profile -SourceProfile source-profile -RoleArn arn:aws:iam::999999999999:role/some-role
-    PS C:\> Get-AWSCredentials -ProfileName assume_role_profile
+    PS C:\> Set-AWSCredential -StoreAs source_profile -AccessKey access_key -SecretKey secret_key
+    PS C:\> Set-AWSCredential -StoreAs assume_role_profile -SourceProfile source-profile -RoleArn arn:aws:iam::999999999999:role/some-role
+    PS C:\> Get-AWSCredential -ProfileName assume_role_profile
     
     SourceCredentials                  RoleArn                                  RoleSessionName                           Options
     -----------------                  -------                                  ---------------                           -------
@@ -82,8 +82,8 @@ The following is an example showing how to configure :code:`assume role` credent
 
 .. code-block:: none
 
-    PS C:\> Set-AWSCredentials Set-AWSCredentials -StoreAs source_profile -AccessKey access_key -SecretKey secret_key
-    PS C:\> Set-AWSCredentials -StoreAs assume_role_profile -SourceProfile source_profile -RoleArn arn:aws:iam::999999999999:role/some-role
+    PS C:\> Set-AWSCredentials -StoreAs source_profile -AccessKey access_key -SecretKey secret_key
+    PS C:\> Set-AWSCredential -StoreAs assume_role_profile -SourceProfile source_profile -RoleArn arn:aws:iam::999999999999:role/some-role
     PS C:\> Get-S3Bucket -ProfileName assume_role_profile
     
     CreationDate           BucketName
@@ -94,14 +94,14 @@ The following is an example showing how to configure :code:`assume role` credent
 Save Credentials to a Credentials File
 --------------------------------------
 
-To write and save credentials to one of the two credential files, run the :code:`Set-AWSCredentials` cmdlet. The following example shows how to do this. In the first line, run :code:`Set-AWSCredentials` to use the new :code:`-ProfilesLocation`
+To write and save credentials to one of the two credential files, run the :code:`Set-AWSCredential` cmdlet. The following example shows how to do this. In the first line, run :code:`Set-AWSCredential` to use the new :code:`-ProfileLocation`
 write functionality to add access and secret keys to a profile named :code:`basic_profile` by adding the :code:`-ProfileName` parameter. In the second line, run
 the `Get-Content <https://msdn.microsoft.com/en-us/powershell/reference/5.0/microsoft.powershell.management/get-content>`_ cmdlet to display
 the contents of the credentials file.
 
 .. code-block:: none
 
-    PS C:\> Set-AWSCredentials -ProfilesLocation C:\Users\auser\.aws\credentials -ProfileName basic_profile -AccessKey access_key2 -SecretKey secret_key2
+    PS C:\> Set-AWSCredential -ProfileLocation C:\Users\auser\.aws\credentials -ProfileName basic_profile -AccessKey access_key2 -SecretKey secret_key2
     PS C:\> Get-Content C:\Users\auser\.aws\credentials
     
     aws_access_key_id=access_key2
@@ -110,11 +110,11 @@ the contents of the credentials file.
 Showing Credential Profiles
 ---------------------------
 
-Run the `Get-AWSCredentials <http://docs.aws.amazon.com/powershell/latest/reference/items/Get-AWSCredentials.html>`_ cmdlet and add the new -ListProfileDetail parameter to return credential file types and locations, and a list of profile names.
+Run the `Get-AWSCredential <http://docs.aws.amazon.com/powershell/latest/reference/items/Get-AWSCredential.html>`_ cmdlet and add the new -ListProfileDetail parameter to return credential file types and locations, and a list of profile names.
 
 .. code-block:: none
 
-    PS C:\> Get-AWSCredentials -ListProfileDetail
+    PS C:\> Get-AWSCredential -ListProfileDetail
     
     ProfileName                     StoreTypeName         ProfileLocation                                                                                                                               
     -----------                     -------------         ---------------                                                                                                                               
@@ -126,15 +126,15 @@ Removing Credential Profiles
 ============================
 
 To remove credential profiles, run the new `Remove-AWSCredentialProfile <http://docs.aws.amazon.com/powershell/latest/reference/items/Remove-AWSCredentialProfile.html>`_ cmdlet. You can continue to
-use `Clear-AWSCredentials <http://docs.aws.amazon.com/powershell/latest/reference/items/Clear-AWSCredentials.html>`_ for backward compatibility, but :code:`Remove-AWSCredentialProfile` is preferred.
+use `Clear-AWSCredential <http://docs.aws.amazon.com/powershell/latest/reference/items/Clear-AWSCredential.html>`_ for backward compatibility, but :code:`Remove-AWSCredentialProfile` is preferred.
 
 Important Notes
 ===============
 
 If you rely on Exception types or Exception messages from the three credentials cmdlets to control script flow, you might need to update existing scripts to account for the changes.
 
-Only `Initialize-AWSDefaults <http://docs.aws.amazon.com/powershell/latest/reference/items/Initialize-AWSDefaults.html>`_, `New-AWSCredentials <http://docs.aws.amazon.com/powershell/latest/reference/items/New-AWSCredentials.html>`_, and 
-`Set-AWSCredentials <http://docs.aws.amazon.com/powershell/latest/reference/items/Set-AWSCredentials.html>`_ have the four new parameters. A command such as :code:`Get-S3Bucket -AccessKey access_key -SecretKey secret_key`
+Only `Initialize-AWSDefaultConfiguration <http://docs.aws.amazon.com/powershell/latest/reference/items/Initialize-AWSDefaultConfiguration.html>`_, `New-AWSCredential <http://docs.aws.amazon.com/powershell/latest/reference/items/New-AWSCredential.html>`_, and 
+`Set-AWSCredential <http://docs.aws.amazon.com/powershell/latest/reference/items/Set-AWSCredential.html>`_ have the four new parameters. A command such as :code:`Get-S3Bucket -AccessKey access_key -SecretKey secret_key`
 will continue to work.  However, :code:`Get-S3Bucket -SourceProfile source_profile_name -RoleArn arn:aws:iam::999999999999:role/role_name` will not work 
 because the :code:`Get-S3Bucket` cmdlet does not support the :code:`SourceProfile` or :code:`RoleArn` parameters.
 

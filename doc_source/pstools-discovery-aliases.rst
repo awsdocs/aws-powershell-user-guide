@@ -25,7 +25,7 @@ API name. For example, to get all of the possible cmdlet names that correspond t
     CmdletName              ServiceOperation         ServiceName                         CmdletNounPrefix
     ----------              ----------------         -----------                         ----------------
     Get-EC2Instance         DescribeInstances        Amazon Elastic Compute Cloud        EC2
-    Get-OPSInstances        DescribeInstances        AWS OpsWorks                        OPS
+    Get-OPSInstance         DescribeInstances        AWS OpsWorks                        OPS
 
 Note that you can omit the :code:`-ApiOperation` parameter name in the preceding call, so the
 following is equivalent:
@@ -81,7 +81,7 @@ parameter. For example, to get all of the available cmdlet names that contain :c
     Remove-RDSDBSecurityGroup               DeleteDBSecurityGroup                   Amazon Relational Database Service     RDS
     Revoke-RDSDBSecurityGroupIngress        RevokeDBSecurityGroupIngress            Amazon Relational Database Service     RDS
     Approve-RSClusterSecurityGroupIngress   AuthorizeClusterSecurityGroupIngress    Amazon Redshift                        RS
-    Get-RSClusterSecurityGroups             DescribeClusterSecurityGroups           Amazon Redshift                        RS
+    Get-RSClusterSecurityGroup              DescribeClusterSecurityGroups           Amazon Redshift                        RS
     New-RSClusterSecurityGroup              CreateClusterSecurityGroup              Amazon Redshift                        RS
     Remove-RSClusterSecurityGroup           DeleteClusterSecurityGroup              Amazon Redshift                        RS
     Revoke-RSClusterSecurityGroupIngress    RevokeClusterSecurityGroupIngress       Amazon Redshift                        RS
@@ -222,7 +222,7 @@ Cmdlet Naming and Aliases
 The cmdlets provided by the |TWP| for a given service correspond approximately to the methods
 provided by the AWS SDK for that service. However, because of PowerShell's naming conventions, the
 name of a cmdlet may be somewhat different than the name of the corresponding method. For example,
-the :code:`Get-EC2Instances` cmdlet performs a similar function to the |EC2|
+the :code:`Get-EC2Instance` cmdlet performs a similar function to the |EC2|
 :code:`DescribeInstances` method.
 
 In other cases, the cmdlet name may be similar to a method name, but it may actually perform a

@@ -47,15 +47,17 @@ clicking :guilabel:`AWS Tools for Windows`.
 
 * http://aws.amazon.com/powershell/
 
-The installer for the |TWP| installs the most recent version of the |sdk-net|_. If you have
-Microsoft Visual Studio installed, the installer can also install the :tvs-ug:`AWS Toolkit for
+The installer for the |TWP| installs the most recent versions of the |sdk-net| assemblies for the .NET 3.5 and 4.5 Frameworks. 
+If you have Microsoft Visual Studio 2013 and/or 2015 installed, the installer can also install the :tvs-ug:`AWS Toolkit for
 Visual Studio <welcome>`.
 
-All Windows Amazon Machine Images (AMIs) have the |TWPlong| pre-installed. For an example of using
-the |TWP| on an Amazon EC2 instance, view the AWS EC2 sample from within Visual Studio, by
-selecting:
+Users with PowerShell version 5 or higher can also install and update the |TWP| from Microsoft's `PowerShell Gallery <https://www.powershellgallery.com/packages/AWSPowerShell>`_ website using the following command:
 
-* :guilabel:`New | Project... | AWS | Compute and Networking | AWS EC2 Sample`
+.. code-block:: none
+
+    PS C:\> Install-Package -Name AWSPowerShell
+
+All Windows Amazon Machine Images (AMIs) have the |TWPlong| pre-installed.
 
 **Install the AWS Tools for PowerShell Core**
 
@@ -75,8 +77,17 @@ For more information about how to install PowerShell 5.1 on computers that run W
 
 After you have PowerShell 5.1 installed, you can find the AWS Tools for PowerShell Core on 
 Microsoft's `PowerShell Gallery <https://www.powershellgallery.com/packages/AWSPowerShell.NetCore>`_ website.
-The simplest way to install the Tools for PowerShell Core is by running the :code:`Install-Package` cmdlet. We currently recommend 
-using the NuGet provider to avoid installation errors. A suggested destination path on Linux systems is :code:`~/.local/share/powershell/Modules`.
+The simplest way to install the Tools for PowerShell Core is by running the :code:`Install-Package` cmdlet.
+
+.. code-block:: none
+
+    PS C:\> Install-Package -Name AWSPowerShell.NetCore
+
+Some users have reported issues with the Install-Module cmdlet built into earlier versions PowerShell Core with errors 
+related to semantic versioning (see https://github.com/OneGet/oneget/issues/202). Using the NuGet provider appears to 
+resolve the issue. Later versions of PowerShell Core have resolved this issue.
+
+To install using the NuGet provider run this command, setting an appropriate destination folder (on Linux for example try -Destination ~/.local/share/powershell/Modules):
 
 .. code-block:: none
 
@@ -151,11 +162,12 @@ Configure a PowerShell Console to Use the |TWPlong|
 
 The installer creates a :guilabel:`Start Menu` group called, :guilabel:`Amazon Web Services`, which
 contains a shortcut called :guilabel:`Windows PowerShell for AWS`. For PowerShell 2.0, this shortcut
-automatically imports the AWSPowerShell module and then runs the :code:`Initialize-AWSDefaults`
+automatically imports the AWSPowerShell module and then runs the :code:`Initialize-AWSDefaultConfiguration`
 cmdlet. For PowerShell 3.0, the AWSPowerShell module is loaded automatically whenever you run an AWS
 cmdlet. So, for PowerShell 3.0, the shortcut created by the installer only runs the
-:code:`Initialize-AWSDefaults` cmdlet. For more information about :code:`Initialize-AWSDefaults`,
-see :ref:`specifying-your-aws-credentials`.
+:code:`Initialize-AWSDefaultConfiguration` cmdlet. For more information about :code:`Initialize-AWSDefaultConfiguration`,
+see :ref:`specifying-your-aws-credentials`. In earlier (pre-v3.3.96.0) versions of the modules this cmdlet was named
+:code:`Initialize-AWSDefaults`.
 
 The installer also creates an additional shortcut called :guilabel:`AWS Tools for Windows`, which
 opens a visual display of AWS resources for Windows developers.
@@ -200,14 +212,14 @@ How to Load the |TWPlong| Module (PowerShell 2.0)
 
        ModuleType Version   Name           ExportedCommands
        ---------- -------   ----           ----------------
-       Binary     2.3.16.0  AWSPowerShell  {Add-ASAAttachmentsToSet, Add-ASACommunicationToCase, Add-ASInstances, Add-AWSLoggingListener...}
+       Binary     3.3.96.0  AWSPowerShell  {Add-AASScalableTarget, Add-ACMCertificateTag, Add-ADSConfigurationItemsToApplication, Add-ASAAttachmentsToSet...}
        ...
 
 
 .. _pstools-installing-integration-profile:
 
-Load AWS CLI for PowerShell Module into Every Session (PowerShell 2.0)
-----------------------------------------------------------------------
+Load |TWPlong| Module into Every Session (PowerShell 2.0)
+---------------------------------------------------------
 
 To load the AWSPowerShell module automatically every time you start a PowerShell session, add it to
 your PowerShell profile. Note, however, that adding commands to your PowerShell profile can slow
@@ -246,11 +258,11 @@ version of the |TWP| you have installed, run the `Get-AWSPowerShellVersion
     PS C:\> Get-AWSPowerShellVersion
 
     AWS Tools for Windows PowerShell
-    Version 3.1.76.0
+    Version 3.3.96.0
     Copyright 2012-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
     Amazon Web Services SDK for .NET
-    Core Runtime Version 3.1.7.0
+    Core Runtime Version 3.3.14.0
     Copyright 2009-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
     Release notes: https://aws.amazon.com/releasenotes/PowerShell
@@ -259,20 +271,20 @@ version of the |TWP| you have installed, run the `Get-AWSPowerShellVersion
     - Logging from log4net, Apache License
     [http://logging.apache.org/log4net/license.html]
 
-You can also specify the :code:`-ListServices` parameter of `Get-AWSPowerShellVersion
+You can also specify the :code:`-ListServiceVersionInfo` parameter of `Get-AWSPowerShellVersion
 <http://docs.aws.amazon.com/powershell/latest/reference/Index.html>`_ to see a list of which AWS
 services are supported in the current version of the tools.
 
 .. code-block:: none
 
-    PS C:\> Get-AWSPowerShellVersion -ListServices
+    PS C:\> Get-AWSPowerShellVersion -ListServiceVersionInfo
 
     AWS Tools for Windows PowerShell
-    Version 3.1.76.0
+    Version 3.3.96.0
     Copyright 2012-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
     Amazon Web Services SDK for .NET
-    Core Runtime Version 3.1.7.0
+    Core Runtime Version 3.3.14.0
     Copyright 2009-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
     Release notes: https://aws.amazon.com/releasenotes/PowerShell
@@ -284,69 +296,99 @@ services are supported in the current version of the tools.
 
     Service                            Noun Prefix Version
     -------                            ----------- -------
-    AWS Certificate Manager            ACM         2015-12-08
-    AWS Cloud HSM                      HSM         2014-05-30
-    AWS CloudFormation                 CFN         2010-05-15
-    AWS CloudTrail                     CT          2013-11-01
-    AWS CodeCommit                     CC          2015-04-13
-    AWS CodeDeploy                     CD          2014-10-06
-    AWS CodePipeline                   CP          2015-07-09
-    AWS Config                         CFG         2014-11-12
-    AWS Data Pipeline                  DP          2012-10-29
-    AWS Database Migration Service     DMS         2016-01-01
-    AWS Device Farm                    DF          2015-06-23
-    AWS Direct Connect                 DC          2012-10-25
-    AWS Directory Service              DS          2015-04-16
-    AWS Elastic Beanstalk              EB          2010-12-01
-    AWS Identity and Access Management IAM         2010-05-08
-    AWS Import/Export                  IE          2010-06-01
-    AWS IoT                            IOT         2015-05-28
-    AWS Key Management Service         KMS         2014-11-01
-    AWS Marketplace Commerce Analytics MCA         2015-07-01
-    AWS Marketplace Metering           MM          2016-01-14
-    AWS OpsWorks                       OPS         2013-02-18
-    AWS Security Token Service         STS         2011-06-15
-    AWS Storage Gateway                SG          2013-06-30
-    AWS Support API                    ASA         2013-04-15
-    AWS WAF                            WAF         2015-08-24
-    Amazon API Gateway                 AG          2015-07-09
-    Amazon CloudFront                  CF          2016-01-28
-    Amazon CloudSearch                 CS          2013-01-01
-    Amazon CloudSearchDomain           CSD         2013-01-01
-    Amazon CloudWatch                  CW          2010-08-01
-    Amazon CloudWatch Events           CWE         2015-10-07
-    Amazon CloudWatch Logs             CWL         2014-03-28
-    Amazon Cognito Identity            CGI         2014-06-30
-    Amazon Cognito Identity Provider   CGIP        2016-04-18
-    Amazon DynamoDB                    DDB         2012-08-10
-    Amazon EC2 Container Registry      ECR         2015-09-21
-    Amazon EC2 Container Service       ECS         2014-11-13
-    Amazon ElastiCache                 EC          2015-02-02
-    Amazon Elastic Compute Cloud       EC2         2015-10-01
-    Amazon Elastic File System         EFS         2015-02-01
-    Amazon Elastic MapReduce           EMR         2009-03-31
-    Amazon Elastic Transcoder          ETS         2012-09-25
-    Amazon Elasticsearch               ES          2015-01-01
-    Amazon GameLift Service            GML         2015-10-01
-    Amazon Inspector                   INS         2016-02-16
-    Amazon Kinesis                     KIN         2013-12-02
-    Amazon Kinesis Firehose            KINF        2015-08-04
-    Amazon Lambda                      LM          2015-03-31
-    Amazon Machine Learning            ML          2014-12-12
-    Amazon Redshift                    RS          2012-12-01
-    Amazon Relational Database Service RDS         2014-10-31
-    Amazon Route 53                    R53         2013-04-01
-    Amazon Route 53 Domains            R53D        2014-05-15
-    Amazon Simple Email Service        SES         2010-12-01
-    Amazon Simple Notification Service SNS         2010-03-31
-    Amazon Simple Queue Service        SQS         2012-11-05
-    Amazon Simple Storage Service      S3          2006-03-01
-    Amazon Simple Systems Management   SSM         2014-11-06
-    Amazon WorkSpaces                  WKS         2015-04-08
-    Application Auto Scaling           AAS         2016-02-06
-    Application Discovery Service      ADS         2015-11-01
-    Auto Scaling                       AS          2011-01-01
-    Elastic Load Balancing             ELB         2012-06-01
+    AWS AppStream                       APS         2016-12-01
+    AWS Batch                           BAT         2016-08-10
+    AWS Budgets                         BGT         2016-10-20
+    AWS Certificate Manager             ACM         2015-12-08
+    AWS Cloud Directory                 CDIR        2016-05-10
+    AWS Cloud HSM                       HSM         2014-05-30
+    AWS CloudFormation                  CFN         2010-05-15
+    AWS CloudTrail                      CT          2013-11-01
+    AWS CodeBuild                       CB          2016-10-06
+    AWS CodeCommit                      CC          2015-04-13
+    AWS CodeDeploy                      CD          2014-10-06
+    AWS CodePipeline                    CP          2015-07-09
+    AWS CodeStar                        CST         2017-04-19
+    AWS Config                          CFG         2014-11-12
+    AWS Cost and Usage Report           CUR         2017-01-06
+    AWS Data Pipeline                   DP          2012-10-29
+    AWS Database Migration Service      DMS         2016-01-01
+    AWS Device Farm                     DF          2015-06-23
+    AWS Direct Connect                  DC          2012-10-25
+    AWS Directory Service               DS          2015-04-16
+    AWS Elastic Beanstalk               EB          2010-12-01
+    AWS Health                          HLTH        2016-08-04
+    AWS Identity and Access Management  IAM         2010-05-08
+    AWS Import/Export                   IE          2010-06-01
+    AWS Import/Export Snowball          SNOW        2016-06-30
+    AWS IoT                             IOT         2015-05-28
+    AWS Key Management Service          KMS         2014-11-01
+    AWS Marketplace Commerce Analytics  MCA         2015-07-01
+    AWS Marketplace Entitlement Service MES         2017-01-11
+    AWS Marketplace Metering            MM          2016-01-14
+    AWS OpsWorks                        OPS         2013-02-18
+    AWS OpsWorksCM                      OWCM        2016-11-01
+    AWS Organizations                   ORG         2016-11-28
+    AWS Resource Groups Tagging API     RGT         2017-01-26
+    AWS Security Token Service          STS         2011-06-15
+    AWS Service Catalog                 SC          2015-12-10
+    AWS Shield                          SHLD        2016-06-02
+    AWS Storage Gateway                 SG          2013-06-30
+    AWS Support API                     ASA         2013-04-15
+    AWS WAF                             WAF         2015-08-24
+    AWS WAF Regional                    WAFR        2016-11-28
+    AWS X-Ray                           XR          2016-04-12
+    Amazon API Gateway                  AG          2015-07-09
+    Amazon Athena                       ATH         2017-05-18
+    Amazon CloudFront                   CF          2017-03-25
+    Amazon CloudSearch                  CS          2013-01-01
+    Amazon CloudSearchDomain            CSD         2013-01-01
+    Amazon CloudWatch                   CW          2010-08-01
+    Amazon CloudWatch Events            CWE         2015-10-07
+    Amazon CloudWatch Logs              CWL         2014-03-28
+    Amazon Cognito Identity             CGI         2014-06-30
+    Amazon Cognito Identity Provider    CGIP        2016-04-18
+    Amazon DynamoDB                     DDB         2012-08-10
+    Amazon EC2 Container Registry       ECR         2015-09-21
+    Amazon EC2 Container Service        ECS         2014-11-13
+    Amazon ElastiCache                  EC          2015-02-02
+    Amazon Elastic Compute Cloud        EC2         2016-11-15
+    Amazon Elastic File System          EFS         2015-02-01
+    Amazon Elastic MapReduce            EMR         2009-03-31
+    Amazon Elastic Transcoder           ETS         2012-09-25
+    Amazon Elasticsearch                ES          2015-01-01
+    Amazon GameLift Service             GML         2015-10-01
+    Amazon Inspector                    INS         2016-02-16
+    Amazon Kinesis                      KIN         2013-12-02
+    Amazon Kinesis Analytics            KINA        2015-08-14
+    Amazon Kinesis Firehose             KINF        2015-08-04
+    Amazon Lambda                       LM          2015-03-31
+    Amazon Lex                          LEX         2016-11-28
+    Amazon Lex Model Building Service   LMB         2017-04-19
+    Amazon Lightsail                    LS          2016-11-28
+    Amazon MTurk Service                MTR         2017-01-17
+    Amazon Machine Learning             ML          2014-12-12
+    Amazon Pinpoint                     PIN         2016-12-01
+    Amazon Polly                        POL         2016-06-10
+    Amazon Redshift                     RS          2012-12-01
+    Amazon Rekognition                  REK         2016-06-27
+    Amazon Relational Database Service  RDS         2014-10-31
+    Amazon Route 53                     R53         2013-04-01
+    Amazon Route 53 Domains             R53D        2014-05-15
+    Amazon Server Migration Service     SMS         2016-10-24
+    Amazon Simple Email Service         SES         2010-12-01
+    Amazon Simple Notification Service  SNS         2010-03-31
+    Amazon Simple Queue Service         SQS         2012-11-05
+    Amazon Simple Storage Service       S3          2006-03-01
+    Amazon Simple Systems Management    SSM         2014-11-06
+    Amazon Step Functions               SFN         2016-11-23
+    Amazon WorkDocs                     WD          2016-05-01
+    Amazon WorkSpaces                   WKS         2015-04-08
+    Application Auto Scaling            AAS         2016-02-06
+    Application Discovery Service       ADS         2015-11-01
+    Auto Scaling                        AS          2011-01-01
+    Elastic Load Balancing              ELB         2012-06-01
+    Elastic Load Balancing V2           ELB2        2015-12-01
 
 To determine the version of PowerShell that you are running, enter :code:`$PSVersionTable` to view
 the contents of the $PSVersionTable `automatic variable

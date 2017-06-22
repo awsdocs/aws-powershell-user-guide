@@ -164,7 +164,7 @@ set.
     $c = Get-S3Object -BucketName test
 
 If you want to retain control of the amount of data returned, you can continue to use parameters on
-the individual cmdlets (e.g. :code:`MaxKeys` on :code:`Get-S3Object`) or you can explicitly handle
+the individual cmdlets (e.g. :code:`MaxKey` on :code:`Get-S3Object`) or you can explicitly handle
 paging yourself by using a combination of paging parameters on the cmdlets, and data placed in the
 :code:`$AWSHistory` variable to get the service's next token data. The following example uses the
 MaxKeys parameter to limit the number of :code:`S3Object` instances returned to no more than the
@@ -172,7 +172,7 @@ first 500 found in the bucket.
 
 .. code-block:: none
 
-    $c = Get-S3Object -BucketName test -MaxKeys 500
+    $c = Get-S3Object -BucketName test -MaxKey 500
 
 To know if more data was available but not returned, use the :code:`$AWSHistory` session variable
 entry that recorded the service calls made by the cmdlet.
@@ -184,7 +184,7 @@ set of results using :code:`$AWSHistory.LastServiceResponse.NextMarker`.
 
     $AWSHistory.LastServiceResponse -ne $null && $AWSHistory.LastServiceResponse.IsTruncated
 
-To manually control paging with :code:`Get-S3Object`, use a combination of the :code:`MaxKeys` and
+To manually control paging with :code:`Get-S3Object`, use a combination of the :code:`MaxKey` and
 :code:`Marker` parameters for the cmdlet and the :code:`IsTruncated`/:code:`NextMarker` notes on the
 last recorded response. In the following example, the variable :code:`$c` contains up to a maximum
 of 500 :code:`S3Object` instances for the next 500 objects that are found in the bucket after the
@@ -192,7 +192,7 @@ start of the specified key prefix marker.
 
 .. code-block:: none
 
-    $c = Get-S3Object -BucketName test -MaxKeys 500 -Marker $AWSHistory.LastServiceResponse.NextMarker
+    $c = Get-S3Object -BucketName test -MaxKey 500 -Marker $AWSHistory.LastServiceResponse.NextMarker
 
 
 

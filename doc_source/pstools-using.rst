@@ -23,7 +23,7 @@ intended to demonstrate how to use the cmdlets to perform actual administrative 
 *Note Regarding Returned Objects for the Powershell Tools*
 
 In some cases, the object returned from an |TWP| cmdlet does not mirror what is returned from the
-corresponding API in the AWS SDK for .NET. For example, :code:`List-S3Buckets` emits a
+corresponding API in the AWS SDK for .NET. For example, :code:`Get-S3Bucket` emits a
 :code:`Buckets` collection, not an |S3| response object. Similarly, :code:`Get-EC2Instance` emits a
 :code:`Reservation` collection, not a :code:`DescribeEC2Instances` result object. This behavior is
 by design and is intended to have the |TWP| experience be more consistent with idiomatic PowerShell.
