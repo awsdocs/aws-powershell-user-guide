@@ -53,7 +53,7 @@ To add a new profile to the AWS SDK store, run :code:`Set-AWSCredential`. Your a
 
     .. code-block:: none
 
-        PS C:\> Set-AWSCredential -AccessKey AKIAIOSFODNN7EXAMPLE -SecretKey wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY -StoreAs MyProfileName
+        PS C:\> Set-AWSCredentials -AccessKey AKIAIOSFODNN7EXAMPLE -SecretKey wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY -StoreAs MyProfileName
 
     * :code:`-AccessKey` |ndash| The access key.
 
@@ -85,7 +85,7 @@ You can check the current list of names as follows:
 
     .. code-block:: none
 
-        PS C:\> Get-AWSCredential -ListProfileDetail
+        PS C:\> Get-AWSCredentials -ListProfileDetail
 
 Remove a profile
 ----------------
@@ -145,7 +145,7 @@ profile overrides any default profile for the duration of the session.
 
     .. code-block:: none
 
-        PS C:\> Set-AWSCredential -ProfileName MyProfileName
+        PS C:\> Set-AWSCredentials -ProfileName MyProfileName
 
     .. note:: In versions of the |TWP| that are older than 1.1, the :code:`Set-AWSCredential` 
        command did not work correctly, and would overwrite the profile specified by "MyProfileName". 
@@ -249,7 +249,7 @@ The following examples that use the :code:`Set-AWSCredential` cmdlet show the op
     # Writes a new (or updates existing) profile with name "myProfileName"
     # in the encrypted SDK store file
     
-    Set-AWSCredential -AccessKey akey -SecretKey skey -StoreAs myProfileName
+    Set-AWSCredentials -AccessKey akey -SecretKey skey -StoreAs myProfileName
     
     # Checks the encrypted SDK credential store for the profile and then
     # falls back to the shared credentials file in the default location
@@ -260,7 +260,7 @@ The following examples that use the :code:`Set-AWSCredential` cmdlet show the op
     # profile from the ini-format credentials file "mycredentials" in the
     # folder C:\MyCustomPath
     
-    Set-AWSCredential -ProfileName myProfileName -ProfileLocation C:\MyCustomPath\mycredentials
+    Set-AWSCredentials -ProfileName myProfileName -ProfileLocation C:\MyCustomPath\mycredentials
 
 The following examples show the behavior of the :guilabel:`AWSPowerShell.NetCore` module on the Linux or Mac OS X operating systems:
 
@@ -269,19 +269,19 @@ The following examples show the behavior of the :guilabel:`AWSPowerShell.NetCore
     # Writes a new (or updates existing) profile with name "myProfileName"
     # in the default shared credentials file ~/.aws/credentials
     
-    Set-AWSCredential -AccessKey akey -SecretKey skey -StoreAs myProfileName
+    Set-AWSCredentials -AccessKey akey -SecretKey skey -StoreAs myProfileName
     
     # Writes a new (or updates existing) profile with name "myProfileName"
     # into an ini-format credentials file "~/mycustompath/mycredentials"
     
-    Set-AWSCredential -AccessKey akey -SecretKey skey -StoreAs myProfileName -ProfileLocation ~/mycustompath/mycredentials
+    Set-AWSCredentials -AccessKey akey -SecretKey skey -StoreAs myProfileName -ProfileLocation ~/mycustompath/mycredentials
     
     # Reads the default shared credential file looking for the profile "myProfileName"
     
-    Set-AWSCredential -ProfileName myProfileName
+    Set-AWSCredentials -ProfileName myProfileName
     
     # Reads the specified credential file looking for the profile "myProfileName"
     
-    Set-AWSCredential -ProfileName myProfileName -ProfileLocation ~/mycustompath/mycredentials
+    Set-AWSCredentials -ProfileName myProfileName -ProfileLocation ~/mycustompath/mycredentials
     
 
