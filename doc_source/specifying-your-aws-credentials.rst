@@ -49,7 +49,7 @@ credentials file, see :aws-gr:`Best Practices for Managing AWS Access Keys <aws-
 Add a new profile
 -----------------
 
-To add a new profile to the AWS SDK store, run :code:`Set-AWSCredential`. Your access key and secret key are stored in your default credentials file.
+To add a new profile to the AWS SDK store, run :code:`Set-AWSCredentials`. Your access key and secret key are stored in your default credentials file.
 
     .. code-block:: none
 
@@ -140,7 +140,7 @@ Use :code:`Initialize-AWSDefaultConfiguration` to specify a default profile for 
 Session profile
 ---------------
 
-Use :code:`Set-AWSCredential` to specify a default profile for a particular session. This 
+Use :code:`Set-AWSCredentials` to specify a default profile for a particular session. This 
 profile overrides any default profile for the duration of the session.
 
     .. code-block:: none
@@ -242,7 +242,7 @@ Both modules can read profiles from the :code:`ini`-format shared credentials fi
 
 The SDK credential store holds your credentials in encrypted form by using Windows cryptographic APIs. These APIs are not available on other platforms, so the AWS Tools for PowerShell Core module uses the :code:`ini`-format shared credentials file exclusively, and supports writing new credential profiles to the shared credential file. This support is slated for a future release of the AWS Tools for Windows PowerShell.
 
-The following examples that use the :code:`Set-AWSCredential` cmdlet show the options for handling credential profiles on Windows with either the :guilabel:`AWSPowerShell` or :guilabel:`AWSPowerShell.NetCore` modules:
+The following examples that use the :code:`Set-AWSCredentials` cmdlet show the options for handling credential profiles on Windows with either the :guilabel:`AWSPowerShell` or :guilabel:`AWSPowerShell.NetCore` modules:
 
 .. code-block:: none
 
@@ -254,7 +254,7 @@ The following examples that use the :code:`Set-AWSCredential` cmdlet show the op
     # Checks the encrypted SDK credential store for the profile and then
     # falls back to the shared credentials file in the default location
     
-    Set-AWSCredential -ProfileName myProfileName
+    Set-AWSCredentials -ProfileName myProfileName
     
     # Bypasses the encrypted SDK credential store and attempts to load the
     # profile from the ini-format credentials file "mycredentials" in the
