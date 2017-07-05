@@ -82,7 +82,7 @@ The following is an example showing how to configure :code:`assume role` credent
 
 .. code-block:: none
 
-    PS C:\> Set-AWSCredentials -StoreAs source_profile -AccessKey access_key -SecretKey secret_key
+    PS C:\> Set-AWSCredential -StoreAs source_profile -AccessKey access_key -SecretKey secret_key
     PS C:\> Set-AWSCredential -StoreAs assume_role_profile -SourceProfile source_profile -RoleArn arn:aws:iam::999999999999:role/some-role
     PS C:\> Get-S3Bucket -ProfileName assume_role_profile
     
