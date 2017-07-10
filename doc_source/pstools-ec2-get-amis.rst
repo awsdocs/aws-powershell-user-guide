@@ -7,7 +7,7 @@ Find an Amazon Machine Image Using Windows PowerShell
 When you launch an Amazon EC2 instance, you need to specify an Amazon Machine Image (AMI) to serve
 as a template for the instance. However, the IDs for the AWS Windows AMIs change monthly because AWS
 provides new AMIs with the latest updates and security enhancements. You can use the `Get-EC2Image
-<items/Get-EC2Image.html>`_ and `Get-EC2ImageByName <items/Get-EC2ImageByName.html>`_ cmdlets to
+<http://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Image.html>`_ and `Get-EC2ImageByName <http://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2ImageByName.html>`_ cmdlets to
 find the current Windows AMIs and get their IDs.
 
 

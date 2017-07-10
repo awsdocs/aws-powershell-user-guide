@@ -49,7 +49,7 @@ See Also
 
 * `Using Windows PowerShell "Here-Strings" <http://technet.microsoft.com/en-us/library/ee692792.aspx>`_
 
-* `PutUserPolicy <http:///IAM/latest/APIReference/API_PutUserPolicy.html>`_
+* `PutUserPolicy <http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutUserPolicy.html>`_
 
 
 

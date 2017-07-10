@@ -68,7 +68,7 @@ Update a profile
 ----------------
 
 The AWS SDK store must be maintained manually. If you later change credentials on the
-service |mdash| for example, by using the `IAM console <iam/home#s=Users>`_ |mdash| running a
+service |mdash| for example, by using the `IAM console <https://console.aws.amazon.com/iam/home>`_ |mdash| running a
 command with the locally stored credentials fails with the following error message: 
 
     .. code-block:: none
