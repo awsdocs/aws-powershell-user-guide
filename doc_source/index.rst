@@ -3,6 +3,7 @@
         Use |TWPlong| to script operations on your AWS resources from the PowerShell command line.
 
 .. _aws-unified-cli:
+
 ########################
 |TWPlong| User Guide 1.0
 ########################
@@ -17,5 +18,3 @@
    Getting Started <pstools-getting-started>
    pstools-using
    history-pst
-
-

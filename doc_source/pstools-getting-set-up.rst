@@ -56,6 +56,8 @@ Users with PowerShell version 5 or higher can also install and update the |TWP| 
 .. code-block:: none
 
     PS C:\> Install-Package -Name AWSPowerShell
+    
+You must run PowerShell as an Adminstrator to run the command.
 
 All Windows Amazon Machine Images (AMIs) have the |TWPlong| pre-installed.
 
@@ -82,6 +84,8 @@ The simplest way to install the Tools for PowerShell Core is by running the :cod
 .. code-block:: none
 
     PS C:\> Install-Package -Name AWSPowerShell.NetCore
+
+You must run PowerShell as an Adminstrator to run the cmdlet.
 
 Some users have reported issues with the Install-Module cmdlet built into earlier versions PowerShell Core with errors 
 related to semantic versioning (see https://github.com/OneGet/oneget/issues/202). Using the NuGet provider appears to 

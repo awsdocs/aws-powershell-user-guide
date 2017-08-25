@@ -5,7 +5,7 @@ Specifying AWS Regions
 ######################
 
 There are two ways to specify the AWS region to use when running |CLI| commands, the :code:`-Region`
-common parameter, or the :code:`Set-AWSDefaultRegion` command.
+common parameter, or the :code:`Set-DefaultAWSRegion` command.
 
 Most AWS cmdlets fail if you do not specify a region. The exceptions are cmdlets for :ref:`Amazon S3
 <pstools-s3>`, |SES|, and :ref:`AWS Identity and Access Management (IAM ) <pstools-iam>`.
