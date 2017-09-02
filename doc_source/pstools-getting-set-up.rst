@@ -83,9 +83,9 @@ The simplest way to install the Tools for PowerShell Core is by running the :cod
 
 .. code-block:: none
 
-    PS C:\> Install-Package -Name AWSPowerShell.NetCore
+    PS C:\> Install-Package -Name AWSPowerShell.NetCore -AllowClobber
 
-You must run PowerShell as an Adminstrator to run the cmdlet.
+You must run PowerShell as an Adminstrator to run the cmdlet.  When installing both AWSPowerShell and AWSPowerShell.NetCore, you need to use -AllowClobber on the second installation because the modules have cmdlets with the same names. 
 
 Some users have reported issues with the Install-Module cmdlet built into earlier versions PowerShell Core with errors 
 related to semantic versioning (see https://github.com/OneGet/oneget/issues/202). Using the NuGet provider appears to 
