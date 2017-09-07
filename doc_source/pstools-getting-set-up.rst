@@ -33,6 +33,7 @@ PowerShell 2.0 by installing the Windows Management Framework.
 * `Windows Management Framework (Windows PowerShell 2.0, WinRM 2.0, and BITS 4.0)
   <http://support.microsoft.com/kb/968929>`_
 
+**Linux and OSX**: To use the AWS Tools for PowerShell Core, your installed system must have PowerShell version >= 5.1 installed. Further details are provided below, instructions for installation can be found at <https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md>`_
 
 .. _pstools-installing-download:
 
