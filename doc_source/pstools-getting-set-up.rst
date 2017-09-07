@@ -33,7 +33,8 @@ PowerShell 2.0 by installing the Windows Management Framework.
 * `Windows Management Framework (Windows PowerShell 2.0, WinRM 2.0, and BITS 4.0)
   <http://support.microsoft.com/kb/968929>`_
 
-**Linux and macOS X**: To run the AWS Tools for PowerShell Core, your system must be running PowerShell 5.1 or newer. For more information, see "Install the AWS Tools for PowerShell Core" in this topic. For more information about how to install PowerShell 5.1 or newer on a Linux-based computer, see _`PowerShell Package Installation Instructions <https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md>`_.
+**Linux and macOS X**: To run the AWS Tools for PowerShell Core, your system must be running PowerShell 5.1 or newer. For more information, see "Install the AWS Tools for PowerShell Core" in this topic. For more information about how to install PowerShell 5.1 or newer on a Linux-based computer, see 
+`PowerShell Package Installation Instructions <https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md>`_.
 
 .. _pstools-installing-download:
 
