@@ -19,7 +19,7 @@ Prerequisites
 To use the |TWPlong| or the AWS Tools for PowerShell Core, you must have an AWS account. If you do not yet have an AWS account, see
 :ref:`pstools-appendix-sign-up` for instructions on how to sign up.
 
-To use the |TWPlong|, your installed system must meet the following prerequisites:
+To use the |TWPlong|, your installed system must meet the following prerequisites.
 
 * Microsoft Windows XP or later
 
@@ -73,7 +73,11 @@ For more information about how to install PowerShell 5.1 on computers that run W
 
 * Ubuntu 14.04 LTS and later
 * CentOS Linux 7
-* Mac OS X
+* Arch Linux
+* Debian 8
+* Red Hat Enterprise Linux 7
+* macOS 10.12
+* Kali
 * Windows 8.1 Enterprise
 * Windows Server 2012 R2
 * Windows 10 for Business
@@ -86,13 +90,13 @@ The simplest way to install the Tools for PowerShell Core is by running the :cod
 
     PS C:\> Install-Package -Name AWSPowerShell.NetCore -AllowClobber
 
-You must run PowerShell as an Adminstrator to run the cmdlet.  When installing both AWSPowerShell and AWSPowerShell.NetCore, you need to use -AllowClobber on the second installation because the modules have cmdlets with the same names. 
+You must run PowerShell as an Adminstrator to run the cmdlet.  If you are installing both AWSPowerShell and AWSPowerShell.NetCore, add -AllowClobber to the second installation, because the modules have cmdlets with the same names. 
 
-Some users have reported issues with the Install-Module cmdlet built into earlier versions PowerShell Core with errors 
+Some users have reported issues with the Install-Module cmdlet included with older releases of PowerShell Core, including errors 
 related to semantic versioning (see https://github.com/OneGet/oneget/issues/202). Using the NuGet provider appears to 
-resolve the issue. Later versions of PowerShell Core have resolved this issue.
+resolve the issue. Newer versions of PowerShell Core have resolved this issue.
 
-To install using the NuGet provider run this command, setting an appropriate destination folder (on Linux for example try -Destination ~/.local/share/powershell/Modules):
+To install AWS Tools for PowerShell Core by using NuGet, run the following command. Specify an appropriate destination folder (on Linux, try -Destination ~/.local/share/powershell/Modules):
 
 .. code-block:: none
 
