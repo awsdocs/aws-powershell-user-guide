@@ -33,7 +33,7 @@ PowerShell 2.0 by installing the Windows Management Framework.
 * `Windows Management Framework (Windows PowerShell 2.0, WinRM 2.0, and BITS 4.0)
   <http://support.microsoft.com/kb/968929>`_
 
-**Linux and OSX**: To use the AWS Tools for PowerShell Core, your installed system must have PowerShell version >= 5.1 installed. Further details are provided below, instructions for installation can be found at <https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md>`_
+**Linux and macOS X**: To run the AWS Tools for PowerShell Core, your system must be running PowerShell 5.1 or newer. For more information, see "Install the AWS Tools for PowerShell Core" in this topic. For more information about how to install PowerShell 5.1 or newer on a Linux-based computer, see _`PowerShell Package Installation Instructions <https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md>`_.
 
 .. _pstools-installing-download:
 
@@ -52,7 +52,7 @@ The installer for the |TWP| installs the most recent versions of the |sdk-net| a
 If you have Microsoft Visual Studio 2013 and/or 2015 installed, the installer can also install the :tvs-ug:`AWS Toolkit for
 Visual Studio <welcome>`.
 
-Users with PowerShell version 5 or higher can also install and update the |TWP| from Microsoft's `PowerShell Gallery <https://www.powershellgallery.com/packages/AWSPowerShell>`_ website using the following command:
+Users who are running PowerShell 5.0 or newer can also install and update the |TWP| from Microsoft's `PowerShell Gallery <https://www.powershellgallery.com/packages/AWSPowerShell>`_ website by running the following command.
 
 .. code-block:: none
 
@@ -65,7 +65,7 @@ All Windows Amazon Machine Images (AMIs) have the |TWPlong| pre-installed.
 **Install the AWS Tools for PowerShell Core**
 
 The AWS Tools for PowerShell Core can be installed on computers that are running Microsoft PowerShell 5.1 or a later
-release of PowerShell. AWS Tools for PowerShell Core is therefore supported on the following operating systems.
+release of PowerShell. AWS Tools for PowerShell Core is supported on the following operating systems.
 For more information about how to install PowerShell 5.1 on computers that do not run Windows, see 
 `Package installation instructions (Linux) <https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md>`_ in the GitHub repository for the Microsoft PowerShell project. 
 For more information about how to install PowerShell 5.1 on computers that run Windows 8.1 or Windows 10, see `Package installation instructions (Windows) 
