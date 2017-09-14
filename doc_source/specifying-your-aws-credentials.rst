@@ -226,7 +226,7 @@ available set.
 
    3. Use the :file:`AWS PS Default` profile in the AWS SDK store.
 
-6. If you are using running the command on an |EC2| instance that is configured for an |IAM| role, use
+6. If you are running the command on an |EC2| instance that is configured for an |IAM| role, use
    EC2 instance credentials stored in an instance profile.
 
    For more information about using |IAM| roles for |EC2| Instances, see the |sdk-net|_.
