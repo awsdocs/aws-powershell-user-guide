@@ -40,9 +40,9 @@ See Also
 
 * :ref:`pstools-using`
 
-* :sdk-net-api:`AmazonCloudWatchClient.PutMetricData (.NET SDK Reference) <MCloudWatchCloudWatchPutMetricDataPutMetricDataRequest>`
+* :sdk-net-api:`AmazonCloudWatchClient.PutMetricData <CloudWatch/MCloudWatchCloudWatchPutMetricDataPutMetricDataRequest>` (.NET SDK Reference) 
 
-* :CW-api:`MetricDatum (Service API Reference) <AmazonCloudWatch/latest/APIReference/API_MetricDatum>`
+* `MetricDatum <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html>`_ (Service API Reference)
 
 * :console:`Amazon CloudWatch Console <cloudwatch>`
 

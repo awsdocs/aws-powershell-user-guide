@@ -30,7 +30,7 @@ See Also
 
 * :ref:`pstools-using`
 
-* :s3-dg:`Hosting Websites on Amazon S3 <WebsiteHosting>`
+* `Hosting a Static Website on Amazon S3 <http://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html>`_
 
 * :console:`Amazon S3 Console <s3>`
 
