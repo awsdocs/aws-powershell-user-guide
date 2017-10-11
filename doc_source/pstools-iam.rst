@@ -1,8 +1,8 @@
 .. _pstools-iam:
 
-#####################################################
-AWS Identity and Access Management from the |TWPlong|
-#####################################################
+###############
+|IAM| and |TWP|
+###############
 
 This section describes some common tasks related to AWS Identity and Access Management (IAM) and how
 to perform them using the |TWPlong|.

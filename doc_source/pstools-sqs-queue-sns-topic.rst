@@ -1,8 +1,8 @@
 .. _pstools-sqs-queue-sns-topic:
 
-########################################
-Using the |TWPlong| with |SQS| and |SNS|
-########################################
+######################
+|SQS|, |SNS| and |TWP|
+######################
 
 This section provides instructions to:
 

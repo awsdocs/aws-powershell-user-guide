@@ -1,8 +1,8 @@
 .. _pstools-ec2:
 
-########################
-|EC2| from the |TWPlong|
-########################
+###############
+|EC2| and |TWP|
+###############
 
 You can perform common tasks related to |EC2| using the |TWPlong|.
 
