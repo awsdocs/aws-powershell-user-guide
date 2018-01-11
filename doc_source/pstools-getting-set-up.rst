@@ -17,9 +17,12 @@ Prerequisites
 =============
 
 To use the |TWPlong| or the AWS Tools for PowerShell Core, you must have an AWS account. If you do not yet have an AWS account, see
-:ref:`pstools-appendix-sign-up` for instructions on how to sign up.
+:ref:`pstools-appendix-sign-up` for instructions.
 
-To use the |TWPlong|, your installed system must meet the following prerequisites.
+Windows Prerequisites
+---------------------------
+
+To use the |TWPlong|, your system must meet the following prerequisites.
 
 * Microsoft Windows XP or later
 
@@ -32,75 +35,111 @@ PowerShell 2.0 by installing the Windows Management Framework.
 
 * `Windows Management Framework (Windows PowerShell 2.0, WinRM 2.0, and BITS 4.0)
   <http://support.microsoft.com/kb/968929>`_
+  
+Linux and macOS X Prerequisites
+-------------------------------
 
-**Linux and macOS X**: To run the AWS Tools for PowerShell Core, your system must be running PowerShell Core 6.0 or newer. 
+To run the AWS Tools for PowerShell Core, your system must be running PowerShell Core 6.0 or newer. 
 For more information, see "Install the AWS Tools for PowerShell Core" in this topic. For more information 
 about how to install PowerShell Core 6.0 or newer on a Linux-based computer, see 
 `PowerShell Package Installation Instructions <https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md>`_.
 
 .. _pstools-installing-download:
 
-Download and Install the |TWPlong|
-==================================
-
-**Install the AWS Tools for Windows PowerShell on a Windows-based computer**
+Download and Install the |TWPlong| on a Windows-based computer
+==============================================================
 
 The |TWPlong| is one of the optional components that you can install by running the AWS Tools for
-Windows installer :file:`.msi`. Download the installer by opening the following webpage, and
-clicking :guilabel:`AWS Tools for Windows`.
+Windows installer :file:`.msi`. Download the installer by opening the following webpage, and then
+choosing :guilabel:`AWS Tools for Windows`.
 
 * http://aws.amazon.com/powershell/
 
 The installer for the |TWP| installs the most recent versions of the |sdk-net| assemblies for the .NET 3.5 and 4.5 Frameworks. 
-If you have Microsoft Visual Studio 2013 and/or 2015 installed, the installer can also install the :tvs-ug:`AWS Toolkit for
-Visual Studio <welcome>`.
+If you have Microsoft Visual Studio 2013 or 2015 installed, the installer can also install the :tvs-ug:`AWS Toolkit for Visual Studio <welcome>`.
 
 Users who are running PowerShell 5.0 or newer can also install and update the |TWP| from Microsoft's `PowerShell Gallery <https://www.powershellgallery.com/packages/AWSPowerShell>`_ website by running the following command.
 
 .. code-block:: none
 
-    PS C:\> Install-Package -Name AWSPowerShell
+    PS C:\> Install-Module -Name AWSPowerShell
     
-You must run PowerShell as an Adminstrator to run the command.
 
-If you are running PowerShell v3.0 and add the module install path to the value of the 
-:code:`PSModulePath` environment variable, it will be imported automatically when any 
-AWS Tools for PowerShell cmdlet or function is used in a command.
+If you are running PowerShell 3.0 or newer, and add the module installation path to the value of the 
+:code:`PSModulePath` environment variable, the |TWP| are automatically loaded into your session when you run any 
+|TWP| cmdlet or function.
 
-All Windows Amazon Machine Images (AMIs) have the |TWPlong| pre-installed.
+The |TWP| are installed by default on all Windows Amazon Machine Images (AMIs).
 
-**Install the AWS Tools for PowerShell Core**
+Install the AWS Tools for PowerShell Core on a Windows-based computer
+---------------------------------------------------------------------
 
-The AWS Tools for PowerShell Core can be installed on computers that are running Microsoft PowerShell Core 6.0 or later. 
-AWS Tools for PowerShell Core is supported on the following operating systems.
+You can install the AWS Tools for PowerShell Core on computers that are running Microsoft PowerShell Core 6.0 or newer.
+AWS Tools for PowerShell Core is supported on the following Windows-based operating systems.
 
-* Ubuntu 14.04 LTS and later
+* Windows 8.1 Enterprise
+* Windows Server 2012 R2
+* Windows 10 for Business
+
+
+For more information about how to install PowerShell Core on computers that run Windows 8.1 or Windows 10, see `Package installation instructions (Windows) 
+<https://github.com/PowerShell/PowerShell/blob/master/docs/installation/windows.md>`_, also in the GitHub repository for PowerShell.
+
+After you install PowerShell Core, you can find the AWS Tools for PowerShell Core on 
+Microsoft's `PowerShell Gallery <https://www.powershellgallery.com/packages/AWSPowerShell.NetCore>`_ website.
+The simplest way to install the Tools for PowerShell Core is by running the :code:`Install-Module` cmdlet.
+
+.. code-block:: none
+
+    PS C:\> Install-Module -Name AWSPowerShell.NetCore -AllowClobber
+
+It is not necessary to run this command as Administrator, unless you want to install the AWS Tools for PowerShell Core for all users of a computer. To do this, run the following command in a PowerShell session that is running as Administrator:
+
+.. code-block:: none
+
+    PS C:\> Install-Module -Scope CurrentUser -Name AWSPowerShell.NetCore -Force
+
+To install both AWSPowerShell and AWSPowerShell.NetCore on a Windows-based computer, add :code:`-AllowClobber` to the second installation command, because the modules have cmdlets with the same names. 
+
+For more information about the release of AWS Tools for PowerShell Core, see the AWS blog post, `Introducing AWS Tools for PowerShell Core Edition <https://blogs.aws.amazon.com/net/post/TxTUNCCDVSG05F/Introducing-AWS-Tools-for-PowerShell-Core-Edition>`_.
+
+Download and install the AWS Tools for PowerShell Core on Linux, macOS X, and other non-Windows systems
+=======================================================================================================
+
+You can install the AWS Tools for PowerShell Core on computers that are running Microsoft PowerShell Core 6.0 or newer.
+Microsoft PowerShell Core 6.0 is supported on the following non-Windows-based operating systems.
+
+* Ubuntu 14.04 LTS and newer
 * CentOS Linux 7
 * Arch Linux
 * Debian 8
 * Red Hat Enterprise Linux 7
 * macOS 10.12
 * Kali
-* Windows 8.1 Enterprise
-* Windows Server 2012 R2
-* Windows 10 for Business
 
 For more information about how to install PowerShell Core on computers that do not run Windows, see 
 `Package installation instructions (Linux) <https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md>`_ in the GitHub repository for the Microsoft PowerShell project. 
-For more information about how to install PowerShell Core on computers that run Windows 8.1 or Windows 10, see `Package installation instructions (Windows) 
-<https://github.com/PowerShell/PowerShell/blob/master/docs/installation/windows.md>`_, also in the GitHub repository for PowerShell.
 
-After you have PowerShell Core installed, you can find the AWS Tools for PowerShell Core on 
+After you install PowerShell Core, you can find the AWS Tools for PowerShell Core on 
 Microsoft's `PowerShell Gallery <https://www.powershellgallery.com/packages/AWSPowerShell.NetCore>`_ website.
-The simplest way to install the Tools for PowerShell Core is by running the :code:`Install-Package` cmdlet.
+The simplest way to install the Tools for PowerShell Core is by running the :code:`Install-Module` cmdlet.
 
 .. code-block:: none
 
-    PS C:\> Install-Package -Name AWSPowerShell.NetCore -AllowClobber
+    PS C:\> Install-Module -Name AWSPowerShell.NetCore -AllowClobber
 
-You must run PowerShell as an Adminstrator to run the cmdlet.  If you are installing both AWSPowerShell and AWSPowerShell.NetCore, add -AllowClobber to the second installation, because the modules have cmdlets with the same names. 
+It is not necessary to run this command as Administrator, unless you want to install the AWS Tools for PowerShell Core for all users of a computer. To do this, run the following command in a PowerShell session that is running as Administrator:
 
-Some users have reported issues with the Install-Module cmdlet included with older releases of PowerShell Core, including errors 
+.. code-block:: none
+
+    PS C:\> Install-Module -Scope CurrentUser -Name AWSPowerShell.NetCore -Force
+
+For more information about the release of AWS Tools for PowerShell Core, see the AWS blog post, `Introducing AWS Tools for PowerShell Core Edition <https://blogs.aws.amazon.com/net/post/TxTUNCCDVSG05F/Introducing-AWS-Tools-for-PowerShell-Core-Edition>`_.
+
+Installation Troubleshooting Tips
+=================================
+
+Some users have reported issues with the Install-Module cmdlet that is included with older releases of PowerShell Core, including errors 
 related to semantic versioning (see https://github.com/OneGet/oneget/issues/202). Using the NuGet provider appears to 
 resolve the issue. Newer versions of PowerShell Core have resolved this issue.
 
@@ -112,7 +151,6 @@ To install AWS Tools for PowerShell Core by using NuGet, run the following comma
     https://www.powershellgallery.com/api/v2/ -ProviderName NuGet -ExcludeVersion
     -Destination <path to destination folder>
 
-For more information about the release of AWS Tools for PowerShell Core, see the AWS blog post, `Introducing AWS Tools for PowerShell Core Edition <https://blogs.aws.amazon.com/net/post/TxTUNCCDVSG05F/Introducing-AWS-Tools-for-PowerShell-Core-Edition>`_.
 
 .. _enable-script-execution:
 
@@ -121,39 +159,39 @@ Enable Script Execution
 
 To load the |TWPlong| module, enable PowerShell script execution if you have not already done so. To
 enable script execution, run the :code:`Set-ExecutionPolicy` cmdlet to set a policy of
-:code:`RemoteSigned`. By default, PowerShell uses a policy of :code:`Restricted`. For more
-information about execution policies, see `Microsoft's TechNet documentation
-<http://technet.microsoft.com/en-us/library/ee176961.aspx>`_.
+:code:`RemoteSigned`. By default, PowerShell script execution policy is set to :code:`Restricted`. For more
+information about execution policies, see `About Execution Policies
+<https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-5.1>`_ on the Microsoft Technet website.
 
 **To enable script execution**
 
 1. Administrator rights are required to set the execution policy. If you are not logged on as a user
-   with administrator rights, open a PowerShell session as Administrator: Click :guilabel:`Start`
-   and then click :guilabel:`All Programs`; click :guilabel:`Accessories`, and then click
-   :guilabel:`Windows PowerShell`; now right-click :guilabel:`Windows PowerShell`, and then choose
+   with administrator rights, open a PowerShell session as Administrator by doing the following: Click :guilabel:`Start`
+   and then click :guilabel:`All Programs`. Click :guilabel:`Accessories`, and then click
+   :guilabel:`Windows PowerShell`. Right-click :guilabel:`Windows PowerShell`, and then choose
    :guilabel:`Run as administrator` from the context menu.
 
 2. At the command prompt, type: :code:`Set-ExecutionPolicy RemoteSigned`
 
-.. note:: On a 64-bit system, you must also perform these steps for the 32-bit version of PowerShell,
+.. note:: On a 64-bit system, you must also do this for the 32-bit version of PowerShell,
    **Windows PowerShell (x86)**.
 
-If you do not have the execution policy set correctly, PowerShell generates the following message.
+If you do not have the execution policy set correctly, PowerShell shows the following error.
 
 .. code-block:: none
 
-    File C:\Users\teslan\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1 cannot be loaded because the execution
+    File C:\Users\username\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1 cannot be loaded because the execution
      of scripts is disabled on this system. Please see "get-help about_signing" for more details.
     At line:1 char:2
-    + . <<<<  'C:\Users\teslan\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1'
+    + . <<<<  'C:\Users\username\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1'
         + CategoryInfo          : NotSpecified: (:) [], PSSecurityException
         + FullyQualifiedErrorId : RuntimeException
 
-The installer for the |TWP| updates the `PSModulePath
+The |TWP| installer updates the `PSModulePath
 <http://msdn.microsoft.com/en-us/library/windows/desktop/dd878326.aspx>`_ to include the location of
-the directory that contains the AWSPowerShell module. As a result, if you are running PowerShell
-3.0, the AWSPowerShell module is loaded automatically whenever you run one of the AWS cmdlets. This
-lets you use the AWS cmdlets interactively, even if the execution policy on your system is set to
+the directory that contains the AWSPowerShell module. If you are running PowerShell
+3.0 or newer, the AWSPowerShell module is loaded automatically whenever you run one of the AWS cmdlets. This
+lets you use the AWS cmdlets even if the execution policy on your system is set to
 disallow script execution.
 
 Because the :code:`PSModulePath` includes the location of the AWS module's directory, the
@@ -177,22 +215,22 @@ Because the :code:`PSModulePath` includes the location of the AWS module's direc
 Configure a PowerShell Console to Use the |TWPlong|
 ===================================================
 
-The installer creates a :guilabel:`Start Menu` group called, :guilabel:`Amazon Web Services`, which
-contains a shortcut called :guilabel:`Windows PowerShell for AWS`. For PowerShell 2.0, this shortcut
-automatically imports the AWSPowerShell module and then runs the :code:`Initialize-AWSDefaultConfiguration`
-cmdlet. For PowerShell 3.0, the AWSPowerShell module is loaded automatically whenever you run an AWS
-cmdlet. So, for PowerShell 3.0, the shortcut created by the installer only runs the
+The installer creates a :guilabel:`Start Menu` group called :guilabel:`Amazon Web Services`, which
+contains a shortcut called :guilabel:`Windows PowerShell for AWS`. In PowerShell 2.0, this shortcut
+automatically imports the AWSPowerShell module and runs the :code:`Initialize-AWSDefaultConfiguration`
+cmdlet for you. Because PowerShell 3.0 and newer automatically load the AWSPowerShell module whenever you run an AWS
+cmdlet, in PowerShell 3.0 and newer, the shortcut created by the AWS Tools for PowerShell installer runs only the
 :code:`Initialize-AWSDefaultConfiguration` cmdlet. For more information about :code:`Initialize-AWSDefaultConfiguration`,
-see :ref:`specifying-your-aws-credentials`. In earlier (pre-v3.3.96.0) versions of the modules this cmdlet was named
+see :ref:`specifying-your-aws-credentials`. In older (before 3.3.96.0) releases of the |TWP|, this cmdlet was named
 :code:`Initialize-AWSDefaults`.
 
-The installer also creates an additional shortcut called :guilabel:`AWS Tools for Windows`, which
+The installer creates another shortcut titled :guilabel:`AWS Tools for Windows`, which
 opens a visual display of AWS resources for Windows developers.
 
-If you run PowerShell 3.0, or if you only use the shortcut installed by the installer, you do not
-need to configure a PowerShell window to use the |TWPlong|. However, if, for example, you use
+If you run PowerShell 3.0 or newer, or if you only use the custom-console shortcut that is installed by the installer, there is no 
+need to configure a PowerShell window to use the |TWPlong|. But if you run 
 PowerShell 2.0 with a specially-configured PowerShell console, and you want to add support for the
-tools, you must load the AWS module yourself.
+AWS Tools for PowerShell, you must load the AWS module manually by running :code:`Import-Module` as described in the following sections.
 
 .. _pstools-installing-integration:
 
@@ -201,13 +239,13 @@ How to Load the |TWPlong| Module (PowerShell 2.0)
 
 **To load the Powershell Tools module into your current session**
 
-1. Open a PowerShell prompt and type the following command:
+1. Open a PowerShell session, type the following command, and press Enter.
 
     .. code-block:: none
 
         PS C:\> Import-Module "C:\Program Files (x86)\AWS Tools\PowerShell\AWSPowerShell\AWSPowerShell.psd1"
 
-    .. note:: In PowerShell 4.0 and later releases, Import-Module also searches the Program Files folder for
+    .. note:: In PowerShell 4.0 and later, Import-Module also searches the Program Files folder for
        installed modules, so it is not necessary to provide the full path to the module. You can
        run the following command to import the AWSPowerShell module. In PowerShell 3.0 and later,
        running a cmdlet in the module also automatically imports a module into your session.
@@ -222,7 +260,7 @@ How to Load the |TWPlong| Module (PowerShell 2.0)
 
       PS C:\> Get-Module
 
-   If you see an entry in the list named **AWSPowerShell**, then the |TWP| module was loaded
+   Look for an entry in the list named **AWSPowerShell** to verify that the |TWP| module was loaded
    successfully.
 
     .. code-block:: none
@@ -240,9 +278,9 @@ Load |TWPlong| Module into Every Session (PowerShell 2.0)
 
 To load the AWSPowerShell module automatically every time you start a PowerShell session, add it to
 your PowerShell profile. Note, however, that adding commands to your PowerShell profile can slow
-down the speed at which a PowerShell session starts.
+the startup of your PowerShell session.
 
-The PowerShell :code:`$profile` variable contains the full path to the text file that contains your
+The PowerShell :code:`$profile` variable stores the full path to the text file containing your
 PowerShell profile. This variable is available only in a PowerShell session; it is not a Windows
 environment variable. To view the value of this variable, run :code:`echo`.
 
@@ -256,7 +294,7 @@ You can edit this file with any text editor, such as notepad.exe.
 
    notepad $profile
 
-You might need to create both the profile directory and the profile itself if they do not already
+You might need to create both the profile directory and the profile itself, if they do not already
 exist.
 
 
@@ -266,8 +304,8 @@ exist.
 Versioning
 ==========
 
-New versions of the |TWP| release periodically to support new AWS services and features. To see what
-version of the |TWP| you have installed, run the `Get-AWSPowerShellVersion
+|AWS| releases new versions of the AWS Tools for PowerShell and AWS Tools for PowerShell Core periodically to support new AWS services and features. To determine 
+the version of the Tools that you have installed, run the `Get-AWSPowerShellVersion
 <http://docs.aws.amazon.com/powershell/latest/reference/Index.html>`_ cmdlet:
 
 .. code-block:: none
@@ -288,8 +326,8 @@ version of the |TWP| you have installed, run the `Get-AWSPowerShellVersion
     - Logging from log4net, Apache License
     [http://logging.apache.org/log4net/license.html]
 
-You can also specify the :code:`-ListServiceVersionInfo` parameter of `Get-AWSPowerShellVersion
-<http://docs.aws.amazon.com/powershell/latest/reference/Index.html>`_ to see a list of which AWS
+You can also add the :code:`-ListServiceVersionInfo` parameter to a `Get-AWSPowerShellVersion
+<http://docs.aws.amazon.com/powershell/latest/reference/Index.html>`_ command to see a list of which AWS
 services are supported in the current version of the tools.
 
 .. code-block:: none
@@ -430,13 +468,13 @@ the contents of the $PSVersionTable `automatic variable
 Updating the |TWPlong| and AWS Tools for PowerShell Core
 ========================================================
 
-Periodically, as updated versions of the |TWP| or Tools for PowerShell Core are released, you'll want 
-to update the version that you are running locally. Run the :code:`Get-AWSPowerShellVersion` cmdlet to 
+Periodically, as updated versions of the |TWP| or Tools for PowerShell Core are released, you should update the version that you are running locally. Run the :code:`Get-AWSPowerShellVersion` cmdlet to 
 determine the version that you are running, and compare that with the version of |TWP| that is available at `AWS Tools for Windows PowerShell
-<https://aws.amazon.com/powershell/>`_ or `PowerShell Gallery <https://www.powershellgallery.com/packages/AWSPowerShell>`_. 
+<https://aws.amazon.com/powershell/>`_ or on the `PowerShell Gallery <https://www.powershellgallery.com/packages/AWSPowerShell>`_ website. 
 A suggested time period for checking for an updated AWS Tools for PowerShell package is every two to three weeks. 
 
-**Update the Tools for Windows PowerShell**
+Update the Tools for Windows PowerShell (Windows-based systems only)
+--------------------------------------------------------------------
 
 Update your installed |TWP| by downloading the most recent version of the MSI package from `AWS Tools for Windows PowerShell
 <https://aws.amazon.com/powershell/>`_ and comparing the package version number in the MSI file name with the version
@@ -449,25 +487,26 @@ Panel | Programs and Features | Uninstall a program` dialog box, and then clicki
 
 Install the newer version of the |TWP| by running the MSI package you downloaded.
 
-**Update the Tools for PowerShell Core**
+Update the Tools for PowerShell Core (All systems)
+--------------------------------------------------
 
-Before you install a newer release of the AWS Tools for PowerShell Core, uninstall the existing package. Close any open 
+Before you install a newer release of the AWS Tools for PowerShell Core, uninstall the existing module. Close any open 
 PowerShell or AWS Tools for PowerShell sessions before you uninstall the existing Tools for PowerShell Core package. Run the following command 
 to uninstall the package.
 
 .. code-block:: none
 
-    PS C:\> Uninstall-Package -Name AWSPowerShell.NetCore -AllVersions
+    PS> Uninstall-Module -Name AWSPowerShell.NetCore -AllVersions
 
-When uninstallation is finished, install the updated package by running the following command. By default, 
-this command installs the latest version of the AWS Tools for PowerShell Core. This package is available on the 
+When uninstallation is finished, install the updated module by running the following command. By default, 
+this command installs the latest version of the AWS Tools for PowerShell Core. This module is available on the 
 `PowerShell Gallery <https://www.powershellgallery.com/packages/AWSPowerShell.NetCore>`_, 
-but the easiest method of installation is to run :code:`Install-Package`.
+but the easiest method of installation is to run :code:`Install-Module`.
 
 .. code-block:: none
 
-    PS C:\> Install-Package -Name AWSPowerShell.NetCore -ProviderName NuGet
-    -Destination <path to destination folder>
+    PS C:\> Install-Module -Name AWSPowerShell.NetCore
+
 
 .. _pstools-seealso-setup:
 
