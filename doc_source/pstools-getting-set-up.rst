@@ -23,7 +23,7 @@ To use the |TWPlong|, your installed system must meet the following prerequisite
 
 * Microsoft Windows XP or later
 
-* Windows PowerShell 2.0 or later (PowerShell 5.1 or later for the Tools for PowerShell Core)
+* Windows PowerShell 2.0 or later (PowerShell Core 6.0 or later for the Tools for PowerShell Core)
 
 Windows 7 and Windows Server 2008 R2 come with Windows PowerShell 2.0 installed. Windows 8 and
 Windows Server 2012 come with Windows PowerShell 3.0 installed. For earlier releases of Windows,
@@ -33,7 +33,9 @@ PowerShell 2.0 by installing the Windows Management Framework.
 * `Windows Management Framework (Windows PowerShell 2.0, WinRM 2.0, and BITS 4.0)
   <http://support.microsoft.com/kb/968929>`_
 
-**Linux and macOS X**: To run the AWS Tools for PowerShell Core, your system must be running PowerShell 5.1 or newer. For more information, see "Install the AWS Tools for PowerShell Core" in this topic. For more information about how to install PowerShell 5.1 or newer on a Linux-based computer, see 
+**Linux and macOS X**: To run the AWS Tools for PowerShell Core, your system must be running PowerShell Core 6.0 or newer. 
+For more information, see "Install the AWS Tools for PowerShell Core" in this topic. For more information 
+about how to install PowerShell Core 6.0 or newer on a Linux-based computer, see 
 `PowerShell Package Installation Instructions <https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md>`_.
 
 .. _pstools-installing-download:
@@ -61,16 +63,16 @@ Users who are running PowerShell 5.0 or newer can also install and update the |T
     
 You must run PowerShell as an Adminstrator to run the command.
 
+If you are running PowerShell v3.0 and add the module install path to the value of the 
+:code:`PSModulePath` environment variable, it will be imported automatically when any 
+AWS Tools for PowerShell cmdlet or function is used in a command.
+
 All Windows Amazon Machine Images (AMIs) have the |TWPlong| pre-installed.
 
 **Install the AWS Tools for PowerShell Core**
 
-The AWS Tools for PowerShell Core can be installed on computers that are running Microsoft PowerShell 5.1 or a later
-release of PowerShell. AWS Tools for PowerShell Core is supported on the following operating systems.
-For more information about how to install PowerShell 5.1 on computers that do not run Windows, see 
-`Package installation instructions (Linux) <https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md>`_ in the GitHub repository for the Microsoft PowerShell project. 
-For more information about how to install PowerShell 5.1 on computers that run Windows 8.1 or Windows 10, see `Package installation instructions (Windows) 
-<https://github.com/PowerShell/PowerShell/blob/master/docs/installation/windows.md>`_, also in the GitHub repository for PowerShell.
+The AWS Tools for PowerShell Core can be installed on computers that are running Microsoft PowerShell Core 6.0 or later. 
+AWS Tools for PowerShell Core is supported on the following operating systems.
 
 * Ubuntu 14.04 LTS and later
 * CentOS Linux 7
@@ -83,7 +85,12 @@ For more information about how to install PowerShell 5.1 on computers that run W
 * Windows Server 2012 R2
 * Windows 10 for Business
 
-After you have PowerShell 5.1 installed, you can find the AWS Tools for PowerShell Core on 
+For more information about how to install PowerShell Core on computers that do not run Windows, see 
+`Package installation instructions (Linux) <https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md>`_ in the GitHub repository for the Microsoft PowerShell project. 
+For more information about how to install PowerShell Core on computers that run Windows 8.1 or Windows 10, see `Package installation instructions (Windows) 
+<https://github.com/PowerShell/PowerShell/blob/master/docs/installation/windows.md>`_, also in the GitHub repository for PowerShell.
+
+After you have PowerShell Core installed, you can find the AWS Tools for PowerShell Core on 
 Microsoft's `PowerShell Gallery <https://www.powershellgallery.com/packages/AWSPowerShell.NetCore>`_ website.
 The simplest way to install the Tools for PowerShell Core is by running the :code:`Install-Package` cmdlet.
 
