@@ -21,13 +21,4 @@ Prerequisites
 To use the |TWPlong| or the AWS Tools for PowerShell Core, you must have an AWS account. If you do not yet have an AWS account, see
 :ref:`pstools-appendix-sign-up` for instructions.
 
-In This Section
-===============
-
-* :ref:`pstools-getting-set-up-windows`
-
-* :ref:`pstools-getting-set-up-linux-mac`
-
-* :ref:`pstools-appendix-sign-up`
-
 

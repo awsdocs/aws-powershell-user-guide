@@ -12,8 +12,7 @@ Prerequisites
 To use the the AWS Tools for PowerShell Core, you must have an AWS account. If you do not yet have an AWS account, see
 :ref:`pstools-appendix-sign-up` for instructions.
 
-To run the AWS Tools for PowerShell Core, your system must be running PowerShell Core 6.0 or newer. 
-For more information, see "Install the AWS Tools for PowerShell Core" in this topic. For more information 
+To run the AWS Tools for PowerShell Core, your system must be running PowerShell Core 6.0 or newer. For more information 
 about how to install PowerShell Core 6.0 or newer on a Linux-based computer, see 
 `PowerShell Package Installation Instructions <https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md>`_.
 
@@ -36,7 +35,7 @@ For more information about how to install PowerShell Core on computers that do n
 
 After you install PowerShell Core, you can find the AWS Tools for PowerShell Core on 
 Microsoft's `PowerShell Gallery <https://www.powershellgallery.com/packages/AWSPowerShell.NetCore>`_ website.
-The simplest way to install the Tools for PowerShell Core is by running the :code:`Install-Module` cmdlet. First, start your PowerShell session by running :code:`pwsh` in a shell.
+The simplest way to install the AWS Tools for PowerShell Core is by running the :code:`Install-Module` cmdlet. First, start your PowerShell session by running :code:`pwsh` in a shell.
 
 .. note::
 
@@ -48,7 +47,7 @@ Next, run :code:`Install-Module` as shown in the following command.
 
     PS> Install-Module -Name AWSPowerShell.NetCore -AllowClobber
 
-It is not necessary to run this command as Administrator, unless you want to install the AWS Tools for PowerShell Core for all users of a computer. To do this, run the following command in a PowerShell session that is running as Administrator:
+It is not necessary to run this command as Administrator, unless you want to install the AWS Tools for PowerShell Core for all users of a computer. To do this, run the following command in a PowerShell session that you have started with :code:`sudo pwsh`:
 
 .. code-block:: none
 
@@ -63,7 +62,7 @@ Some users have reported issues with the Install-Module cmdlet that is included 
 related to semantic versioning (see https://github.com/OneGet/oneget/issues/202). Using the NuGet provider appears to 
 resolve the issue. Newer versions of PowerShell Core have resolved this issue.
 
-To install AWS Tools for PowerShell Core by using NuGet, run the following command. Specify an appropriate destination folder (on Linux, try -Destination ~/.local/share/powershell/Modules).
+To install AWS Tools for PowerShell Core by using NuGet, run the following command. Specify an appropriate destination folder (on Linux, try :code:`-Destination ~/.local/share/powershell/Modules`).
 
 .. code-block:: none
 
@@ -82,7 +81,7 @@ PowerShell Core running on non-Windows systems is :code:`Unrestricted`. For more
 information about execution policies, see `About Execution Policies <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-5.1>`_ on the Microsoft Technet website.
 
 
-The |TWP| installer updates the `PSModulePath
+The AWS Tools installer updates the `PSModulePath
 <http://msdn.microsoft.com/en-us/library/windows/desktop/dd878326.aspx>`_ to include the location of
 the directory that contains the AWSPowerShell module. 
 
@@ -107,8 +106,7 @@ Configure a PowerShell Console to Use the AWS Tools for PowerShell Core
 
 Because PowerShell 3.0 and newer automatically load the AWSPowerShell module whenever you run an AWS
 cmdlet, and AWSPowerShell.NetCore requires at least PowerShell 6.0, there is no need to configure PowerShell to use the AWS PowerShell Tools. 
-When you start PowerShell on a Linux-based system after you have installed the AWS Tools for PowerShell Core, run :code:`Initialize-AWSDefaultConfiguration`
-<https://docs.aws.amazon.com/powershell/latest/reference/items/Initialize-AWSDefaultConfiguration.html>`_ 
+When you start PowerShell on a Linux-based system after you have installed the AWS Tools for PowerShell Core, run `Initialize-AWSDefaultConfiguration <https://docs.aws.amazon.com/powershell/latest/reference/items/Initialize-AWSDefaultConfiguration.html>`_ 
 to specify your AWS access and secret keys. For more information about :code:`Initialize-AWSDefaultConfiguration`,
 see :ref:`specifying-your-aws-credentials`. In older (before 3.3.96.0) releases of the AWS Tools for PowerShell, this cmdlet was named
 :code:`Initialize-AWSDefaults`.
@@ -118,7 +116,7 @@ see :ref:`specifying-your-aws-credentials`. In older (before 3.3.96.0) releases 
 Versioning
 ==========
 
-|AWS| releases new versions of the AWS Tools for PowerShell and AWS Tools for PowerShell Core periodically to support new AWS services and features. To determine 
+AWS releases new versions of the AWS Tools for PowerShell and AWS Tools for PowerShell Core periodically to support new AWS services and features. To determine 
 the version of the Tools that you have installed, run the `Get-AWSPowerShellVersion
 <https://docs.aws.amazon.com/powershell/latest/reference/items/Get-AWSPowerShellVersion.html>`_ cmdlet:
 
@@ -147,7 +145,7 @@ services are supported in the current version of the tools.
 
 .. code-block:: none
 
-    PS C:\> Get-AWSPowerShellVersion -ListServiceVersionInfo
+    PS> Get-AWSPowerShellVersion -ListServiceVersionInfo
     
     AWS Tools for PowerShell Core
     Version 3.3.219.0
@@ -208,17 +206,18 @@ the contents of the $PSVersionTable `automatic variable
 .. code-block:: none
 
     PS> $PSVersionTable
-
+    
     Name                           Value
     ----                           -----
-    PSVersion                      5.0.10586.117
+    PSVersion                      6.0.0
+    PSEdition                      Core
+    GitCommitId                    v6.0.0
+    OS                             Linux 4.4.0-1047-aws #56-Ubuntu SMP Sat Jan 6 19:39:06 UTC 2018
+    Platform                       Unix
     PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0...}
-    BuildVersion                   10.0.10586.117
-    CLRVersion                     4.0.30319.34209
-    WSManStackVersion              3.0
     PSRemotingProtocolVersion      2.3
     SerializationVersion           1.1.0.1
-
+    WSManStackVersion              3.0
 
 
 Updating the |TWPlong| and AWS Tools for PowerShell Core
