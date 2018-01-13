@@ -4,7 +4,7 @@
 Setting up the AWS Tools for PowerShell on a Windows-based Computer
 ###################################################################
 
-.. _pstools-installing-prerequisites:
+.. _pstools-installing-windows-prerequisites:
 
 Prerequisites
 =============

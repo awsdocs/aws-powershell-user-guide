@@ -4,14 +4,7 @@
 Setting up the AWS Tools for PowerShell on Linux or macOS X
 ###########################################################
 
-.. toctree::
-   :titlesonly:
-   :caption: S3 Topics
-   :maxdepth: 1
-    
-   pstools-appendix-sign-up
-
-.. _pstools-installing-prerequisites:
+.. _pstools-installing-core-prerequisites:
 
 Prerequisites
 =============
