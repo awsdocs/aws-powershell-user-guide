@@ -1,23 +1,35 @@
 .. _pstools-getting-set-up-linux-mac:
 
-###########################################################
-Setting up the AWS Tools for PowerShell on Linux or macOS X
-###########################################################
+################################################################
+Setting up the AWS Tools for PowerShell Core on Linux or macOS X
+################################################################
 
 .. _pstools-installing-core-prerequisites:
+
+Overview of Setup
+=================
+
+A non-Windows-based computer can run only the AWS Tools for PowerShell Core (AWSPowerShell.NetCore). Setting up the AWS Tools for PowerShell Core involves the following tasks, described in this topic.
+
+#. Installing Microsoft PowerShell Core 6.0 or newer on a supported non-Windows system.
+#. After installing Microsoft PowerShell Core, starting PowerShell by running :code:`pwsh` in your system shell.
+#. Installing the AWS Tools for PowerShell Core.
+#. Running the Initialize-AWSDefaultConfiguration <https://docs.aws.amazon.com/powershell/latest/reference/items/Initialize-AWSDefaultConfiguration.html>`_ cmdlet to provide your AWS credentials.
 
 Prerequisites
 =============
 
+
+
 To use the the AWS Tools for PowerShell Core, you must have an AWS account. If you do not yet have an AWS account, see
 :ref:`pstools-appendix-sign-up` for instructions.
 
-To run the AWS Tools for PowerShell Core, your system must be running PowerShell Core 6.0 or newer. For more information 
+To run the AWS Tools for PowerShell Core, your system must be running Microsoft PowerShell Core 6.0 or newer. For more information 
 about how to install PowerShell Core 6.0 or newer on a Linux-based computer, see 
 `PowerShell Package Installation Instructions <https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md>`_.
 
-Download and Install the AWS Tools for PowerShell Core on Linux, macOS X, and Other non-Windows Systems
-=======================================================================================================
+Install the AWS Tools for PowerShell Core on Linux, macOS X, and Other Non-Windows Systems
+==========================================================================================
 
 You can install the AWS Tools for PowerShell Core on computers that are running Microsoft PowerShell Core 6.0 or newer.
 Microsoft PowerShell Core 6.0 is supported on the following non-Windows-based operating systems.

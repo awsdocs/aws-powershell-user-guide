@@ -9,8 +9,8 @@ Setting up the |TWPlong| or AWS Tools for PowerShell Core
    :caption: S3 Topics
    :maxdepth: 1
     
-   pstools-getting-set-up-windows
-   pstools-getting-set-up-linux-mac
+   Windows Setup <pstools-getting-set-up-windows>
+   Linux or macOS Setup <pstools-getting-set-up-linux-mac>
    pstools-appendix-sign-up
 
 .. _pstools-installing-prerequisites:

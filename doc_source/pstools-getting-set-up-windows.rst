@@ -6,8 +6,20 @@ Setting up the AWS Tools for PowerShell on a Windows-based Computer
 
 .. _pstools-installing-windows-prerequisites:
 
+Overview of Setup
+=================
+
+A Windows-based computer can run either the AWS Tools for PowerShell or the AWS Tools for PowerShell Core, depending on the release and edition of Windows that you are running. Setting up the AWS Tools for PowerShell or AWS Tools for PowerShell Core involves the following tasks, described in this topic.
+
+#. Installing Windows PowerShell 2.0 or newer (Microsoft PowerShell Core 6.0 or newer if you are installing the AWS Tools for PowerShell Core).
+#. After installing PowerShell, either downloading and running the |TWPlong| MSI installer, or starting PowerShell.
+#. If you did not run the MSI installer, running Install-Module in a PowerShell session to install the AWS Tools for PowerShell or PowerShell Core.
+#. Verifying that script execution is enabled by running the :code:`Get-ExecutionPolicy` cmdlet.
+#. If you are not running the custom AWS Tools for PowerShell console, or running Windows PowerShell 3.0 or newer, explicitly loading the AWS Tools for PowerShell module into your PowerShell session by running an :code:`Import-Module AWSPowerShell` command.
+
 Prerequisites
 =============
+
 
 To use the |TWPlong| or the AWS Tools for PowerShell Core, you must have an AWS account. If you do not yet have an AWS account, see
 :ref:`pstools-appendix-sign-up` for instructions.
@@ -29,8 +41,8 @@ PowerShell 2.0 by installing the Windows Management Framework.
 
 .. _pstools-installing-download:
 
-Download and Install the AWS Tools for PowerShell on a Windows-based Computer
-=============================================================================
+Install the AWS Tools for PowerShell on a Windows-based Computer
+================================================================
 
 The |TWPlong| is one of the optional components that you can install by running the AWS Tools for
 Windows installer :file:`.msi`. Download the installer by opening the following webpage, and then
