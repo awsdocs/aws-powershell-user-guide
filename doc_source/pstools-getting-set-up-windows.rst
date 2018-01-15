@@ -13,7 +13,7 @@ A Windows-based computer can run either the AWS Tools for PowerShell or the AWS 
 
 #. Installing Windows PowerShell 2.0 or newer (Microsoft PowerShell Core 6.0 or newer if you are installing the AWS Tools for PowerShell Core).
 #. After installing PowerShell, either downloading and running the |TWPlong| MSI installer, or starting PowerShell.
-#. If you did not run the MSI installer, running Install-Module in a PowerShell session to install the AWS Tools for PowerShell or PowerShell Core.
+#. If you did not run the MSI installer, running :code:`Install-Module` in a PowerShell session to install the AWS Tools for PowerShell or PowerShell Core.
 #. Verifying that script execution is enabled by running the :code:`Get-ExecutionPolicy` cmdlet.
 #. If you are not running the custom AWS Tools for PowerShell console, or running Windows PowerShell 3.0 or newer, explicitly loading the AWS Tools for PowerShell module into your PowerShell session by running an :code:`Import-Module AWSPowerShell` command.
 

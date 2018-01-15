@@ -15,7 +15,7 @@ The |TWPlong| and AWS Tools for PowerShell Core are flexible in how they enable 
 |IAMlong| (|IAM|) infrastructure; you can use the tools with |IAM| user credentials, temporary
 security tokens, and |IAM| roles.
 
-The |TWPlong| support the same set of services and regions as supported by the SDK.
+The |TWPlong| support the same set of services and regions that are supported by the SDK.
 
 
 How to Use this Guide

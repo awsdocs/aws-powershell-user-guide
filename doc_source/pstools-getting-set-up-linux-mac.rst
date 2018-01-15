@@ -14,7 +14,7 @@ A non-Windows-based computer can run only the AWS Tools for PowerShell Core (AWS
 #. Installing Microsoft PowerShell Core 6.0 or newer on a supported non-Windows system.
 #. After installing Microsoft PowerShell Core, starting PowerShell by running :code:`pwsh` in your system shell.
 #. Installing the AWS Tools for PowerShell Core.
-#. Running the Initialize-AWSDefaultConfiguration <https://docs.aws.amazon.com/powershell/latest/reference/items/Initialize-AWSDefaultConfiguration.html>`_ cmdlet to provide your AWS credentials.
+#. Running the `Initialize-AWSDefaultConfiguration <https://docs.aws.amazon.com/powershell/latest/reference/items/Initialize-AWSDefaultConfiguration.html>`_ cmdlet to provide your AWS credentials.
 
 Prerequisites
 =============
