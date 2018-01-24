@@ -37,12 +37,13 @@ Microsoft PowerShell Core 6.0 is supported on the following non-Windows-based op
 * Ubuntu 14.04 LTS and newer
 * CentOS Linux 7
 * Arch Linux
-* Debian 8
+* Debian 8.7 and newer
 * Red Hat Enterprise Linux 7
+* OpenSUSE 42.2
+* Fedora 25 and 26
 * macOS 10.12
-* Kali
 
-For more information about how to install PowerShell Core on computers that do not run Windows, see 
+Some Linux-based operating systems, such as Arch and Kali, are not officially supported, but have community support. For more information about how to install PowerShell Core on computers that do not run Windows, see 
 `Package installation instructions (Linux) <https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md>`_ in the GitHub repository for the Microsoft PowerShell project. 
 
 After you install PowerShell Core, you can find the AWS Tools for PowerShell Core on 

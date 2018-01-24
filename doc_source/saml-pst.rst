@@ -144,7 +144,7 @@ How to Run the :code:`Set-AWSSamlEndpoint` and :code:`Set-AWSSamlRoleProfile` Cm
 
   .. code-block:: none
 
-     PS C:\> $endpoint = "{https://adfs.example.com/adfs/ls/IdpInitiatedSignOn.aspx?loginToRp=urn:amazon:webservices}"
+     PS C:\> $endpoint = "https://adfs.example.com/adfs/ls/IdpInitiatedSignOn.aspx?loginToRp=urn:amazon:webservices"
 
 2. To create the endpoint settings, run the :code:`Set-AWSSamlEndpoint` cmdlet, specifying the correct
    value for the :code:`AuthenticationType` parameter. Valid values include :code:`Basic`,

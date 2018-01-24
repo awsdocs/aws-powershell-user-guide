@@ -9,7 +9,7 @@ Setting up the AWS Tools for PowerShell on a Windows-based Computer
 Overview of Setup
 =================
 
-A Windows-based computer can run either the AWS Tools for PowerShell or the AWS Tools for PowerShell Core, depending on the release and edition of Windows that you are running. Setting up the AWS Tools for PowerShell or AWS Tools for PowerShell Core involves the following tasks, described in this topic.
+A Windows-based computer can run the AWS Tools for PowerShell, the AWS Tools for PowerShell Core, or both, depending on the release and edition of Windows that you are running. Setting up the AWS Tools for PowerShell or AWS Tools for PowerShell Core involves the following tasks, described in this topic.
 
 #. Installing Windows PowerShell 2.0 or newer (Microsoft PowerShell Core 6.0 or newer if you are installing the AWS Tools for PowerShell Core).
 #. After installing PowerShell, either downloading and running the |TWPlong| MSI installer, or starting PowerShell.
