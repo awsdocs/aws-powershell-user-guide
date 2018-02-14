@@ -66,29 +66,30 @@ identifies which region is the default for your current session.
    
    Region         Name                      IsShellDefault
    ------         ----                      --------------
-    ap-northeast-1 Asia Pacific (Tokyo)      False
-    ap-northeast-2 Asia Pacific (Seoul)      False
-    ap-south-1     Asia Pacific (Mumbai)     False
-    ap-southeast-1 Asia Pacific (Singapore)  False
-    ap-southeast-2 Asia Pacific (Sydney)     False
-    ca-central-1   Canada (Central)          False
-    eu-central-1   EU Central (Frankfurt)    False
-    eu-west-1      EU West (Ireland)         False
-    eu-west-2      EU West (London)          False
-    sa-east-1      South America (Sao Paulo) False
-    us-east-1      US East (Virginia)        False
-    us-east-2      US East (Ohio)            False
-    us-west-1      US West (N. California)   False
-    us-west-2      US West (Oregon)          True
+   ap-northeast-1 Asia Pacific (Tokyo)      False
+   ap-northeast-2 Asia Pacific (Seoul)      False
+   ap-south-1     Asia Pacific (Mumbai)     False
+   ap-southeast-1 Asia Pacific (Singapore)  False
+   ap-southeast-2 Asia Pacific (Sydney)     False
+   ca-central-1   Canada (Central)          False
+   eu-central-1   EU Central (Frankfurt)    False
+   eu-west-1      EU West (Ireland)         False
+   eu-west-2      EU West (London)          False
+   eu-west-3      EU West (Paris)           False
+   sa-east-1      South America (Sao Paulo) False
+   us-east-1      US East (Virginia)        False
+   us-east-2      US East (Ohio)            False
+   us-west-1      US West (N. California)   False
+   us-west-2      US West (Oregon)          True
 
 .. note:: Some regions might be supported, but might not be returned in the results of the :code:`Get-AWSRegion` cmdlet. 
-An example is the |apnortheast3-name|. If you are not able to specify a region by adding the :code:`-Region` parameter, try specifying the region in a custom endpoint instead, as shown 
-in the next section.
+   An example is the Asia Pacific (Osaka) Region (ap-northeast-3). If you are not able to specify a region by adding the :code:`-Region` 
+   parameter, try specifying the region in a custom endpoint instead, as shown in the next section.
 
 Specifying a Custom or Nonstandard Endpoint
 ===========================================
 
-Specify a custom endpoint as a URL by adding the :code:`-EndpointUrl` common parameter to your |TWPALL| command, in the following sample format.
+Specify a custom endpoint as a URL by adding the :code:`-EndpointUrl` common parameter to your AWS Tools for PowerShell command, in the following sample format.
 
 
 .. code-block:: none
@@ -97,7 +98,7 @@ Specify a custom endpoint as a URL by adding the :code:`-EndpointUrl` common par
    
 
 
-The following is an example using the :code:`Get-EC2Instance` cmdlet. The custom endpoint is in the :code:`us-west-2`, or |uswest2-name| in this example, but you can use any other supported region, including regions that are not enumerated by :code:`Get-AWSRegion`.
+The following is an example using the :code:`Get-EC2Instance` cmdlet. The custom endpoint is in the :code:`us-west-2`, or |uswest2-name| in this example, but you can use any other supported AWS region, including regions that are not enumerated by :code:`Get-AWSRegion`.
 
 .. code-block:: none
 
