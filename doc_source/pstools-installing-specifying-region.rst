@@ -80,3 +80,29 @@ identifies which region is the default for your current session.
     us-east-2      US East (Ohio)            False
     us-west-1      US West (N. California)   False
     us-west-2      US West (Oregon)          True
+
+.. note:: Some regions might be supported, but might not be returned in the results of the :code:`Get-AWSRegion` cmdlet. 
+An example is the |apnortheast3-name|. If you are not able to specify a region by adding the :code:`-Region` parameter, try specifying the region in a custom endpoint instead, as shown 
+in the next section.
+
+Specifying a Custom or Nonstandard Endpoint
+===========================================
+
+Specify a custom endpoint as a URL by adding the :code:`-EndpointUrl` common parameter to your |TWPALL| command, in the following sample format.
+
+
+.. code-block:: none
+
+   PS C:\> AWS-PowerShellCmdlet -EndpointUrl "custom endpoint URL" -Other -Parameters
+   
+
+
+The following is an example using the :code:`Get-EC2Instance` cmdlet. The custom endpoint is in the :code:`us-west-2`, or |uswest2-name| in this example, but you can use any other supported region, including regions that are not enumerated by :code:`Get-AWSRegion`.
+
+.. code-block:: none
+
+   PS C:\> Get-EC2Instance -EndpointUrl "https://service-custom-url.us-west-2.amazonaws.com" -InstanceID "i-0555a30a2000000e1"
+   
+
+
+
