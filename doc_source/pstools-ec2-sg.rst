@@ -23,10 +23,10 @@ Prerequisites
 
 You need the public IP address of your computer, in CIDR notation. You can get the public IP address
 of your local computer using a service. For example, we provide the following service:
-`http://checkip.amazonaws.com/ <http://checkip.amazonaws.com/>`_. To locate another service that provides your IP
-address, use the search phrase "what is my IP address". If you are connecting through an ISP or from
-behind your firewall without a static IP address, you need to find the range of IP addresses used by
-client computers.
+`http://checkip.amazonaws.com/ <http://checkip.amazonaws.com/>`_ or `https://checkip.amazonaws.com/ <https://checkip.amazonaws.com/>`_. 
+To locate another service that provides your IP address, use the search phrase "what is my IP address". 
+If you are connecting through an ISP or from behind your firewall without a static IP address, 
+you need to find the range of IP addresses used by client computers.
 
 If you use :code:`0.0.0.0/0`, you enable all IP addresses to access your instance. For the SSH and
 RDP protocols, this is acceptable for a short time in a test environment, but it's unsafe for
