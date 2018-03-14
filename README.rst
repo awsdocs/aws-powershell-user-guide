@@ -12,7 +12,7 @@
 aws-powershell-user-guide
 #########################
 
-This repository contains source content for the official `AWS Tools for Windows Powershell User Guide`_.
+This repository contains source content for the official `AWS Tools for Powershell User Guide`_.
 
 The guide content is written in reStructuredText_ and built using Sphinx_. It relies upon content
 which is provided in the AWS documentation team's `shared content`_ repository.
@@ -81,7 +81,7 @@ repository.
 .. =================================================================================
 
 .. _`available sphinx builders`: http://www.sphinx-doc.org/en/stable/builders.html
-.. _`AWS Tools for Windows Powershell User Guide`: https://docs.aws.amazon.com/powershell/latest/userguide/pstools-welcome.html
+.. _`AWS Tools for Powershell User Guide`: https://docs.aws.amazon.com/powershell/latest/userguide/pstools-welcome.html
 .. _`forking the repository`: https://help.github.com/articles/fork-a-repo/
 .. _`pull request`: https://help.github.com/articles/using-pull-requests/
 .. _`shared content`: https://github.com/awsdocs/aws-doc-shared-content
