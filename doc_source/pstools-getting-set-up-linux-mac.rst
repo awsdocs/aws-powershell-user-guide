@@ -9,6 +9,10 @@ Setting up the AWS Tools for PowerShell Core on Linux or macOS X
 Overview of Setup
 =================
 
+.. note::
+
+    You can skip AWS Tools for PowerShell Core installation on Amazon Machine Images (AMI) of Amazon Linux 2 and Ubuntu operating systems. These AMIs are preconfigured with .NET Core 2.0, PowerShell Core 6.0, the AWS Tools for PowerShell Core, and the |CLI|.
+	
 A non-Windows-based computer can run only the AWS Tools for PowerShell Core (AWSPowerShell.NetCore). Setting up the AWS Tools for PowerShell Core involves the following tasks, described in this topic.
 
 #. Installing Microsoft PowerShell Core 6.0 or newer on a supported non-Windows system.
@@ -19,8 +23,6 @@ A non-Windows-based computer can run only the AWS Tools for PowerShell Core (AWS
 Prerequisites
 =============
 
-
-
 To use the the AWS Tools for PowerShell Core, you must have an AWS account. If you do not yet have an AWS account, see
 :ref:`pstools-appendix-sign-up` for instructions.
 
@@ -30,6 +32,8 @@ about how to install PowerShell Core 6.0 or newer on a Linux-based computer, see
 
 Install the AWS Tools for PowerShell Core on Linux, macOS X, and Other Non-Windows Systems
 ==========================================================================================
+
+To upgrade to a newer release of the AWS Tools for PowerShell Core, follow instructions in pstools-updating-core_. Uninstall older versions of PowerShell first.
 
 You can install the AWS Tools for PowerShell Core on computers that are running Microsoft PowerShell Core 6.0 or newer.
 Microsoft PowerShell Core 6.0 is supported on the following non-Windows-based operating systems.
@@ -233,6 +237,8 @@ the contents of the $PSVersionTable `automatic variable
     WSManStackVersion              3.0
 
 
+.. _pstools-updating-core:
+	
 Updating the |TWPlong| and AWS Tools for PowerShell Core
 ========================================================
 

@@ -28,12 +28,29 @@ To use the |TWPlong|, your system must meet the following prerequisites.
 
 * Microsoft Windows XP or later
 
-* Windows PowerShell 2.0 or later (PowerShell Core 6.0 or later for the Tools for PowerShell Core)
+* Windows PowerShell 2.0 or later (PowerShell Core 6.0 or later for the Tools for PowerShell Core).
 
-Windows 7 and Windows Server 2008 R2 come with Windows PowerShell 2.0 installed. Windows 8 and
-Windows Server 2012 come with Windows PowerShell 3.0 installed. For earlier releases of Windows,
-such as Windows XP, Windows Vista, Windows Server 2003, and Windows Server 2008, you can get
-PowerShell 2.0 by installing the Windows Management Framework.
+The following table shows the versions of PowerShell that are installed on Windows releases by default.
+
++----------------------------------------+------------------------------+
+| Windows Release                        | Included PowerShell Release  |
++========================================+==============================+
+| Windows 7 and Windows Server 2008 R2   | Windows PowerShell 2.0       |
++----------------------------------------+------------------------------+
+| Windows 8 and Windows Server 2012      | Windows PowerShell 3.0       |
++----------------------------------------+------------------------------+
+| Windows 8.1 and Windows Server 2012 R2 | Windows PowerShell 4.0       |
++----------------------------------------+------------------------------+
+| Windows 10 and Windows Server 2016     | Windows PowerShell 5.0       |
++----------------------------------------+------------------------------+
+| Windows 10 and Windows Server 2016     |                              |
+| January 2017 Anniversary Update        | Windows PowerShell 5.1       |
++----------------------------------------+------------------------------+
+
+Server Core installation options for the preceding server releases include PowerShell.
+The Nano Server installation option of Windows Server 2016 includes PowerShell Core.
+For earlier releases of Windows, such as Windows XP, Windows Vista, Windows Server 2003, and Windows Server 2008, 
+you can get PowerShell 2.0 by installing the Windows Management Framework.
 
 * `Windows Management Framework (Windows PowerShell 2.0, WinRM 2.0, and BITS 4.0)
   <http://support.microsoft.com/kb/968929>`_
@@ -43,6 +60,8 @@ PowerShell 2.0 by installing the Windows Management Framework.
 
 Install the AWS Tools for PowerShell on a Windows-based Computer
 ================================================================
+
+To upgrade to a newer release of the AWS Tools for PowerShell, follow instructions in pstools-updating_. Uninstall older versions of PowerShell first.
 
 The |TWPlong| is one of the optional components that you can install by running the AWS Tools for
 Windows installer :file:`.msi`. Download the installer by opening the following webpage, and then
@@ -74,7 +93,8 @@ AWS Tools for PowerShell Core is supported on the following Windows-based operat
 
 * Windows 8.1 Enterprise
 * Windows Server 2012 R2
-* Windows 10 for Business
+* Windows 10 for Business or Windows 10 Pro
+* Windows Server 2016
 
 
 For more information about how to install PowerShell Core on computers that run Windows 8.1 or Windows 10, see `Package installation instructions (Windows) 
@@ -426,6 +446,7 @@ the contents of the $PSVersionTable `automatic variable
     SerializationVersion           1.1.0.1
 
 
+.. _pstools-updating:
 
 Updating the |TWPlong| and AWS Tools for PowerShell Core
 ========================================================
@@ -446,6 +467,8 @@ If the download version is a higher number than the version you have installed, 
 consoles, then uninstall :guilabel:`AWS Tools for Windows` by selecting it in the :guilabel:`Control
 Panel | Programs and Features | Uninstall a program` dialog box, and then clicking
 :guilabel:`Uninstall`. Wait for uninstallation to finish.
+
+If you installed the existing version of the AWS Tools for PowerShell by running :code:`Install-Module`, you can uninstall the existing version by running :code:`Uninstall-Module`.
 
 Install the newer version of the |TWP| by running the MSI package you downloaded.
 
