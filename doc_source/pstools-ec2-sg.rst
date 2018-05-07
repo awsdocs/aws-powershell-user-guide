@@ -70,7 +70,7 @@ from a single IP address, :code:`203.0.113.25/32`.
 
 .. code-block:: none
 
-    PS C:\> $cidrBlocks = New-Object 'collections.generic.list[string]'
+  PS C:\> $cidrBlocks = New-Object 'collections.generic.list[string]'
 	$cidrBlocks.add("203.0.113.25/32")
 	$ipPermissions = New-Object Amazon.EC2.Model.IpPermission
 	$ipPermissions.IpProtocol = "tcp"
