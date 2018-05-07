@@ -11,7 +11,7 @@ Overview of Setup
 
 .. note::
 
-    You can skip AWS Tools for PowerShell Core installation on Amazon Machine Images (AMI) of Amazon Linux 2 and Ubuntu operating systems. These AMIs are preconfigured with .NET Core 2.0, PowerShell Core 6.0, the AWS Tools for PowerShell Core, and the |CLI|.
+    You can skip AWS Tools for PowerShell Core installation on the .NET Core with Ubuntu Server 16.04 and .NET Core with Amazon Linux 2 LTS Candidate Amazon Machine Images (AMIs). These AMIs are preconfigured with .NET Core 2.0, PowerShell Core 6.0, the AWS Tools for PowerShell Core, and the |CLI|.
 	
 A non-Windows-based computer can run only the AWS Tools for PowerShell Core (AWSPowerShell.NetCore). Setting up the AWS Tools for PowerShell Core involves the following tasks, described in this topic.
 
