@@ -65,22 +65,22 @@ cmdlet.
     Tags                : {}
 
 To configure the security group to allow inbound traffic on TCP port 22 (SSH) and TCP port 3389, use
-the :code:`Grant-EC2SecurityGroupIngress` cmdlet. For example, here's how you enable SSH traffic
+the :code:`Grant-EC2SecurityGroupIngress` cmdlet. For example, the following script shows how you enable SSH traffic
 from a single IP address, :code:`203.0.113.25/32`.
 
 .. code-block:: none
 
-    PS C:\> $cidrBlocks = New-Object 'collections.generic.list[string]' 
-    $cidrBlocks.add("203.0.113.25/32") 
-    $ipPermissions = New-Object Amazon.EC2.Model.IpPermission 
-    $ipPermissions.IpProtocol = "tcp" 
-    $ipPermissions.FromPort = 22 
-    $ipPermissions.ToPort = 22 
-    $ipPermissions.IpRanges = $cidrBlocks 
-    Grant-EC2SecurityGroupIngress -GroupName myPSSecurityGroup -IpPermissions $ipPermissions
+  PS C:\> $cidrBlocks = New-Object 'collections.generic.list[string]'
+	$cidrBlocks.add("203.0.113.25/32")
+	$ipPermissions = New-Object Amazon.EC2.Model.IpPermission
+	$ipPermissions.IpProtocol = "tcp"
+	$ipPermissions.FromPort = 22
+	$ipPermissions.ToPort = 22
+	$ipPermissions.IpRanges = $cidrBlocks
+	Grant-EC2SecurityGroupIngress -GroupName myPSSecurityGroup -IpPermissions $ipPermissions
 
-To verify the security group has been updated, use the :code:`Get-EC2SecurityGroup` cmdlet again.
-Note that you can't specify an outbound rule for EC2-Classic.
+To verify the security group has been updated, run the :code:`Get-EC2SecurityGroup` cmdlet again.
+You can't specify an outbound rule for EC2-Classic.
 
 .. code-block:: none
 
