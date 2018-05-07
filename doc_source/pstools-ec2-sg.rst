@@ -70,7 +70,14 @@ from a single IP address, :code:`203.0.113.25/32`.
 
 .. code-block:: none
 
-    PS C:\> $cidrBlocks = New-Object 'collections.generic.list[string]' $cidrBlocks.add("203.0.113.25/32") $ipPermissions = New-Object Amazon.EC2.Model.IpPermission $ipPermissions.IpProtocol = "tcp" $ipPermissions.FromPort = 22 $ipPermissions.ToPort = 22 $ipPermissions.IpRanges = $cidrBlocks Grant-EC2SecurityGroupIngress -GroupName myPSSecurityGroup -IpPermissions $ipPermissions
+    PS C:\> $cidrBlocks = New-Object 'collections.generic.list[string]' 
+    $cidrBlocks.add("203.0.113.25/32") 
+    $ipPermissions = New-Object Amazon.EC2.Model.IpPermission 
+    $ipPermissions.IpProtocol = "tcp" 
+    $ipPermissions.FromPort = 22 
+    $ipPermissions.ToPort = 22 
+    $ipPermissions.IpRanges = $cidrBlocks 
+    Grant-EC2SecurityGroupIngress -GroupName myPSSecurityGroup -IpPermissions $ipPermissions
 
 To verify the security group has been updated, use the :code:`Get-EC2SecurityGroup` cmdlet again.
 Note that you can't specify an outbound rule for EC2-Classic.
