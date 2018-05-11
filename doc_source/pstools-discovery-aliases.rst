@@ -184,7 +184,7 @@ to the supported AWS services.
     "SQS",  # Amazon Simple Queue Service
     "SSM",  # Amazon Simple Systems Management
     "STS",  # AWS Security Token Service
-    "WKS",  # Amazon WorkSpaces
+    "WKS"   # Amazon WorkSpaces
     
     foreach ($s in $services)
     {
