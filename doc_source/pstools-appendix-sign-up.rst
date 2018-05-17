@@ -6,6 +6,6 @@ AWS Account and Access Keys
 
 To access AWS, you will need to sign up for an AWS account.
 
-.. include:: common/procedure-get-access-keys.txt
+.. include:: common/aws-get-keys.txt
 
 
