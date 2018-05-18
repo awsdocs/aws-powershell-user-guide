@@ -256,7 +256,7 @@ How to Load the |TWPlong| Module (PowerShell 2.0)
 .. _pstools-installing-integration-profile:
 
 Load the |TWPlong| Module into Every Session (PowerShell 2.0)
----------------------------------------------------------
+-------------------------------------------------------------
 
 To load the AWSPowerShell module automatically every time you start a PowerShell session, add it to
 your PowerShell profile. Note, however, that adding commands to your PowerShell profile can slow
