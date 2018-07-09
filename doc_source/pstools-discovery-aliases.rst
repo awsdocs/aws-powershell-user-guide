@@ -130,9 +130,13 @@ To get a list of all of the cmdlets that are provided by the |TWP|, use the Powe
     PS C:\> Get-Command -Module AWSPowerShell
 
 The :code:`Get-Command` cmdlet generates this list in alphabetical order. Therefore, the list of
-cmdlets is sorted by PowerShell verb rather than PowerShell noun.
+cmdlets is sorted by PowerShell verb, rather than PowerShell noun.
 
+<<<<<<< HEAD
+To sort results by service instead, run the following command.
+=======
 If you would like to sort the results by service, you can run the following command instead:
+>>>>>>> 29355292ee0afb090013a4e552881ddd9217b379
 
 .. code-block:: none
 
