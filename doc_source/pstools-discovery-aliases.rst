@@ -132,64 +132,11 @@ To get a list of all of the cmdlets that are provided by the |TWP|, use the Powe
 The :code:`Get-Command` cmdlet generates this list in alphabetical order. Therefore, the list of
 cmdlets is sorted by PowerShell verb rather than PowerShell noun.
 
-The following script generates a list of the cmdlets sorted by the PowerShell nouns that correspond
-to the supported AWS services.
+If you would like to sort the results by service, you can run the following command instead:
 
 .. code-block:: none
 
-    $services =
-    "AS",   # Auto Scaling
-    "ASA",  # AWS Support API
-    "CC",   # AWS CodeCommit
-    "CD",   # AWS CodeDeploy
-    "CF",   # Amazon CloudFront
-    "CFG",  # Amazon Config
-    "CFN",  # AWS CloudFormation
-    "CGI",  # Amazon Cognito Identity
-    "CP",   # Amazon CodePipeline
-    "CS",   # Amazon CloudSearch
-    "CSD",  # Amazon CloudSearchDomain 
-    "CT",   # AWS CloudTrail
-    "CW",   # Amazon CloudWatch
-    "CWL",  # Amazon CloudWatch Logs
-    "DC",   # AWS Direct Connect
-    "DDB",  # Amazon DynamoDB
-    "DF",   # AWS Device Farm
-    "DP",   # AWS Data Pipeline
-    "DS",   # AWS Directory Service 
-    "EB",   # AWS Elastic Beanstalk
-    "EC",   # Amazon ElastiCache
-    "EC2",  # Amazon Elastic Compute Cloud
-    "ECS",  # Amazon EC2 Container Service
-    "EFS",  # Amazon Elastic File System
-    "ELB",  # Amazon Elastic Load Balancing 
-    "EMR",  # Amazon Elastic MapReduce
-    "ETS",  # Amazon Elastic Transcoder 
-    "HSM",  # AWS Cloud HSM
-    "IAM",  # AWS Identity and Access Management 
-    "IE",   # AWS Import/Export
-    "KIN",  # AWS Kinesis 
-    "KMS",  # AWS Key Management Service
-    "LM",   # Amazon Lambda
-    "ML",   # Amazon Machine Learning
-    "OPS",  # AWS OpsWorks
-    "R53",  # AWS Route 53
-    "R53D", # AWS Route 53 Domains
-    "RDS",  # Amazon Relational Database Service
-    "RS",   # Amazon Redshift
-    "S3",   # Amazon Simple Storage Service
-    "SES",  # Amazon Simple Email Service 
-    "SG",   # AWS Storage Gateway
-    "SNS",  # Amazon Simple Notification Service
-    "SQS",  # Amazon Simple Queue Service
-    "SSM",  # Amazon Simple Systems Management
-    "STS",  # AWS Security Token Service
-    "WKS"   # Amazon WorkSpaces
-    
-    foreach ($s in $services)
-    {
-      "-----"; Get-Command -Noun ${s}*
-    }
+    PS C:\> Get-Command -Module AWSPowerShell | Sort-Object Noun,Verb
 
 To filter the list of cmdlets that are returned by the :code:`Get-Command` cmdlet, run the
 PowerShell :code:`Select-String` cmdlet. For example, to view the set of AWS cmdlets that work with
