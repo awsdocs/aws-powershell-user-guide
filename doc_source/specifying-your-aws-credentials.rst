@@ -131,7 +131,7 @@ task.
 Default profile (recommended)
 -----------------------------
 
-All |AWS| SDKs and management tools can find your credentials automatically on your local computer if the credentials 
+All AWS SDKs and management tools can find your credentials automatically on your local computer if the credentials 
 are stored in a profile named :code:`default`. For example, if you have a profile named :code:`default` on a local computer, 
 there is no need to run either the :code:`Initialize-AWSDefaultConfiguration` or the :code:`Set-AWSCredential` cmdlets. 
 The tools automatically use your access and secret key data. To use a region other than your default region (the results of :code:`Get-DefaultAWSRegion`), 
