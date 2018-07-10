@@ -4,17 +4,17 @@
 Using AWS Credentials
 #####################
 
-Each |TWPALLlong| command must include a set of AWS credentials, which are used to cryptographically sign
+Each AWS Tools for PowerShell command must include a set of AWS credentials, which are used to cryptographically sign
 the corresponding web service request. You can specify credentials per-command, per-session, or for
 all sessions. As a best practice, to avoid exposing your credentials, do not put literal credentials
 in a command. Instead, create a profile for each set of credentials that you want to use, and store
 the profile in either of two credential stores. Specify the correct profile by name in your
-command, and the |TWPALL| retrieve the associated credentials. For a general discussion of how to
+command, and the Tools for PowerShell retrieve the associated credentials. For a general discussion of how to
 safely manage AWS credentials, see 
 :aws-gr:`Best Practices for Managing AWS Access Keys <aws-access-keys-best-practices>`.
 
 .. note:: If you do not yet have an AWS account, you will need one to get credentials 
-   and use the |TWPALL|. For information about how to sign up for an account, see 
+   and use the Tools for PowerShell. For information about how to sign up for an account, see 
    :ref:`pstools-appendix-sign-up`.
 
 
@@ -27,9 +27,9 @@ safely manage AWS credentials, see
 Credentials Store Locations
 ===========================
 
-The |TWPALL| can use either of two credentials stores.
+The Tools for PowerShell can use either of two credentials stores.
 
-* The AWS SDK store, which encrypts your credentials and stores them in your home folder. In Windows, this store is :code:`AppData\\Local\\AWSToolkit\\RegisteredAccounts.json`.
+* The AWS SDK store, which encrypts your credentials and stores them in your home folder. In Windows, this store is :file:`AppData\\Local\\AWSToolkit\\RegisteredAccounts.json`.
 
   The |sdk-net|_ and |TVS|_ can also use the AWS SDK store.
 
@@ -44,7 +44,7 @@ The |TWPALL| can use either of two credentials stores.
 Managing Profiles
 =================
 
-This section describes how to use the |TWPALL| to manage your profiles in the AWS SDK store. You can also
+This section describes how to use the Tools for PowerShell to manage your profiles in the AWS SDK store. You can also
 manage the AWS SDK store by using the :tvs-ug:`Toolkit for Visual Studio <tkv_setup>` or 
 programmatically by using the |sdk-net|_. For directions about how to manage profiles in the 
 credentials file, see :aws-gr:`Best Practices for Managing AWS Access Keys <aws-access-keys-best-practices>`.
@@ -111,7 +111,7 @@ Specifying Credentials
 ======================
 
 There are several ways to specify credentials. The preferred approach is to use a profile rather
-than incorporating literal credentials into your command line. The |TWPALL| locates the profile using a
+than incorporating literal credentials into your command line. The Tools for PowerShell locates the profile using a
 search order that is described in :ref:`pstools-cred-provider-chain`. This section describes the
 most common ways to specify a profile.
 
@@ -125,7 +125,7 @@ that user, and then log off and log on again by using your own credentials to se
 task.
 
 .. note:: Use the :code:`-ProfileName` common parameter to specify a profile. This parameter is equivalent to the
-   :code:`-StoredCredentials` parameter in earlier |TWPALL| releases. For backward compatibility,
+   :code:`-StoredCredentials` parameter in earlier Tools for PowerShell releases. For backward compatibility,
    :code:`-StoredCredentials` is still supported.
 
 Default profile (recommended)
@@ -190,7 +190,7 @@ profile overrides any default or session profiles. For example:
        PS C:\> Initialize-AWSDefaultConfiguration -ProfileName MyProfileName -Region us-west-2
 
 By default, the credentials file is assumed to be in the user's home folder
-(:file:`C:\\Users\\username\\.aws` on Windows, or :file:`~//.aws` on Linux). To specify a credentials file in another location, include a
+(:file:`C:\\Users\\username\\.aws` on Windows, or :file:`~/.aws` on Linux). To specify a credentials file in another location, include a
 :code:`-ProfileLocation` parameter, set to the credentials file path. The following example
 specifies a non-default credentials file for a specific command.
 
@@ -202,7 +202,7 @@ specifies a non-default credentials file for a specific command.
    AWS |mdash| for example, you are running a PowerShell script as a scheduled task outside of your
    normal work hours |mdash| add the :code:`-ProfileLocation` parameter when you specify the
    profile that you want to use, and set the value to the path of the file that stores your
-   credentials. To be certain that your |TWPALL| script runs with the correct account credentials, you
+   credentials. To be certain that your Tools for PowerShell script runs with the correct account credentials, you
    should add the :code:`-ProfileLocation` parameter whenever your script runs in a context or
    process that does not use an AWS account. You can also copy your credentials file to a location
    that is accessible to the local system or other account that your scripts use to perform tasks.
@@ -213,7 +213,7 @@ specifies a non-default credentials file for a specific command.
 Credentials Search Order
 ========================
 
-When you run a command, the |TWPALL| search for credentials in the following order, and uses the first
+When you run a command, the Tools for PowerShell search for credentials in the following order, and uses the first
 available set.
 
 1. Use literal credentials that are embedded in the command line.
@@ -255,7 +255,7 @@ If this search fails to locate the specified credentials, the command throws an 
 Credential Handling in AWS Tools for PowerShell Core
 ====================================================
 
-Cmdlets in |TPClong| accept AWS access and secret keys or the names of credential profiles when they run, similarly to the |TWPALLlong|. When they run on Windows, both modules have access to the AWS SDK for .NET credential store file (stored in the per-user :code:`AppData\Local\AWSToolkit\RegisteredAccounts.json` file). This file stores your keys in encrypted format, and cannot be used on a different computer. It is the first file that the |TWPALL| searches for a credential profile, and is also the file where the |TWPALLlong| stores credential profiles. For more information about the AWS SDK for .NET credential store file, see `Configuring AWS Credentials <http://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/net-dg-config-creds.html>`_. The |TWPALL| module does not currently support writing credentials to other files or locations. 
+Cmdlets in AWS Tools for PowerShell Core accept AWS access and secret keys or the names of credential profiles when they run, similarly to the AWS Tools for PowerShell. When they run on Windows, both modules have access to the AWS SDK for .NET credential store file (stored in the per-user :code:`AppData\Local\AWSToolkit\RegisteredAccounts.json` file). This file stores your keys in encrypted format, and cannot be used on a different computer. It is the first file that the Tools for PowerShell searches for a credential profile, and is also the file where the AWS Tools for PowerShell stores credential profiles. For more information about the AWS SDK for .NET credential store file, see `Configuring AWS Credentials <http://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/net-dg-config-creds.html>`_. The Tools for PowerShell module does not currently support writing credentials to other files or locations. 
 
 Both modules can read profiles from the :code:`ini`-format shared credentials file that is used by other AWS SDKs and the AWS CLI. On Windows, the default location for this file is :code:`C:\Users\<userid>\.aws\credentials`. On non-Windows platforms, this file is stored at :code:`~/.aws/credentials`. The :code:`-ProfileLocation` parameter can be used to point to a non-default file name or file location.
 
