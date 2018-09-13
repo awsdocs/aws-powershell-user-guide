@@ -37,7 +37,7 @@ You must have the following in place before you try to use SAML support for the 
   by using only your organizational credentials. For more information about how to do this 
   specifically for Active Directory Federation Services, see the blog post, :aws-blogs:`Enabling Federation
   to AWS Using Windows Active Directory, AD FS, and SAML 2.0
-  <security/post/Tx71TWXXJ3UI14/Enabling-Federation-to-AWS-using-Windows-Active-Directory-ADFS-and-SAML-2-0>`. 
+  <blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/>`. 
   Although the blog post covers AD FS 2.0, the steps are similar if you are running AD FS 3.0.
 
 * Version 3.1.31.0 or newer of the |TWP|_ installed on your local workstation.
@@ -322,7 +322,7 @@ Additional Reading
 
 For general information about how to implement federated API access, see :aws-blogs:`How to Implement a General
 Solution for Federated API/CLI Access Using SAML 2.0 
-<security/post/TxU0AVUS9J00FP/How-to-Implement-a-General-Solution-for-Federated-API-CLI-Access-Using-SAML-2-0>`.
+<blogs/security/how-to-implement-a-general-solution-for-federated-apicli-access-using-saml-2-0/>`.
 
 For questions or comments, be sure to visit the AWS Developer Forums for 
 :forum:`PowerShell Scripting <149>` or :forum:`.NET Development <61>`.

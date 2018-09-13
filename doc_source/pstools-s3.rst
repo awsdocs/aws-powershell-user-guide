@@ -18,7 +18,7 @@
 
 In this section, we create a static website using the |TWPlong| using |S3| and |CF|. In the process, we
 demonstrate a number of common tasks with these services. This walkthrough is modeled after the
-Getting Started Guide for :gsg-aws:`AWS Static Website Hosting <website-hosting-intro>`. which 
+Getting Started Guide for `Host a Static Website <https://aws.amazon.com/getting-started/projects/host-static-website/>`, which 
 describes a similar process using the :console:`AWS Management Console <s3>`.
 
 The commands shown here assume that you have set default credentials and a default region for your

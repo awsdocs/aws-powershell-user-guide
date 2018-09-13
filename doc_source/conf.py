@@ -370,7 +370,7 @@ if 'extlinks' not in vars():
     extlinks = {}
 
 aws_docs_url = 'http://docs.aws.amazon.com/'
-aws_blogs = 'http://blogs.aws.amazon.com/'
+aws_blogs = 'http://aws.amazon.com/'
 
 extlinks['iam-ug-deep'] = (aws_docs_url + 'IAM/latest/UserGuide/%s', '')
 extlinks['s3-dg-deep'] = (aws_docs_url + 'AmazonS3/latest/dev/%s', '')

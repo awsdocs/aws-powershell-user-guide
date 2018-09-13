@@ -28,10 +28,11 @@ To use the the AWS Tools for PowerShell Core, you must have an AWS account. If y
 
 To run the AWS Tools for PowerShell Core, your system must be running Microsoft PowerShell Core 6.0 or newer. For more information 
 about how to install PowerShell Core 6.0 or newer on a Linux-based computer, see 
-`PowerShell Package Installation Instructions <https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md>`_.
+`Installing PowerShell Core on Linux <https://docs.microsoft.com/en-us/powershell/scripting/setup/installing-powershell-core-on-linux?view=powershell-6>`_. 
+For information about how to install PowerShell Core 6.0 on macOS 10.12 or higher, see `Installing PowerShell Core on macOS <https://docs.microsoft.com/en-us/powershell/scripting/setup/installing-powershell-core-on-macos?view=powershell-6>`_.
 
-Install the AWS Tools for PowerShell Core on Linux, macOS X, and Other Non-Windows Systems
-==========================================================================================
+Install the |TPClong| on Linux, macOS X, and Other Non-Windows Systems
+======================================================================
 
 To upgrade to a newer release of the AWS Tools for PowerShell Core, follow instructions in pstools-updating-core_. Uninstall older versions of PowerShell first.
 
@@ -43,12 +44,13 @@ Microsoft PowerShell Core 6.0 is supported on the following non-Windows-based op
 * Arch Linux
 * Debian 8.7 and newer
 * Red Hat Enterprise Linux 7
-* OpenSUSE 42.2
+* OpenSUSE 42.3
 * Fedora 25 and 26
+* Snap
+* Raspbian Stretch
 * macOS 10.12
 
-Some Linux-based operating systems, such as Arch and Kali, are not officially supported, but have community support. For more information about how to install PowerShell Core on computers that do not run Windows, see 
-`Package installation instructions (Linux) <https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md>`_ in the GitHub repository for the Microsoft PowerShell project. 
+Some Linux-based operating systems, such as Arch, Kali, and Raspbian, are not officially supported, but have community support. 
 
 After you install PowerShell Core, you can find the AWS Tools for PowerShell Core on 
 Microsoft's `PowerShell Gallery <https://www.powershellgallery.com/packages/AWSPowerShell.NetCore>`_ website.
@@ -118,8 +120,8 @@ Because the :code:`PSModulePath` includes the location of the AWS module's direc
 
 .. _pstools-config-ps-window:
 
-Configure a PowerShell Console to Use the AWS Tools for PowerShell Core
-=======================================================================
+Configure a PowerShell Console to Use the |TPClong|
+===================================================
 
 Because PowerShell 3.0 and newer automatically load the AWSPowerShell module whenever you run an AWS
 cmdlet, and AWSPowerShell.NetCore requires at least PowerShell 6.0, there is no need to configure PowerShell to use the AWS PowerShell Tools. 
@@ -186,34 +188,6 @@ services are supported in the current version of the tools.
     AWS Batch                             BAT         2016-08-10
     AWS Budgets                           BGT         2016-10-20
     AWS Certificate Manager               ACM         2015-12-08
-    AWS Cloud Directory                   CDIR        2016-05-10
-    AWS Cloud HSM                         HSM         2014-05-30
-    AWS Cloud HSM V2                      HSM2        2017-04-28
-    AWS Cloud9                            C9          2017-09-23
-    AWS CloudFormation                    CFN         2010-05-15
-    AWS CloudTrail                        CT          2013-11-01
-    AWS CodeBuild                         CB          2016-10-06
-    AWS CodeCommit                        CC          2015-04-13
-    AWS CodeDeploy                        CD          2014-10-06
-    AWS CodePipeline                      CP          2015-07-09
-    AWS CodeStar                          CST         2017-04-19
-    AWS Config                            CFG         2014-11-12
-    AWS Cost Explorer                     CE          2017-10-25
-    AWS Cost and Usage Report             CUR         2017-01-06
-    AWS Data Pipeline                     DP          2012-10-29
-    AWS Database Migration Service        DMS         2016-01-01
-    AWS Device Farm                       DF          2015-06-23
-    AWS Direct Connect                    DC          2012-10-25
-    AWS Directory Service                 DS          2015-04-16
-    AWS Elastic Beanstalk                 EB          2010-12-01
-    AWS Elemental MediaConvert            EMC         2017-08-29
-    AWS Elemental MediaLive               EML         2017-10-14
-    AWS Elemental MediaPackage            EMP         2017-10-12
-    AWS Elemental MediaStore              EMS         2017-09-01
-    AWS Elemental MediaStore Data Plane   EMSD        2017-09-01
-    AWS Greengrass                        GG          2017-06-07
-    AWS Health                            HLTH        2016-08-04
-    AWS Identity and Access Management    IAM         2010-05-08
     ...
 
 To determine the version of PowerShell that you are running, enter :code:`$PSVersionTable` to view
@@ -239,8 +213,8 @@ the contents of the $PSVersionTable `automatic variable
 
 .. _pstools-updating-core:
 	
-Updating the |TWPlong| and AWS Tools for PowerShell Core
-========================================================
+Updating the |TPClong|
+======================
 
 Periodically, as updated versions of the AWS Tools for PowerShell Core are released, you should update the version that you are running locally. Run the :code:`Get-AWSPowerShellVersion` cmdlet to 
 determine the version that you are running, and compare that with the version of AWS Tools for PowerShell Core that is available at `AWS Tools for Windows PowerShell
@@ -248,11 +222,11 @@ determine the version that you are running, and compare that with the version of
 A suggested time period for checking for an updated AWS Tools for PowerShell package is every two to three weeks. 
 
 
-Update the Tools for PowerShell Core (All systems)
---------------------------------------------------
+Update the |TPC| (All systems)
+------------------------------
 
-Before you install a newer release of the AWS Tools for PowerShell Core, close any open 
-PowerShell or AWS Tools for PowerShell Core sessions before you uninstall the existing Tools for PowerShell Core package. 
+Before you install a newer release of the |TPClong|, close any open 
+PowerShell or |TPClong| sessions before you uninstall the existing |TPC| package. 
 You can exit a PowerShell session on a Linux-based system by pressing :guilabel:`Ctrl+D`. Run the following command 
 to uninstall the package.
 
@@ -261,7 +235,7 @@ to uninstall the package.
     PS> Uninstall-Module -Name AWSPowerShell.NetCore -AllVersions
 
 When uninstallation is finished, install the updated module by running the following command. By default, 
-this command installs the latest version of the AWS Tools for PowerShell Core. This module is available on the 
+this command installs the latest version of the |TPC|. This module is available on the 
 `PowerShell Gallery <https://www.powershellgallery.com/packages/AWSPowerShell.NetCore>`_, 
 but the easiest method of installation is to run :code:`Install-Module`.
 
