@@ -4,13 +4,12 @@
 Document History
 ################
 
-This topic describes significant changes to the documentation for the |TWPlong|.
+This topic describes significant changes to the documentation for the |TWPALLlong|.
 
-*Last documentation update: December 1, 2015*
+*Last documentation update: September 17, 2018*
 
-We also update the documentation periodically in response to customer feedback. To send us feedback,
-use the feedback link |mdash| "Tell us about it," next to "Did this page help you?" |mdash| located
-near the beginning of each page.
+We also update the documentation periodically in response to customer feedback. To send feedback about a topic, 
+use the feedback buttons next to "Did this page help you?" located at the bottom of each page.
 
 For additional information about changes and updates to the |TWP|, see the `release notes
 <http://aws.amazon.com/releasenotes/PowerShell>`_.
@@ -23,6 +22,7 @@ For additional information about changes and updates to the |TWP|, see the `rele
 *Release Date:* 2018-09-11
 
 *Summary of Changes*
+
 * Added information to the :twp-ug:`Using the AWS Tools for PowerShell <pstools-using>` section 
   introducing the AWS Lambda Tools for PowerShell for PowerShell Core developers to build |LAMlong| 
   functions.
