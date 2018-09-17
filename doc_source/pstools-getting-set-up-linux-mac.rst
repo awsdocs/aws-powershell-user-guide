@@ -192,7 +192,7 @@ services are supported in the current version of the tools.
 
 To determine the version of PowerShell that you are running, enter :code:`$PSVersionTable` to view
 the contents of the $PSVersionTable `automatic variable
-<http://technet.microsoft.com/library/hh847768.aspx>`_.
+<https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_automatic_variables?view=powershell-6>`_.
 
 .. code-block:: none
 

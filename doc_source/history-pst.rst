@@ -16,6 +16,17 @@ For additional information about changes and updates to the |TWP|, see the `rele
 <http://aws.amazon.com/releasenotes/PowerShell>`_.
 
 
+.. _pstools-release-v3-3-343-0:
+
+|TWPALLlong| 3.3.343.0
+======================
+*Release Date:* 2018-09-11
+
+*Summary of Changes*
+* Added information to the :twp-ug:`Using the AWS Tools for PowerShell <pstools-using>` section 
+  introducing the AWS Lambda Tools for PowerShell for PowerShell Core developers to build |LAMlong| 
+  functions.
+
 |TWPlong| 3.1.31.0
 ==================
 
