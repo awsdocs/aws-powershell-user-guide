@@ -199,7 +199,7 @@ How to Run the :code:`Set-AWSSamlEndpoint` and :code:`Set-AWSSamlRoleProfile` Cm
 
    .. code-block:: none
    
-      PS C:\> $params = @{ "NetworkCredential"=$credential, "PrincipalARN"="{arn:aws:iam::012345678912:saml-provider/ADFS}" "RoleARN"="{arn:aws:iam::012345678912:role/ADFS-Dev}"
+      PS C:\> $params = @{ "NetworkCredential"=$credential, "PrincipalARN"="{arn:aws:iam::012345678912:saml-provider/ADFS}", "RoleARN"="{arn:aws:iam::012345678912:role/ADFS-Dev}"
       }
       PS C:\> $epName | Set-AWSSamlRoleProfile @params -StoreAs SAMLDemoProfile1 -Verbose
 
