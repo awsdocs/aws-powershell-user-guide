@@ -66,7 +66,7 @@ In the second line, you set up the assume role profile itself. The third line sh
 .. code-block:: none
 
     PS C:\> Set-AWSCredential -StoreAs source_profile -AccessKey access_key -SecretKey secret_key
-    PS C:\> Set-AWSCredential -StoreAs assume_role_profile -SourceProfile source-profile -RoleArn arn:aws:iam::999999999999:role/some-role
+    PS C:\> Set-AWSCredential -StoreAs assume_role_profile -SourceProfile source_profile -RoleArn arn:aws:iam::999999999999:role/some-role
     PS C:\> Get-AWSCredential -ProfileName assume_role_profile
     
     SourceCredentials                  RoleArn                                  RoleSessionName                           Options

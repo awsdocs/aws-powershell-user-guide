@@ -11,14 +11,15 @@ Overview of Setup
 
 .. note::
 
-    You can skip AWS Tools for PowerShell Core installation on the .NET Core with Ubuntu Server 16.04 and .NET Core with Amazon Linux 2 LTS Candidate Amazon Machine Images (AMIs). These AMIs are preconfigured with .NET Core 2.0, PowerShell Core 6.0, the AWS Tools for PowerShell Core, and the |CLI|.
-	
+    You can skip AWS Tools for PowerShell Core installation on the .NET Core with Ubuntu Server 16.04 and .NET Core with Amazon Linux 2 LTS Candidate Amazon Machine Images (AMIs). These AMIs are preconfigured with .NET Core 2.0, PowerShell Core 6.0, the AWS Tools for PowerShell Core, and the |CLI|. You must still run :code:`Import-Module AWSPowerShell.NetCore` in a PowerShell session to load the AWS Tools for PowerShell Core module.
+    
 A non-Windows-based computer can run only the AWS Tools for PowerShell Core (AWSPowerShell.NetCore). Setting up the AWS Tools for PowerShell Core involves the following tasks, described in this topic.
 
-#. Installing Microsoft PowerShell Core 6.0 or newer on a supported non-Windows system.
-#. After installing Microsoft PowerShell Core, starting PowerShell by running :code:`pwsh` in your system shell.
-#. Installing the AWS Tools for PowerShell Core.
-#. Running the `Initialize-AWSDefaultConfiguration <https://docs.aws.amazon.com/powershell/latest/reference/items/Initialize-AWSDefaultConfiguration.html>`_ cmdlet to provide your AWS credentials.
+#. Install Microsoft PowerShell Core 6.0 or newer on a supported non-Windows system.
+#. After installing Microsoft PowerShell Core, start PowerShell by running :code:`pwsh` in your system shell.
+#. Install the AWS Tools for PowerShell Core.
+#. Run :code:`Import-Module AWSPowerShell.NetCore` to import the AWS Tools for PowerShell Core module into your PowerShell session.
+#. Run the `Initialize-AWSDefaultConfiguration <https://docs.aws.amazon.com/powershell/latest/reference/items/Initialize-AWSDefaultConfiguration.html>`_ cmdlet to provide your AWS credentials.
 
 Prerequisites
 =============
@@ -102,7 +103,7 @@ information about execution policies, see `About Execution Policies <https://doc
 
 The AWS Tools installer updates the `PSModulePath
 <http://msdn.microsoft.com/en-us/library/windows/desktop/dd878326.aspx>`_ to include the location of
-the directory that contains the AWSPowerShell module. 
+the directory that contains the AWSPowerShell.NetCore module. 
 
 Because the :code:`PSModulePath` includes the location of the AWS module's directory, the
 :code:`Get-Module -ListAvailable` cmdlet shows the module.
@@ -123,8 +124,8 @@ Because the :code:`PSModulePath` includes the location of the AWS module's direc
 Configure a PowerShell Console to Use the |TPClong|
 ===================================================
 
-Because PowerShell 3.0 and newer automatically load the AWSPowerShell module whenever you run an AWS
-cmdlet, and AWSPowerShell.NetCore requires at least PowerShell 6.0, there is no need to configure PowerShell to use the AWS PowerShell Tools. 
+Although PowerShell 3.0 and newer releases typically load modules automatically whenever you run a cmdlet in the module, this does not work for AWS Tools for PowerShell, because of its large size. To start running AWS Tools for PowerShell cmdlets, run :code:`Import-Module AWSPowerShell.NetCore`.
+
 When you start PowerShell on a Linux-based system after you have installed the AWS Tools for PowerShell Core, run `Initialize-AWSDefaultConfiguration <https://docs.aws.amazon.com/powershell/latest/reference/items/Initialize-AWSDefaultConfiguration.html>`_ 
 to specify your AWS access and secret keys. For more information about :code:`Initialize-AWSDefaultConfiguration`,
 see :ref:`specifying-your-aws-credentials`. In older (before 3.3.96.0) releases of the AWS Tools for PowerShell, this cmdlet was named
@@ -243,6 +244,7 @@ but the easiest method of installation is to run :code:`Install-Module`.
 
     PS> Install-Module -Name AWSPowerShell.NetCore
 
+After you install the module, run :code:`Import-Module AWSPowerShell.NetCore` to load the AWS Tools for PowerShell Core cmdlets into your PowerShell session.
 
 .. _pstools-seealso-setup:
 

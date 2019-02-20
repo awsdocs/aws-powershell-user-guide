@@ -11,11 +11,11 @@ Overview of Setup
 
 A Windows-based computer can run the AWS Tools for PowerShell, the AWS Tools for PowerShell Core, or both, depending on the release and edition of Windows that you are running. Setting up the AWS Tools for PowerShell or AWS Tools for PowerShell Core involves the following tasks, described in this topic.
 
-#. Installing Windows PowerShell 2.0 or newer (Microsoft PowerShell Core 6.0 or newer if you are installing the AWS Tools for PowerShell Core).
-#. After installing PowerShell, either downloading and running the |TWPlong| MSI installer, or starting PowerShell.
-#. If you did not run the MSI installer, running :code:`Install-Module` in a PowerShell session to install the AWS Tools for PowerShell or PowerShell Core.
+#. Install Windows PowerShell 2.0 or newer (Microsoft PowerShell Core 6.0 or newer if you are installing the AWS Tools for PowerShell Core).
+#. After you install PowerShell, either download and run the |TWPlong| MSI installer, or start PowerShell.
+#. If you did not run the MSI installer, run :code:`Install-Module` in a PowerShell session to install the AWS Tools for PowerShell or AWS Tools for PowerShell Core.
 #. Verifying that script execution is enabled by running the :code:`Get-ExecutionPolicy` cmdlet.
-#. If you are not running the custom AWS Tools for PowerShell console, or running Windows PowerShell 3.0 or newer, explicitly loading the AWS Tools for PowerShell module into your PowerShell session by running an :code:`Import-Module AWSPowerShell` command.
+#. If you are not running the custom AWS Tools for PowerShell console, explicitly load the AWS Tools for PowerShell module into your PowerShell session by running an :code:`Import-Module AWSPowerShell` or :code:`Import-Module AWSPowerShell.NetCore` command.
 
 Prerequisites
 =============
@@ -79,11 +79,9 @@ Users who are running PowerShell 5.0 or newer can also install and update the |T
     PS C:\> Install-Module -Name AWSPowerShell
     
 
-If you are running PowerShell 3.0 or newer, and add the module installation path to the value of the 
-:code:`PSModulePath` environment variable, the |TWP| are automatically loaded into your session when you run any 
-|TWP| cmdlet or function.
+Although PowerShell 3.0 or newer releases typically load modules into your PowerShell session the first time you run a cmdlet in the module, AWS Tools for PowerShell is too large to support this functionality. If you run the custom AWS Tools for PowerShell console that is installed on Windows when you run the MSI installer, the module is preloaded. If you are not running the custom console, explicitly load the AWS Tools for PowerShell module into your PowerShell session by running an :code:`Import-Module AWSPowerShell` command. To load the AWS Tools for PowerShell module into a PowerShell session automatically, add the :code:`Import-Module AWSPowerShell` command to your PowerShell profile. For more information about editing your PowerShell profile, see `About Profiles <https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-6>`_ in the Microsoft PowerShell documentation.
 
-The |TWP| are installed by default on all Windows Amazon Machine Images (AMIs).
+The |TWP| are installed by default on all Windows-based Amazon Machine Images (AMIs).
 
 Install the AWS Tools for PowerShell Core on a Windows-based Computer
 =====================================================================
@@ -108,13 +106,16 @@ The simplest way to install the Tools for PowerShell Core is by running the :cod
 
     PS C:\> Install-Module -Name AWSPowerShell.NetCore -AllowClobber
 
-It is not necessary to run this command as Administrator, unless you want to install the AWS Tools for PowerShell Core for all users of a computer. To do this, run the following command in a PowerShell session that is running as Administrator:
+It is not necessary to run this command as Administrator, unless you want to install the AWS Tools for PowerShell Core for all users of a computer. 
+To do this, run the following command in a PowerShell session that is running as Administrator:
 
 .. code-block:: none
 
     PS C:\> Install-Module -Scope CurrentUser -Name AWSPowerShell.NetCore -Force
 
 To install both AWSPowerShell and AWSPowerShell.NetCore on a Windows-based computer, add :code:`-AllowClobber` to the second installation command, because the modules have cmdlets with the same names. 
+
+Although PowerShell 3.0 or newer releases (AWSPowerShell.NetCore requires PowerShell 6.0) typically load modules into your PowerShell session the first time you run a cmdlet in the module, AWS Tools for PowerShell Core is too large to support this functionality. Explicitly load the AWS Tools for PowerShell Core module into your PowerShell session by running an :code:`Import-Module AWSPowerShell.NetCore` command. To load the AWS Tools for PowerShell Core module into a PowerShell session automatically, add the :code:`Import-Module AWSPowerShell.NetCore` command to your PowerShell profile. For more information about editing your PowerShell profile, see `About Profiles <https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-6>`_ in the Microsoft PowerShell documentation.
 
 For more information about the release of AWS Tools for PowerShell Core, see the AWS blog post, `Introducing AWS Tools for PowerShell Core Edition <https://blogs.aws.amazon.com/net/post/TxTUNCCDVSG05F/Introducing-AWS-Tools-for-PowerShell-Core-Edition>`_.
 
@@ -197,21 +198,21 @@ Because the :code:`PSModulePath` includes the location of the AWS module's direc
 Configure a PowerShell Console to Use the |TWPlong|
 ===================================================
 
-The installer creates a :guilabel:`Start Menu` group called :guilabel:`Amazon Web Services`, which
+The MSI installer creates a :guilabel:`Start Menu` group called :guilabel:`Amazon Web Services`, which
 contains a shortcut called :guilabel:`Windows PowerShell for AWS`. In PowerShell 2.0, this shortcut
 automatically imports the AWSPowerShell module and runs the :code:`Initialize-AWSDefaultConfiguration`
-cmdlet for you. Because PowerShell 3.0 and newer automatically load the AWSPowerShell module whenever you run an AWS
-cmdlet, in PowerShell 3.0 and newer, the shortcut created by the AWS Tools for PowerShell installer runs only the
-:code:`Initialize-AWSDefaultConfiguration` cmdlet. For more information about :code:`Initialize-AWSDefaultConfiguration`,
+cmdlet for you. Because the custom console automatically loads the AWSPowerShell module for you, the shortcut 
+created by the AWS Tools for PowerShell installer runs only the :code:`Initialize-AWSDefaultConfiguration` cmdlet. 
+For more information about :code:`Initialize-AWSDefaultConfiguration`, 
 see :ref:`specifying-your-aws-credentials`. In older (before 3.3.96.0) releases of the |TWP|, this cmdlet was named
 :code:`Initialize-AWSDefaults`.
 
 The installer creates another shortcut titled :guilabel:`AWS Tools for Windows`, which
 opens a visual display of AWS resources for Windows developers.
 
-If you run PowerShell 3.0 or newer, or if you only use the custom-console shortcut that is installed by the installer, there is no 
-need to configure a PowerShell window to use the |TWPlong|. But if you run 
-PowerShell 2.0 with a specially-configured PowerShell console, and you want to add support for the
+If you run PowerShell 3.0 or newer, and if you only use the custom-console shortcut that is installed by the installer, there is no 
+need to import the |TWPlong|. But if you run 
+PowerShell 2.0 with a specially-configured PowerShell console, and you want to add support for the 
 AWS Tools for PowerShell, you must load the AWS module manually by running :code:`Import-Module` as described in the following sections.
 
 .. _pstools-installing-integration:
@@ -229,8 +230,7 @@ How to Load the |TWPlong| Module (PowerShell 2.0)
 
     .. note:: In PowerShell 4.0 and later, Import-Module also searches the Program Files folder for
        installed modules, so it is not necessary to provide the full path to the module. You can
-       run the following command to import the AWSPowerShell module. In PowerShell 3.0 and later,
-       running a cmdlet in the module also automatically imports a module into your session.
+       run the following command to import the AWSPowerShell module.
 
         .. code-block:: none
 
@@ -354,78 +354,8 @@ services are supported in the current version of the tools.
     AWS Direct Connect                  DC          2012-10-25
     AWS Directory Service               DS          2015-04-16
     AWS Elastic Beanstalk               EB          2010-12-01
-    AWS Health                          HLTH        2016-08-04
-    AWS Identity and Access Management  IAM         2010-05-08
-    AWS Import/Export                   IE          2010-06-01
-    AWS Import/Export Snowball          SNOW        2016-06-30
-    AWS IoT                             IOT         2015-05-28
-    AWS Key Management Service          KMS         2014-11-01
-    AWS Marketplace Commerce Analytics  MCA         2015-07-01
-    AWS Marketplace Entitlement Service MES         2017-01-11
-    AWS Marketplace Metering            MM          2016-01-14
-    AWS OpsWorks                        OPS         2013-02-18
-    AWS OpsWorksCM                      OWCM        2016-11-01
-    AWS Organizations                   ORG         2016-11-28
-    AWS Resource Groups Tagging API     RGT         2017-01-26
-    AWS Security Token Service          STS         2011-06-15
-    AWS Service Catalog                 SC          2015-12-10
-    AWS Shield                          SHLD        2016-06-02
-    AWS Storage Gateway                 SG          2013-06-30
-    AWS Support API                     ASA         2013-04-15
-    AWS WAF                             WAF         2015-08-24
-    AWS WAF Regional                    WAFR        2016-11-28
-    AWS X-Ray                           XR          2016-04-12
-    Amazon API Gateway                  AG          2015-07-09
-    Amazon Athena                       ATH         2017-05-18
-    Amazon CloudFront                   CF          2017-03-25
-    Amazon CloudSearch                  CS          2013-01-01
-    Amazon CloudSearchDomain            CSD         2013-01-01
-    Amazon CloudWatch                   CW          2010-08-01
-    Amazon CloudWatch Events            CWE         2015-10-07
-    Amazon CloudWatch Logs              CWL         2014-03-28
-    Amazon Cognito Identity             CGI         2014-06-30
-    Amazon Cognito Identity Provider    CGIP        2016-04-18
-    Amazon DynamoDB                     DDB         2012-08-10
-    Amazon EC2 Container Registry       ECR         2015-09-21
-    Amazon EC2 Container Service        ECS         2014-11-13
-    Amazon ElastiCache                  EC          2015-02-02
-    Amazon Elastic Compute Cloud        EC2         2016-11-15
-    Amazon Elastic File System          EFS         2015-02-01
-    Amazon Elastic MapReduce            EMR         2009-03-31
-    Amazon Elastic Transcoder           ETS         2012-09-25
-    Amazon Elasticsearch                ES          2015-01-01
-    Amazon GameLift Service             GML         2015-10-01
-    Amazon Inspector                    INS         2016-02-16
-    Amazon Kinesis                      KIN         2013-12-02
-    Amazon Kinesis Analytics            KINA        2015-08-14
-    Amazon Kinesis Firehose             KINF        2015-08-04
-    Amazon Lambda                       LM          2015-03-31
-    Amazon Lex                          LEX         2016-11-28
-    Amazon Lex Model Building Service   LMB         2017-04-19
-    Amazon Lightsail                    LS          2016-11-28
-    Amazon MTurk Service                MTR         2017-01-17
-    Amazon Machine Learning             ML          2014-12-12
-    Amazon Pinpoint                     PIN         2016-12-01
-    Amazon Polly                        POL         2016-06-10
-    Amazon Redshift                     RS          2012-12-01
-    Amazon Rekognition                  REK         2016-06-27
-    Amazon Relational Database Service  RDS         2014-10-31
-    Amazon Route 53                     R53         2013-04-01
-    Amazon Route 53 Domains             R53D        2014-05-15
-    Amazon Server Migration Service     SMS         2016-10-24
-    Amazon Simple Email Service         SES         2010-12-01
-    Amazon Simple Notification Service  SNS         2010-03-31
-    Amazon Simple Queue Service         SQS         2012-11-05
-    Amazon Simple Storage Service       S3          2006-03-01
-    Amazon Simple Systems Management    SSM         2014-11-06
-    Amazon Step Functions               SFN         2016-11-23
-    Amazon WorkDocs                     WD          2016-05-01
-    Amazon WorkSpaces                   WKS         2015-04-08
-    Application Auto Scaling            AAS         2016-02-06
-    Application Discovery Service       ADS         2015-11-01
-    Auto Scaling                        AS          2011-01-01
-    Elastic Load Balancing              ELB         2012-06-01
-    Elastic Load Balancing V2           ELB2        2015-12-01
+    
+    ...
 
 To determine the version of PowerShell that you are running, enter :code:`$PSVersionTable` to view
 the contents of the $PSVersionTable `automatic variable
@@ -472,6 +402,8 @@ If you installed the existing version of the AWS Tools for PowerShell by running
 
 Install the newer version of the |TWP| by running the MSI package you downloaded.
 
+After installation, run :code:`Import-Module AWSPowerShell` to load the AWS Tools for PowerShell cmdlets into your PowerShell session, or run the custom AWS Tools for PowerShell console from your :guilabel:`Start` menu.
+
 Update the Tools for PowerShell Core
 ------------------------------------
 
@@ -492,6 +424,8 @@ but the easiest method of installation is to run :code:`Install-Module`.
 
     PS C:\> Install-Module -Name AWSPowerShell.NetCore
 
+
+After installation, run :code:`Import-Module AWSPowerShell.NetCore` to load the AWS Tools for PowerShell cmdlets into your PowerShell session.
 
 .. _pstools-seealso-setup:
 
