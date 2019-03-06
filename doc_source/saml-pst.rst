@@ -1,24 +1,24 @@
 .. _saml-pst:
 
-#################################################
-Configuring Federated Identity with the |TWPlong|
-#################################################
+####################################################
+Configuring Federated Identity with the |TWPALLlong|
+####################################################
 
 To let users in your organization access AWS resources, you must configure a standard and repeatable
 authentication method for purposes of security, auditability, compliance, and the capability to
 support role and account separation. Although it's common to provide users with the ability to
 access AWS APIs, without federated API access, you would also have to create |IAMlong| (IAM) users,
 which defeats the purpose of using federation. This topic describes SAML (Security Assertion Markup
-Language) support in the |TWPlong| that eases your federated access solution.
+Language) support in the |TWPALL| that eases your federated access solution.
 
-SAML support in the |TWP| lets you provide users federated API access. SAML is an XML-based,
+SAML support in the |TWPALL| lets you provide users federated API access. SAML is an XML-based,
 open-standard format for transmitting user authentication and authorization data between services;
 in particular, between an identity provider (such as `Active Directory Federation Services 
 <http://technet.microsoft.com/library/bb897402.aspx>`_), and a service provider (such as AWS). For
 more information about SAML and how it works, see `SAML
 <https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language>`_ on Wikipedia, or `SAML 
 Technical Specifications <http://saml.xml.org/saml-specifications>`_ at the Organization for the
-Advancement of Structured Information Standards (OASIS) website. SAML support in the |TWP| is
+Advancement of Structured Information Standards (OASIS) website. SAML support in the |TWPALL| is
 compatible with SAML 2.0.
 
 
@@ -35,12 +35,12 @@ You must have the following in place before you try to use SAML support for the 
 
 * A federated identity solution that is correctly integrated with your AWS account for console access 
   by using only your organizational credentials. For more information about how to do this 
-  specifically for Active Directory Federation Services, see the blog post, :aws-blogs:`Enabling Federation
+  specifically for Active Directory Federation Services, see the blog post, `Enabling Federation
   to AWS Using Windows Active Directory, AD FS, and SAML 2.0
-  <blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/>`. 
+  <https://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/>`_. 
   Although the blog post covers AD FS 2.0, the steps are similar if you are running AD FS 3.0.
 
-* Version 3.1.31.0 or newer of the |TWP|_ installed on your local workstation.
+* Version 3.1.31.0 or newer of the |TWPALL| installed on your local workstation.
 
 
 .. _saml-pst-federated-process:
@@ -65,21 +65,21 @@ AD FS to gain access to AWS resources.
    credentials.
 
 5. The AWS temporary credentials can be used to work with AWS service APIs by using tools including the
-   |TWP|.
+   |TWPALL|.
 
 
 .. _saml-pst-overview:
 
-How SAML Support Works in the |TWP|
-===================================
+How SAML Support Works in the |TWPALL|
+======================================
 
-This section describes how |TWP| cmdlets enable configuration of SAML-based identity federation for
+This section describes how |TWPALL| cmdlets enable configuration of SAML-based identity federation for
 users.
 
 .. image:: images/Powershell_SamlAuth_using_vsd.png
     :scale: 100
 
-1. The |TWP| authenticate against AD FS by using the Windows user's current credentials, or
+1. The |TWPALL| authenticate against AD FS by using the Windows user's current credentials, or
    interactively, when a cmdlet that requires credentials to call into AWS is run.
 
 2. AD FS authenticates the user.
@@ -95,11 +95,11 @@ users.
    :code:`SecretAccessKey`, and :code:`SessionToken`. These credentials last for 3,600 seconds (1 
    hour).
 
-6. The |TWP| user now has valid credentials to work with any AWS service APIs that the user's role is
-   authorized to access. The |TWP| automatically apply these credentials for any subsequent AWS API
+6. The |TWPALL| user now has valid credentials to work with any AWS service APIs that the user's role is
+   authorized to access. The |TWPALL| automatically apply these credentials for any subsequent AWS API
    calls, and renew them automatically when they expire.
 
-   .. note:: When the credentials expire, and new credentials are required, the |TWP| automatically
+   .. note:: When the credentials expire, and new credentials are required, the |TWPALL| automatically
       reauthenticate with AD FS, and obtain new credentials for a subsequent hour. For users of
       domain-joined accounts, this process occurs silently. For accounts that are not
       domain-joined, users are prompted to enter their credentials before they can reauthenticate.
@@ -110,7 +110,7 @@ users.
 How to Use the PowerShell SAML Configuration Cmdlets
 ====================================================
 
-The |TWP| include two new cmdlets that provide SAML support.
+The |TWPALL| include two new cmdlets that provide SAML support.
 
 * :code:`Set-AWSSamlEndpoint` configures your AD FS endpoint, assigns a friendly name to the endpoint,
   and optionally describes the authentication type of the endpoint.
@@ -124,7 +124,7 @@ The |TWP| include two new cmdlets that provide SAML support.
   use the same friendly name with the :code:`Set-AWSCredential` cmdlet, or as the value of the
   :code:`-ProfileName` parameter for any cmdlet that invokes AWS service APIs.
 
-Open a new |TWP| session. If you are running PowerShell 3.0 or newer, the |TWP| module is
+Open a new |TWPALL| session. If you are running PowerShell 3.0 or newer, the |TWPALL| module is
 automatically imported when you run any of its cmdlets. If you are running PowerShell 2.0, you must
 import the module manually. To do this, run the Import-Module cmdlet, as shown in the following
 example.
@@ -218,7 +218,7 @@ How to Use Role Profiles to Run Cmdlets that Require AWS Credentials
 
 To run cmdlets that require AWS credentials, you can use role profiles. Provide the name of a role
 profile to :code:`Set-AWSCredential` (or as the value for any :code:`ProfileName` parameter in the
-|TWP|) to get temporary AWS credentials automatically for the role that is described in the profile.
+|TWPALL|) to get temporary AWS credentials automatically for the role that is described in the profile.
 
 Although you use only one role profile at a time, you can switch between profiles within a shell
 session. The :code:`Set-AWSCredential` cmdlet does not authenticate and get credentials when you
@@ -234,7 +234,7 @@ profiles.
 Example 1: Set a Default Role with :code:`Set-AWSCredential`
 -------------------------------------------------------------
 
-This example sets a default role for a |TWP| session by using :code:`Set-AWSCredential`. Then, you
+This example sets a default role for a |TWPALL| session by using :code:`Set-AWSCredential`. Then, you
 can run cmdlets that require credentials, and are authorized by the specified role. This example
 lists all |EC2long| instances in the |uswest2-name| that are associated with the profile you
 specified with the :code:`Set-AWSCredential` cmdlet.
@@ -260,7 +260,7 @@ Example 2: Change Role Profiles During a PowerShell Session
 
 This example lists all available |S3long| buckets in the AWS account of the role associated with the
 :code:`SAMLDemoProfile` profile. The example shows that although you might have been using another
-profile earlier in your |TWP| session, you can change profiles by specifying a different value for
+profile earlier in your |TWPALL| session, you can change profiles by specifying a different value for
 the :code:`-ProfileName` parameter with cmdlets that support it. This is a common task for
 administrators who manage |S3| from the PowerShell command line.
 
@@ -281,12 +281,12 @@ earlier in your session (for example, by running the :code:`Set-AWSCredential` c
 to use a different role profile for the :code:`Get-S3Bucket` cmdlet. The profile manager makes
 temporary credentials available to the :code:`Get-S3Bucket` cmdlet.
 
-Though the credentials expire after 1 hour (a limit enforced by STS), the |TWP| automatically
+Though the credentials expire after 1 hour (a limit enforced by STS), the |TWPALL| automatically
 refresh the credentials by requesting a new SAML assertion when the tools detect that the current
 credentials have expired.
 
 For domain-joined users, this process occurs without interruption, because the current user's
-Windows identity is used during authentication. For non-domain-joined user accounts, the |TWP| show
+Windows identity is used during authentication. For non-domain-joined user accounts, the |TWPALL| show
 a PowerShell credential prompt requesting the user password. The user provides credentials that are
 used to reauthenticate the user and get a new assertion.
 
@@ -320,9 +320,9 @@ region.
 Additional Reading
 ==================
 
-For general information about how to implement federated API access, see :aws-blogs:`How to Implement a General
+For general information about how to implement federated API access, see `How to Implement a General
 Solution for Federated API/CLI Access Using SAML 2.0 
-<blogs/security/how-to-implement-a-general-solution-for-federated-apicli-access-using-saml-2-0/>`.
+<https://aws.amazon.com/blogs/security/how-to-implement-a-general-solution-for-federated-apicli-access-using-saml-2-0/>`_.
 
 For questions or comments, be sure to visit the AWS Developer Forums for 
 :forum:`PowerShell Scripting <149>` or :forum:`.NET Development <61>`.
