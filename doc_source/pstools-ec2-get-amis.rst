@@ -32,12 +32,14 @@ refers to the user who corresponds to the credentials with which the cmdlet is i
 
 You can scope the results using the :code:`-Filter` parameter. To specify the filter, create an
 object of type :code:`Amazon.EC2.Model.Filter`. For example, use the following filter to display
-only Windows AMIs. (To test this example, copy all four lines and paste them into the Windows
-PowerShell for AWS window.)
+only Windows AMIs.
 
 .. code-block:: none
 
-    PS C:\> $platform_values = New-Object 'collections.generic.list[string]' $platform_values.add("windows") $filter_platform = New-Object Amazon.EC2.Model.Filter -Property @{Name = "platform"; Values = $platform_values} Get-EC2Image -Owner amazon, self -Filter $filter_platform`
+    PS C:\> $platform_values = New-Object 'collections.generic.list[string]'
+    $platform_values.add("windows")
+    $filter_platform = New-Object Amazon.EC2.Model.Filter -Property @{Name = "platform"; Values = $platform_values}
+    Get-EC2Image -Owner amazon, self -Filter $filter_platform
 
 The following is an example of one of the AMIs returned by the cmdlet; the actual output of the
 previous command provides information for many AMIs.
