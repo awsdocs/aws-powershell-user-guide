@@ -62,25 +62,27 @@ identifies which region is the default for your current session.
 
 .. code-block:: none
 
-   PS C:\> Get-AWSRegion
-   
-   Region         Name                      IsShellDefault
-   ------         ----                      --------------
-   ap-northeast-1 Asia Pacific (Tokyo)      False
-   ap-northeast-2 Asia Pacific (Seoul)      False
-   ap-south-1     Asia Pacific (Mumbai)     False
-   ap-southeast-1 Asia Pacific (Singapore)  False
-   ap-southeast-2 Asia Pacific (Sydney)     False
-   ca-central-1   Canada (Central)          False
-   eu-central-1   EU Central (Frankfurt)    False
-   eu-west-1      EU West (Ireland)         False
-   eu-west-2      EU West (London)          False
-   eu-west-3      EU West (Paris)           False
-   sa-east-1      South America (Sao Paulo) False
-   us-east-1      US East (Virginia)        False
-   us-east-2      US East (Ohio)            False
-   us-west-1      US West (N. California)   False
-   us-west-2      US West (Oregon)          True
+    PS C:\> Get-AWSRegion
+    
+    Region         Name                      IsShellDefault
+    ------         ----                      --------------
+    ap-east-1      Asia Pacific (Hong Kong)  False
+    ap-northeast-1 Asia Pacific (Tokyo)      False
+    ap-northeast-2 Asia Pacific (Seoul)      False
+    ap-south-1     Asia Pacific (Mumbai)     False
+    ap-southeast-1 Asia Pacific (Singapore)  False
+    ap-southeast-2 Asia Pacific (Sydney)     False
+    ca-central-1   Canada (Central)          False
+    eu-central-1   EU Central (Frankfurt)    False
+    eu-north-1     EU North (Stockholm)      False
+    eu-west-1      EU West (Ireland)         False
+    eu-west-2      EU West (London)          False
+    eu-west-3      EU West (Paris)           False
+    sa-east-1      South America (Sao Paulo) False
+    us-east-1      US East (Virginia)        False
+    us-east-2      US East (Ohio)            False
+    us-west-1      US West (N. California)   False
+    us-west-2      US West (Oregon)          False
 
 .. note:: Some regions might be supported, but might not be returned in the results of the :code:`Get-AWSRegion` cmdlet. 
    An example is the Asia Pacific (Osaka) Region (ap-northeast-3). If you are not able to specify a region by adding the :code:`-Region` 
