@@ -1,29 +1,29 @@
 # Pipelining and $AWSHistory<a name="pstools-pipelines"></a>
 
-For service calls that return collections, the objects within the collection are now always enumerated to the pipeline\. Result objects that contain additional fields beyond the collection and which are not paging control fields have these fields added as Note properties for the calls\. These Note properties are logged in the new `$AWSHistory` session variable, should you need to access this data\. The `$AWSHistory` variable is described in the next section\.
+For AWS service calls that return collections, the objects within the collection are enumerated to the pipeline\. Result objects that contain additional fields beyond the collection and which are not paging control fields have these fields added as Note properties for the calls\. These Note properties are logged in the new `$AWSHistory` session variable, should you need to access this data\. The `$AWSHistory` variable is described in the next section\.
 
 **Note**  
 In versions of the Tools for Windows PowerShell prior to v1\.1, the collection object itself was emitted, which required the use of foreach \{$\_\.getenumerator\(\)\} to continue pipelining\.
 
-Examples
+**Examples**
 
-Return a collection of Amazon EC2 machine images \(AMIs\) across all regions\.
+The following example returns a list of AWS Regions and your Amazon EC2 machine images \(AMIs\) in each Region\.
 
 ```
-PS > Get-AWSRegion | % { Get-EC2Image -Owner self -Region $_ }
+PS > Get-AWSRegion | % { Echo $_.Name; Get-EC2Image -Owner self -Region $_ }
 ```
 
-Stop all Amazon EC2 instances in the current default region\.
+The following example stops all Amazon EC2 instances in the current default region\.
 
 ```
 PS > Get-EC2Instance | Stop-EC2Instance
 ```
 
-Because collections enumerate to the pipeline, the output from a given cmdlet might be $null, a single object, or a collection\. If it is a collection, you can use the `.Count` property to determine the size of the collection\. However, the `.Count` property is not present when only a single object is emitted\. If your script needs to determine, in a consistent way, how many objects were emitted, use the new `EmittedObjectsCount` property of the last command value in `$AWSHistory`\.
+Because collections enumerate to the pipeline, the output from a given cmdlet might be `$null`, a single object, or a collection\. If it is a collection, you can use the `.Count` property to determine the size of the collection\. However, the `.Count` property is not present when only a single object is emitted\. If your script needs to determine, in a consistent way, how many objects were emitted, you can check the `EmittedObjectsCount` property of the last command value in `$AWSHistory`\.
 
 ## $AWSHistory<a name="pstools-awshistory"></a>
 
-To better support pipelining, output from AWS cmdlets is no longer reshaped to include the service \(AWS SDK\) response and result instances as Note properties on the emitted collection object\. Instead, for those calls that emit a single collection as output, the collection is now enumerated to the PowerShell pipeline\. This means that the AWS SDK response and result data cannot exist in the pipe, because there is no containing collection object to which it can be attached\.
+To better support pipelining, output from AWS cmdlets is not reshaped to include the service response and result instances as Note properties on the emitted collection object\. Instead, for those calls that emit a single collection as output, the collection is now enumerated to the PowerShell pipeline\. This means that the AWS SDK response and result data cannot exist in the pipe, because there is no containing collection object to which it can be attached\.
 
 Although most users probably won't need this data, it can be useful for diagnostic purposes, because you can see exactly what was sent to and received from the underlying AWS service calls made by the cmdlet\.
 
@@ -50,9 +50,9 @@ List of last service responses received\.
 Helper to return the most recent service response\.
 
 ** *LastServiceRequest* **  
-Helper to return the most recent service response, if available\.
+Helper to return the most recent service request, if available\.
 
-Note that the `$AWSHistory` variable is not created until an AWS cmdlet making a service call is used\. It evaluates to $null until that point\.
+Note that the `$AWSHistory` variable is not created until an AWS cmdlet making a service call is used\. It evaluates to $null until that time\.
 
 **Note**  
 Earlier versions of the Tools for Windows PowerShell emitted data related to service responses as `Note` properties on the returned object\. These are now found on the response entries that are recorded for each invocation in the list\.
@@ -104,18 +104,18 @@ For service APIs that impose a default maximum object return count for a given c
 In the following example, which uses `Get-S3Object`, the `$c` variable contains `S3Object` instances for *every* key in the bucket `test`, potentially a very large data set\.
 
 ```
-$c = Get-S3Object -BucketName test
+PS > $c = Get-S3Object -BucketName test
 ```
 
-If you want to retain control of the amount of data returned, you can continue to use parameters on the individual cmdlets \(e\.g\. `MaxKey` on `Get-S3Object`\) or you can explicitly handle paging yourself by using a combination of paging parameters on the cmdlets, and data placed in the `$AWSHistory` variable to get the service's next token data\. The following example uses the MaxKeys parameter to limit the number of `S3Object` instances returned to no more than the first 500 found in the bucket\.
+If you want to retain control of the amount of data returned, you can use parameters on the individual cmdlets \(for example, `MaxKey` on `Get-S3Object`\) or you can explicitly handle paging yourself by using a combination of paging parameters on the cmdlets, and data placed in the `$AWSHistory` variable to get the service's next token data\. The following example uses the MaxKeys parameter to limit the number of `S3Object` instances returned to no more than the first 500 found in the bucket\.
 
 ```
-$c = Get-S3Object -BucketName test -MaxKey 500
+PS > $c = Get-S3Object -BucketName test -MaxKey 500
 ```
 
 To know if more data was available but not returned, use the `$AWSHistory` session variable entry that recorded the service calls made by the cmdlet\.
 
-If the following expression evaluates to $true, you can find the `next` marker for the next set of results using `$AWSHistory.LastServiceResponse.NextMarker`\.
+If the following expression evaluates to $true, you can find the `next` marker for the next set of results using `$AWSHistory.LastServiceResponse.NextMarker`:
 
 ```
 $AWSHistory.LastServiceResponse -ne $null && $AWSHistory.LastServiceResponse.IsTruncated
@@ -124,8 +124,5 @@ $AWSHistory.LastServiceResponse -ne $null && $AWSHistory.LastServiceResponse.IsT
 To manually control paging with `Get-S3Object`, use a combination of the `MaxKey` and `Marker` parameters for the cmdlet and the `IsTruncated`/`NextMarker` notes on the last recorded response\. In the following example, the variable `$c` contains up to a maximum of 500 `S3Object` instances for the next 500 objects that are found in the bucket after the start of the specified key prefix marker\.
 
 ```
-$c = Get-S3Object -BucketName test -MaxKey 500 -Marker $AWSHistory.LastServiceResponse.NextMarker
+PS > $c = Get-S3Object -BucketName test -MaxKey 500 -Marker $AWSHistory.LastServiceResponse.NextMarker
 ```
-
-## See Also<a name="getting-started-see-also"></a>
-+  [Using the AWS Tools for Windows PowerShell](pstools-using.md) 

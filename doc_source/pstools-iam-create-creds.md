@@ -1,6 +1,6 @@
 # Create Security Credentials for an IAM User<a name="pstools-iam-create-creds"></a>
 
-The following example uses the `New-IAMAccesskey` cmdlet to create security credentials for an IAM user\. A set of security credentials comprises an Access Key ID and a Secret Key\. Note that an IAM user can have no more than two sets of credentials at any given time\. If you attempt to create a third set, the `New-IAMAccessKey` cmdlet returns an error\.
+The following example uses the `New-IAMAccesskey` cmdlet to create security credentials for an IAM user\. A set of security credentials comprises an Access Key ID and a Secret Key\. Note that an IAM user can have no more than two sets of access key credentials at any given time\. If you attempt to create a third set, the `New-IAMAccessKey` cmdlet returns an error\.
 
 ```
 PS > New-IAMAccessKey -UserName myNewUser

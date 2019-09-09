@@ -8,11 +8,12 @@
 + [Delete Amazon S3 Objects and Buckets](pstools-s3-delete-website.md)
 + [Upload In\-Line Text Content to Amazon S3](pstools-s3-upload-in-line-text.md)
 
-In this section, we create a static website using the AWS Tools for Windows PowerShell using Amazon S3 and CloudFront\. In the process, we demonstrate a number of common tasks with these services\. This walkthrough is modeled after the Getting Started Guide for *Host a Static Website <https://aws\.amazon\.com/getting\-started/projects/host\-static\-website/>*, which describes a similar process using the [AWS Management Console](https://console.aws.amazon.com/s3/home)\.
+In this section, we create a static website using the AWS Tools for Windows PowerShell using Amazon S3 and CloudFront\. In the process, we demonstrate a number of common tasks with these services\. This walkthrough is modeled after the Getting Started Guide for [Host a Static Website](https://aws.amazon.com/getting-started/projects/host-static-website/), which describes a similar process using the [AWS Management Console](https://console.aws.amazon.com/s3/home)\.
 
 The commands shown here assume that you have set default credentials and a default region for your PowerShell session\. Therefore, credentials and regions are not included in the invocation of the cmdlets\.
 
-There is currently no Amazon S3 API for renaming buckets and objects, and therefore, no single Tools for Windows PowerShell cmdlet for performing this task\. To rename objects in S3, we recommend that you copy the object using a new name, by running the [Copy\-S3Object](https://docs.aws.amazon.com/powershell/latest/reference/items/Copy-S3Object.html) cmdlet, and then delete the original object by running the [Remove\-S3Object](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-S3Object.html) cmdlet\.
+**Note**  
+There is currently no Amazon S3 API for renaming a bucket or object, and therefore, no single Tools for Windows PowerShell cmdlet for performing this task\. To rename an object in S3, we recommend that you copy the object to one with a new name, by running the [Copy\-S3Object](https://docs.aws.amazon.com/powershell/latest/reference/items/Copy-S3Object.html) cmdlet, and then delete the original object by running the [Remove\-S3Object](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-S3Object.html) cmdlet\.
 
 ## See Also<a name="see-also"></a>
 +  [Using the AWS Tools for Windows PowerShell](pstools-using.md) 

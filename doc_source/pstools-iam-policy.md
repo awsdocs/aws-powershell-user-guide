@@ -21,7 +21,7 @@ PS > $policyDoc = @"
 >>   ]
 >> }
 >> "@
->>
+>> 
 
 PS > Write-IAMUserPolicy -UserName myNewUser -PolicyName "PowerUserAccess-myNewUser-201211201605" -PolicyDocument $policyDoc
 

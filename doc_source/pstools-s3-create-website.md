@@ -4,8 +4,6 @@ Use the `Write-S3BucketWebsite` cmdlet to configure an Amazon S3 bucket as a sta
 
 ```
 PS > Write-S3BucketWebsite -BucketName website-example -WebsiteConfiguration_IndexDocumentSuffix index.html -WebsiteConfiguration_ErrorDocument error.html
-
-
 RequestId      : A1813E27995FFDDD
 AmazonId2      : T7hlDOeLqA5Q2XfTe8j2q3SLoP3/5XwhUU3RyJBGHU/LnC+CIWLeGgP0MY24xAlI
 ResponseStream :

@@ -1,29 +1,32 @@
 # Create an Amazon S3 Bucket, Verify Its Region, and Optionally Remove It<a name="pstools-s3-bucket-create"></a>
 
-Use the `New-S3Bucket` cmdlet to create a new Amazon S3 bucket\. The following examples creates a bucket named website\-example\. The name of the bucket must be unique across all regions\. The example creates the bucket in the us\-west\-1 region\.
+Use the `New-S3Bucket` cmdlet to create a new Amazon S3 bucket\. The following examples creates a bucket named `website-example`\. The name of the bucket must be unique across all regions\. The example creates the bucket in the `us-west-1` region\.
 
 ```
-PS > New-S3Bucket -BucketName website-example -Region us-west-1
+PS > New-S3Bucket -BucketName website-example -Region us-west-2
 
-BucketName                                                  CreationDate
-----------                                                  ------------
-website-example                                       Mon, 26 Nov 2012 00:41:08 GMT
+CreationDate         BucketName
+------------         ----------
+8/16/19 8:45:38 PM   website-example
 ```
 
 You can verify the region in which the bucket is located using the `Get-S3BucketLocation` cmdlet\.
 
 ```
 PS > Get-S3BucketLocation -BucketName website-example
-us-west-1
+
+Value
+-----
+us-west-2
 ```
 
-You could use the following line to remove this bucket\. We suggest that you leave this bucket in place as we use it in subsequent examples\.
+When you're done with this tutorial, you can use the following line to remove this bucket\. We suggest that you leave this bucket in place as we use it in subsequent examples\.
 
 ```
-Remove-S3Bucket -BucketName website-example
+PS > Remove-S3Bucket -BucketName website-example
 ```
 
-Note that the bucket removal process takes some time to finish\. If you try to create a same\-named bucket immediately, the `New-S3Bucket` cmdlet might fail for a period of time\.
+Note that the bucket removal process can take some time to finish\. If you try to re\-create a same\-named bucket immediately, the `New-S3Bucket` cmdlet can fail until the old one is completely gone\.
 
 ## See Also<a name="pstools-seealso-s3-bucket-create"></a>
 +  [Using the AWS Tools for Windows PowerShell](pstools-using.md) 

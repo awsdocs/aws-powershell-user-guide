@@ -2,11 +2,11 @@
 
 This section shows an example of how to use the Tools for Windows PowerShell to publish custom metric data to CloudWatch\.
 
-This example assumes that you have set default credentials and a default region for your PowerShell session\. Therefore, credentials and a region are not included in the invocation of the cmdlets\.
+This example assumes that you have set default credentials and a default region for your PowerShell session\. 
 
 ## Publish a Custom Metric to Your CloudWatch Dashboard<a name="pstools-cw-custom-metric-publish"></a>
 
-The following PowerShell code initializes an CloudWatch MetricDatum object and posts it to the service\. You can see the result of this operation by navigating to the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/home)\.
+The following PowerShell code initializes an CloudWatch `MetricDatum` object and posts it to the service\. You can see the result of this operation by navigating to the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/home)\.
 
 ```
 $dat = New-Object Amazon.CloudWatch.Model.MetricDatum
@@ -19,7 +19,7 @@ Write-CWMetricData -Namespace "Usage Metrics" -MetricData $dat
 
 Note the following:
 + The date\-time information that you use to initialize `$dat.Timestamp` must be in Universal Time \(UTC\)\.
-+ The value that you use to initialize `$dat.Value` can be either a string value enclosed in quotes, or a numeric value \(no quotes\)\. A string value is shown previously\.
++ The value that you use to initialize `$dat.Value` can be either a string value enclosed in quotes, or a numeric value \(no quotes\)\. The example shows a string value\.
 
 ## See Also<a name="see-also"></a>
 +  [Using the AWS Tools for Windows PowerShell](pstools-using.md) 

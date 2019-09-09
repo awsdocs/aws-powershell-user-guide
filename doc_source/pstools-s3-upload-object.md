@@ -27,9 +27,9 @@ PS > $error_html = @"
 >> </html>
 >> "@
 >>
-PS > $error_html | Set-Content error.html
-PS > # Upload the files to Amazon S3 using a foreach loop
-PS > foreach ($f in "index.html", "error.html") {
+>>$error_html | Set-Content error.html
+>># Upload the files to Amazon S3 using a foreach loop
+>>foreach ($f in "index.html", "error.html") {
 >> Write-S3Object -BucketName website-example -File $f -Key $f -CannedACLName public-read
 >> }
 >>
