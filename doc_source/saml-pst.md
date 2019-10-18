@@ -1,14 +1,14 @@
 # Configuring Federated Identity with the AWS Tools for PowerShell<a name="saml-pst"></a>
 
-To let users in your organization access AWS resources, you must configure a standard and repeatable authentication method for purposes of security, auditability, compliance, and the capability to support role and account separation\. Although it's common to provide users with the ability to access AWS APIs, without federated API access, you would also have to create AWS Identity and Access Management \(IAM\) users, which defeats the purpose of using federation\. This topic describes SAML \(Security Assertion Markup Language\) support in the Tools for PowerShell that eases your federated access solution\.
+To let users in your organization access AWS resources, you must configure a standard and repeatable authentication method for purposes of security, auditability, compliance, and the capability to support role and account separation\. Although it's common to provide users with the ability to access AWS APIs, without federated API access, you would also have to create AWS Identity and Access Management \(IAM\) users, which defeats the purpose of using federation\. This topic describes SAML \(Security Assertion Markup Language\) support in the AWS Tools for PowerShell that eases your federated access solution\.
 
-SAML support in the Tools for PowerShell lets you provide your users federated access to AWS services\. SAML is an XML\-based, open\-standard format for transmitting user authentication and authorization data between services; in particular, between an identity provider \(such as [Active Directory Federation Services](http://technet.microsoft.com/library/bb897402.aspx)\), and a service provider \(such as AWS\)\. For more information about SAML and how it works, see [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) on Wikipedia, or [SAML Technical Specifications](http://saml.xml.org/saml-specifications) at the Organization for the Advancement of Structured Information Standards \(OASIS\) website\. SAML support in the Tools for PowerShell is compatible with SAML 2\.0\.
+SAML support in the AWS Tools for PowerShell lets you provide your users federated access to AWS services\. SAML is an XML\-based, open\-standard format for transmitting user authentication and authorization data between services; in particular, between an identity provider \(such as [Active Directory Federation Services](http://technet.microsoft.com/library/bb897402.aspx)\), and a service provider \(such as AWS\)\. For more information about SAML and how it works, see [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) on Wikipedia, or [SAML Technical Specifications](http://saml.xml.org/saml-specifications) at the Organization for the Advancement of Structured Information Standards \(OASIS\) website\. SAML support in the AWS Tools for PowerShell is compatible with SAML 2\.0\.
 
 ## Prerequisites<a name="saml-pst-prerequisites"></a>
 
 You must have the following in place before you try to use SAML support for the first time\.
 + A federated identity solution that is correctly integrated with your AWS account for console access by using only your organizational credentials\. For more information about how to do this specifically for Active Directory Federation Services, see [About SAML 2\.0 Federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html) in the *IAM User Guide*, and the blog post, [Enabling Federation to AWS Using Windows Active Directory, AD FS, and SAML 2\.0](http://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/)\. Although the blog post covers AD FS 2\.0, the steps are similar if you are running AD FS 3\.0\.
-+ Version 3\.1\.31\.0 or newer of the Tools for PowerShell installed on your local workstation\.
++ Version 3\.1\.31\.0 or newer of the AWS Tools for PowerShell installed on your local workstation\.
 
 ## How an Identity\-Federated User Gets Federated Access to AWS Service APIs<a name="saml-pst-federated-process"></a>
 
@@ -24,37 +24,37 @@ The following process describes, at a high level, how an Active Directory \(AD\)
 
 1. STS returns a SAML response that contains AWS temporary credentials for a role the user can assume\.
 
-1. The user accesses AWS service APIs by including those temporary credentials in request made by Tools for PowerShell\.
+1. The user accesses AWS service APIs by including those temporary credentials in request made by AWS Tools for PowerShell\.
 
-## How SAML Support Works in the Tools for PowerShell<a name="saml-pst-overview"></a>
+## How SAML Support Works in the AWS Tools for PowerShell<a name="saml-pst-overview"></a>
 
-This section describes how Tools for PowerShell cmdlets enable configuration of SAML\-based identity federation for users\.
+This section describes how AWS Tools for PowerShell cmdlets enable configuration of SAML\-based identity federation for users\.
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/powershell/latest/userguide/images/Powershell_SamlAuth_using_vsd.png)
 
-1. Tools for PowerShell authenticates against AD FS by using the Windows user's current credentials, or interactively, when the user tries to run a cmdlet that requires credentials to call into AWS\.
+1. AWS Tools for PowerShell authenticates against AD FS by using the Windows user's current credentials, or interactively, when the user tries to run a cmdlet that requires credentials to call into AWS\.
 
 1. AD FS authenticates the user\.
 
-1. AD FS generates a SAML 2\.0 authentication response that includes an assertion; the purpose of the assertion is to identify and provide information about the user\. Tools for PowerShell extracts the list of the user's authorized roles from the SAML assertion\.
+1. AD FS generates a SAML 2\.0 authentication response that includes an assertion; the purpose of the assertion is to identify and provide information about the user\. AWS Tools for PowerShell extracts the list of the user's authorized roles from the SAML assertion\.
 
-1. Tools for PowerShell forwards the SAML request, including the requested role's Amazon Resource Names \(ARN\), to STS by making the `AssumeRoleWithSAMLRequest` API call\.
+1. AWS Tools for PowerShell forwards the SAML request, including the requested role's Amazon Resource Names \(ARN\), to STS by making the `AssumeRoleWithSAMLRequest` API call\.
 
 1. If the SAML request is valid, STS returns a response that contains the AWS `AccessKeyId`, `SecretAccessKey`, and `SessionToken`\. These credentials last for 3,600 seconds \(1 hour\)\.
 
-1. The user now has valid credentials to work with any AWS service APIs that the user's role is authorized to access\. Tools for PowerShell automatically applies these credentials for any subsequent AWS API calls, and renews them automatically when they expire\.
+1. The user now has valid credentials to work with any AWS service APIs that the user's role is authorized to access\. AWS Tools for PowerShell automatically applies these credentials for any subsequent AWS API calls, and renews them automatically when they expire\.
 **Note**  
-When the credentials expire, and new credentials are required, Tools for PowerShell automatically reauthenticates with AD FS, and obtains new credentials for a subsequent hour\. For users of domain\-joined accounts, this process occurs silently\. For accounts that are not domain\-joined, Tools for PowerShell prompts users to enter their credentials before they can reauthenticate\.
+When the credentials expire, and new credentials are required, AWS Tools for PowerShell automatically reauthenticates with AD FS, and obtains new credentials for a subsequent hour\. For users of domain\-joined accounts, this process occurs silently\. For accounts that are not domain\-joined, AWS Tools for PowerShell prompts users to enter their credentials before they can reauthenticate\.
 
 ## How to Use the PowerShell SAML Configuration Cmdlets<a name="saml-pst-config-cmdlets"></a>
 
-Tools for PowerShell includes two new cmdlets that provide SAML support\.
+AWS Tools for PowerShell includes two new cmdlets that provide SAML support\.
 +  `Set-AWSSamlEndpoint` configures your AD FS endpoint, assigns a friendly name to the endpoint, and optionally describes the authentication type of the endpoint\.
 +  `Set-AWSSamlRoleProfile` creates or edits a user account profile that you want to associate with an AD FS endpoint, identified by specifying the friendly name you provided to the `Set-AWSSamlEndpoint` cmdlet\. Each role profile maps to a single role that a user is authorized to perform\.
 
   Just as with AWS credential profiles, you assign a friendly name to the role profile\. You can use the same friendly name with the `Set-AWSCredential` cmdlet, or as the value of the `-ProfileName` parameter for any cmdlet that invokes AWS service APIs\.
 
-Open a new Tools for PowerShell session\. If you are running PowerShell 3\.0 or newer, the Tools for PowerShell module is automatically imported when you run any of its cmdlets\. If you are running PowerShell 2\.0, you must import the module manually by running the ``Import\-Module`` cmdlet, as shown in the following example\.
+Open a new AWS Tools for PowerShell session\. If you are running PowerShell 3\.0 or newer, the AWS Tools for PowerShell module is automatically imported when you run any of its cmdlets\. If you are running PowerShell 2\.0, you must import the module manually by running the ``Import\-Module`` cmdlet, as shown in the following example\.
 
 ```
 PS > Import-Module "C:\Program Files (x86)\AWS Tools\PowerShell\AWSPowerShell\AWSPowerShell.psd1"
@@ -117,7 +117,7 @@ PS > Import-Module "C:\Program Files (x86)\AWS Tools\PowerShell\AWSPowerShell\AW
 
 ### How to Use Role Profiles to Run Cmdlets that Require AWS Credentials<a name="how-to-use-role-profiles-to-run-cmdlets-that-require-aws-credentials"></a>
 
-To run cmdlets that require AWS credentials, you can use role profiles defined in the AWS shared credential file\. Provide the name of a role profile to `Set-AWSCredential` \(or as the value for any `ProfileName` parameter in the Tools for PowerShell\) to get temporary AWS credentials automatically for the role that is described in the profile\.
+To run cmdlets that require AWS credentials, you can use role profiles defined in the AWS shared credential file\. Provide the name of a role profile to `Set-AWSCredential` \(or as the value for any `ProfileName` parameter in the AWS Tools for PowerShell\) to get temporary AWS credentials automatically for the role that is described in the profile\.
 
 Although you use only one role profile at a time, you can switch between profiles within a shell session\. The `Set-AWSCredential` cmdlet does not authenticate and get credentials when you run it by itself; the cmdlet records that you want to use a specified role profile\. Until you run a cmdlet that requires AWS credentials, no authentication or request for credentials occurs\.
 
@@ -125,7 +125,7 @@ You can now use the temporary AWS credentials that you obtained with the `SAMLDe
 
 ### Example 1: Set a Default Role with `Set-AWSCredential`<a name="example-1-set-a-default-role-with-set-awscredential"></a>
 
-This example sets a default role for a Tools for PowerShell session by using `Set-AWSCredential`\. Then, you can run cmdlets that require credentials, and are authorized by the specified role\. This example lists all Amazon Elastic Compute Cloud instances in the US West \(Oregon\) Region that are associated with the profile you specified with the `Set-AWSCredential` cmdlet\.
+This example sets a default role for a AWS Tools for PowerShell session by using `Set-AWSCredential`\. Then, you can run cmdlets that require credentials, and are authorized by the specified role\. This example lists all Amazon Elastic Compute Cloud instances in the US West \(Oregon\) Region that are associated with the profile you specified with the `Set-AWSCredential` cmdlet\.
 
 ```
 PS > Set-AWSCredential -ProfileName SAMLDemoProfile
@@ -143,7 +143,7 @@ Instances                                                   GroupNames
 
 ### Example 2: Change Role Profiles During a PowerShell Session<a name="example-2-change-role-profiles-during-a-powershell-session"></a>
 
-This example lists all available Amazon S3 buckets in the AWS account of the role associated with the `SAMLDemoProfile` profile\. The example shows that although you might have been using another profile earlier in your Tools for PowerShell session, you can change profiles by specifying a different value for the `-ProfileName` parameter with cmdlets that support it\. This is a common task for administrators who manage Amazon S3 from the PowerShell command line\.
+This example lists all available Amazon S3 buckets in the AWS account of the role associated with the `SAMLDemoProfile` profile\. The example shows that although you might have been using another profile earlier in your AWS Tools for PowerShell session, you can change profiles by specifying a different value for the `-ProfileName` parameter with cmdlets that support it\. This is a common task for administrators who manage Amazon S3 from the PowerShell command line\.
 
 ```
 PS > Get-S3Bucket -ProfileName SAMLDemoProfile
@@ -158,9 +158,9 @@ CreationDate                                                BucketName
 
 Note that the `Get-S3Bucket` cmdlet specifies the name of the profile created by running the `Set-AWSSamlRoleProfile` cmdlet\. This command could be useful if you had set a role profile earlier in your session \(for example, by running the `Set-AWSCredential` cmdlet\) and wanted to use a different role profile for the `Get-S3Bucket` cmdlet\. The profile manager makes temporary credentials available to the `Get-S3Bucket` cmdlet\.
 
-Although the credentials expire after 1 hour \(a limit enforced by STS\), Tools for PowerShell automatically refreshes the credentials by requesting a new SAML assertion when the tool detects that the current credentials have expired\.
+Although the credentials expire after 1 hour \(a limit enforced by STS\), AWS Tools for PowerShell automatically refreshes the credentials by requesting a new SAML assertion when the tool detects that the current credentials have expired\.
 
-For domain\-joined users, this process occurs without interruption, because the current user's Windows identity is used during authentication\. For non\-domain\-joined user accounts, Tools for PowerShell shows a PowerShell credential prompt requesting the user password\. The user provides credentials that are used to reauthenticate the user and get a new assertion\.
+For domain\-joined users, this process occurs without interruption, because the current user's Windows identity is used during authentication\. For non\-domain\-joined user accounts, AWS Tools for PowerShell shows a PowerShell credential prompt requesting the user password\. The user provides credentials that are used to reauthenticate the user and get a new assertion\.
 
 ### Example 3: Get Instances in a Region<a name="example-3-get-instances-in-a-region"></a>
 

@@ -1,6 +1,6 @@
 # Cmdlet Discovery and Aliases<a name="pstools-discovery-aliases"></a>
 
-This section shows you how to list services that are supported by the AWS Tools for PowerShell, how to show the set of cmdlets provided by the Tools for PowerShell in support of those services, and how to find alternative cmdlet names \(also called aliases\) to access those services\.
+This section shows you how to list services that are supported by the AWS Tools for PowerShell, how to show the set of cmdlets provided by the AWS Tools for PowerShell in support of those services, and how to find alternative cmdlet names \(also called aliases\) to access those services\.
 
 ## Cmdlet Discovery<a name="pstools-cmdlet-discovery"></a>
 
@@ -187,7 +187,7 @@ Cmdlet          Write-CWETarget                                    3.3.563.1  AW
 
 ## Cmdlet Naming and Aliases<a name="pstools-cmdlet-naming-aliases"></a>
 
-The cmdlets in the Tools for PowerShell for each service are based on the methods provided by the AWS SDK for the service\. However, because of PowerShell's mandatory naming conventions, the name of a cmdlet might be different from the name of the API call or method on which it is based\. For example, the `Get-EC2Instance` cmdlet is based on the Amazon EC2`DescribeInstances` method\.
+The cmdlets in the AWS Tools for PowerShell for each service are based on the methods provided by the AWS SDK for the service\. However, because of PowerShell's mandatory naming conventions, the name of a cmdlet might be different from the name of the API call or method on which it is based\. For example, the `Get-EC2Instance` cmdlet is based on the Amazon EC2`DescribeInstances` method\.
 
 In some cases, the cmdlet name may be similar to a method name, but it may actually perform a different function\. For example, the Amazon S3`GetObject` method retrieves an Amazon S3 object\. However, the `Get-S3Object` cmdlet returns *information* about an Amazon S3 object rather than the object itself\.
 
@@ -203,7 +203,7 @@ Size         : 512
 StorageClass : STANDARD
 ```
 
-To get an S3 object with the Tools for PowerShell, run the `Read-S3Object` cmdlet:
+To get an S3 object with the AWS Tools for PowerShell, run the `Read-S3Object` cmdlet:
 
 ```
 PS > Read-S3Object -BucketName text-content -Key text-object.txt -file c:\tmp\text-object-download.text
@@ -224,7 +224,7 @@ AWS cmdlets do not support the `-WhatIf` switch\.
 
 ### Aliases<a name="pstools-aliases"></a>
 
-Setup of the Tools for PowerShell installs an aliases file that contains aliases for many of the AWS cmdlets\. You might find these aliases to be more intuitive than the cmdlet names\. For example, service names and AWS SDK method names replace PowerShell verbs and nouns in some aliases\. An example is the `EC2-DescribeInstances` alias\.
+Setup of the AWS Tools for PowerShell installs an aliases file that contains aliases for many of the AWS cmdlets\. You might find these aliases to be more intuitive than the cmdlet names\. For example, service names and AWS SDK method names replace PowerShell verbs and nouns in some aliases\. An example is the `EC2-DescribeInstances` alias\.
 
 Other aliases use verbs that, though they do not follow standard PowerShell conventions, can be more descriptive of the actual operation\. For example, the alias file maps the alias `Get-S3Content` to the cmdlet `Read-S3Object`\.
 
@@ -232,7 +232,7 @@ Other aliases use verbs that, though they do not follow standard PowerShell conv
 PS > Set-Alias -Name Get-S3Content -Value Read-S3Object
 ```
 
-The aliases file is located in the Tools for PowerShell installation directory\. To load the aliases into your environment, *dot\-source* the file\. The following is a Windows\-based example\.
+The aliases file is located in the AWS Tools for PowerShell installation directory\. To load the aliases into your environment, *dot\-source* the file\. The following is a Windows\-based example\.
 
 ```
 PS > . "C:\Program Files (x86)\AWS Tools\PowerShell\AWSPowershell\AWSAliases.ps1"
@@ -244,7 +244,7 @@ For a Linux or macOS shell, it might look like this:
 . ~/.local/share/powershell/Modules/AWSPowerShell.NetCore/3.3.563.1/AWSAliases.ps1
 ```
 
-To show all Tools for PowerShell aliases, run the following command\. This command uses the `?` alias for the PowerShell `Where-Object` cmdlet and the `Source` property to filter for only aliases that come from the `AWSPowerShell.NetCore` module\.
+To show all AWS Tools for PowerShell aliases, run the following command\. This command uses the `?` alias for the PowerShell `Where-Object` cmdlet and the `Source` property to filter for only aliases that come from the `AWSPowerShell.NetCore` module\.
 
 ```
 PS > Get-Alias | ? Source -like "AWSPowerShell.NetCore"

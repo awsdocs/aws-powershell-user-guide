@@ -1,11 +1,9 @@
-# Setting up the AWS Tools for Windows PowerShell or AWS Tools for PowerShell Core<a name="pstools-getting-set-up"></a>
+# Installing the AWS Tools for PowerShell<a name="pstools-getting-set-up"></a>
+
+To successfully install and use the AWS Tools for PowerShell cmdlets, see the steps in the following topics\.
 
 **Topics**
-+ [Prerequisites](#pstools-installing-prerequisites)
-+ [Windows Setup](pstools-getting-set-up-windows.md)
-+ [Linux or macOS Setup](pstools-getting-set-up-linux-mac.md)
++ [Prerequisites](pstools-getting-set-up-prereq.md)
++ [Installing on Windows](pstools-getting-set-up-windows.md)
++ [Installing on Linux or macOS](pstools-getting-set-up-linux-mac.md)
 + [AWS Account and Access Keys](pstools-appendix-sign-up.md)
-
-## Prerequisites<a name="pstools-installing-prerequisites"></a>
-
-To use the AWS Tools for Windows PowerShell or the AWS Tools for PowerShell Core, you must have an AWS account\. If you do not yet have an AWS account, see [AWS Account and Access Keys](pstools-appendix-sign-up.md) for instructions\.

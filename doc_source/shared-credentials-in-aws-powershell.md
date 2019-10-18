@@ -6,7 +6,7 @@ The new profile types and access to the AWS shared credential file are supported
 
 ## Using an IAM Role with AWS Tools for PowerShell<a name="shared-credentials-assume-role"></a>
 
-The AWS shared credential file enables additional types of access\. For example, you can access your AWS resources by using an IAM role instead of the long term credentials of an IAM user\. To do this, you must have a standard profile that has permissions to assume the role\. When you tell the Tools for PowerShell to use a profile that specified a role, the Tools for PowerShell looks up the profile identified by the `SourceProfile` parameter\. Those credentials are used to request temporary credentials for the role specified by the `RoleArn` parameter\. You can optionally require the use of an multi\-factor authentication \(MFA\) device or an `ExternalId` code when the role is assumed by a third party\.
+The AWS shared credential file enables additional types of access\. For example, you can access your AWS resources by using an IAM role instead of the long term credentials of an IAM user\. To do this, you must have a standard profile that has permissions to assume the role\. When you tell the AWS Tools for PowerShell to use a profile that specified a role, the AWS Tools for PowerShell looks up the profile identified by the `SourceProfile` parameter\. Those credentials are used to request temporary credentials for the role specified by the `RoleArn` parameter\. You can optionally require the use of an multi\-factor authentication \(MFA\) device or an `ExternalId` code when the role is assumed by a third party\.
 
 
 ****  
@@ -34,7 +34,7 @@ SourceCredentials                  RoleArn                                      
 Amazon.Runtime.BasicAWSCredentials arn:aws:iam::123456789012:role/role-i-want-to-assume aws-dotnet-sdk-session-636238288466144357 Amazon.Runtime.AssumeRoleAWSCredentialsOptions
 ```
 
-To use this role profile with the Tools for Windows PowerShell service cmdlets, add the `-ProfileName` common parameter to the command to reference the role profile\. The following example uses the role profile defined in the previous example to access the [Get\-S3Bucket](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-S3Bucket.html) cmdlet\. Tools for PowerShell looks up the credentials in `my_source_profile`, uses those credentials to call `AssumeRole` on behalf of the user, and then uses those temporary role credentials to call `Get-S3Bucket`\.
+To use this role profile with the Tools for Windows PowerShell service cmdlets, add the `-ProfileName` common parameter to the command to reference the role profile\. The following example uses the role profile defined in the previous example to access the [Get\-S3Bucket](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-S3Bucket.html) cmdlet\. AWS Tools for PowerShell looks up the credentials in `my_source_profile`, uses those credentials to call `AssumeRole` on behalf of the user, and then uses those temporary role credentials to call `Get-S3Bucket`\.
 
 ```
 PS > Get-S3Bucket -ProfileName my_role_profile
@@ -56,7 +56,7 @@ To set a credential profile type, understand which parameters provide the inform
 | --- | --- | 
 |  **Basic** These are the long term credentials for an IAM user  |  `-AccessKey`  `-SecretKey`  | 
 |  **Session**: These are the short term credentials for an IAM role that you retrieve manually, such as by directly calling the [Use\-STSRole](&url-twp-ref;items/Use-STSRole.html) cmdlet\.  |  `-AccessKey`  `-SecretKey` `-SessionToken`  | 
-|  **Role**: These are are short term credentials for an IAM role that Tools for PowerShell retrieve for you\.  |  `-SourceProfile` `-RoleArn`  optional: `-ExternalId` optional: `-MfaSerial`  | 
+|  **Role**: These are are short term credentials for an IAM role that AWS Tools for PowerShell retrieve for you\.  |  `-SourceProfile` `-RoleArn`  optional: `-ExternalId` optional: `-MfaSerial`  | 
 
 ## The `ProfilesLocation` Common Parameter<a name="the-profileslocation-common-parameter"></a>
 

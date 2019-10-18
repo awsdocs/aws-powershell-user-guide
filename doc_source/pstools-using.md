@@ -13,7 +13,7 @@
 + [Amazon S3 and Tools for Windows PowerShell](pstools-s3.md)
 + [IAM and Tools for Windows PowerShell](pstools-iam.md)
 + [Amazon EC2 and Tools for Windows PowerShell](pstools-ec2.md)
-+ [AWS Lambda and Tools for PowerShell](pstools-lambda.md)
++ [AWS Lambda and AWS Tools for PowerShell](pstools-lambda.md)
 + [Amazon SQS, Amazon SNS and Tools for Windows PowerShell](pstools-sqs-queue-sns-topic.md)
 + [CloudWatch from the AWS Tools for Windows PowerShell](pstools-cw.md)
 
@@ -21,7 +21,7 @@ This section provides examples of using the AWS Tools for PowerShell to access A
 
 ## PowerShell File Concatenation Encoding<a name="powershell-file-concatenation-encoding"></a>
 
-Some cmdlets in the Tools for PowerShell edit existing files or records that you have in AWS\. An example is `Edit-R53ResourceRecordSet`, which calls the [ChangeResourceRecordSets](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html) API for Amazon Route 53\.
+Some cmdlets in the AWS Tools for PowerShell edit existing files or records that you have in AWS\. An example is `Edit-R53ResourceRecordSet`, which calls the [ChangeResourceRecordSets](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html) API for Amazon Route 53\.
 
 When you edit or concatenate files in PowerShell 5\.1 or older releases, PowerShell encodes the output in UTF\-16, not UTF\-8\. This can add unwanted characters and create results that are not valid\. A hexadecimal editor can reveal the unwanted characters\.
 
@@ -42,7 +42,7 @@ PowerShell 6\.0 and newer, including PowerShell Core, automatically retains UTF\
 
 ## Returned Objects for the PowerShell Tools<a name="returned-objects-for-the-powershell-tools"></a>
 
-To make Tools for PowerShell more useful in a native PowerShell environment, the object returned by a Tools for PowerShell cmdlet is a \.NET object, not the JSON text object that is typically returned from the corresponding API in the AWS SDK\. For example, `Get-S3Bucket` emits a `Buckets` collection, not an Amazon S3 JSON response object\. The `Buckets` collection can be placed in the PowerShell pipeline and interacted with in appropriate ways\. Similarly, `Get-EC2Instance` emits a `Reservation` \.NET object collection, not a `DescribeEC2Instances` JSON result object\. This behavior is by design and enables the Tools for PowerShell experience to be more consistent with idiomatic PowerShell\.
+To make AWS Tools for PowerShell more useful in a native PowerShell environment, the object returned by a AWS Tools for PowerShell cmdlet is a \.NET object, not the JSON text object that is typically returned from the corresponding API in the AWS SDK\. For example, `Get-S3Bucket` emits a `Buckets` collection, not an Amazon S3 JSON response object\. The `Buckets` collection can be placed in the PowerShell pipeline and interacted with in appropriate ways\. Similarly, `Get-EC2Instance` emits a `Reservation` \.NET object collection, not a `DescribeEC2Instances` JSON result object\. This behavior is by design and enables the AWS Tools for PowerShell experience to be more consistent with idiomatic PowerShell\.
 
 The actual service responses are available for you if you need them\. They are stored as `note` properties on the returned objects\. For API actions that support paging by using `NextToken` fields, these are also attached as `note` properties\.
 

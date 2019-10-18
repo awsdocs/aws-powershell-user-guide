@@ -1,6 +1,6 @@
 # Getting Started with the AWS Tools for Windows PowerShell<a name="pstools-getting-started"></a>
 
-This section describes fundamentals of using the Tools for Windows PowerShell\. For example, it explains how to specify which credentials and region the Tools for Windows PowerShell should use when interacting with AWS\. This section also provides guidance for using standard PowerShell cmdlets such as `Get-Command` to discover AWS cmdlets\.
+This section describes fundamentals of using the Tools for Windows PowerShell\. For example, it explains how to specify which credentials and AWS Region the Tools for Windows PowerShell should use when interacting with AWS\. This section also provides guidance for using standard PowerShell cmdlets such as `Get-Command` to discover AWS cmdlets\.
 
 **Topics**
 + [AWS Credentials](specifying-your-aws-credentials.md)

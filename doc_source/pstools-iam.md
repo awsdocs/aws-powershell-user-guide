@@ -8,4 +8,3 @@ The commands shown here assume that you have set default credentials and a defau
 + [Create New IAM Users and Groups](pstools-iam-new-user-group.md)
 + [Set an IAM Policy for an IAM User](pstools-iam-policy.md)
 + [Set an Initial Password for an IAM User](pstools-iam-set-pw.md)
-+ [Create Security Credentials for an IAM User](pstools-iam-create-creds.md)

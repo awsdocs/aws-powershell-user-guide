@@ -1,8 +1,8 @@
 # Create a Security Group Using Windows PowerShell<a name="pstools-ec2-sg"></a>
 
-You can use the Tools for PowerShell to create and configure a security group for Amazon EC2 networking\. When you create a security group, you specify whether it is for `EC2-Classic` or `EC2-VPC`\. The cmdlet returns the ID of the new security group\.
+You can use the AWS Tools for PowerShell to create and configure a security group\. When you create a security group, you specify whether it is for EC2\-Classic or EC2\-VPC\. The response is the ID of the security group\.
 
-To connect to one of your Amazon EC2 instances, you must configure the security group for that instance to allow the appropriate traffic\. For example, SSH traffic on TCP port 22 \(Linux\) or RDP traffic on TCP port 3389 \(Windows\)\.
+If you need to connect to your instance, you must configure the security group to allow SSH traffic \(Linux\) or RDP traffic \(Windows\)\.
 
 **Topics**
 + [Prerequisites](#sg-prerequisites)

@@ -1,14 +1,14 @@
 # Specifying AWS Regions<a name="pstools-installing-specifying-region"></a>
 
-There are two ways to specify the AWS Region to use when running Tools for PowerShell commands:
+There are two ways to specify the AWS Region to use when running AWS Tools for PowerShell commands:
 + Use the `-Region` common parameter on individual commands\.
 + Use the `Set-DefaultAWSRegion` command to set a default Region for all commands\.
 
-Many AWS cmdlets fail if the Tools for Windows PowerShell can't figure out what region to use\. Exceptions include cmdlets for [Amazon S3](pstools-s3.md), Amazon SES, and [AWS Identity and Access Management \(IAM \)](pstools-iam.md), which automatically default to a global endpoint\.
+Many AWS cmdlets fail if the Tools for Windows PowerShell can't figure out what Region to use\. Exceptions include cmdlets for [Amazon S3](pstools-s3.md), Amazon SES, and [AWS Identity and Access Management \(IAM \)](pstools-iam.md), which automatically default to a global endpoint\.
 
  **To specify the region for a single AWS command** 
 
-Add the `-Region` parameter to your command, such as:
+Add the `-Region` parameter to your command, such as the following\.
 
 ```
 PS > Get-EC2Image -Region us-west-2
@@ -16,7 +16,7 @@ PS > Get-EC2Image -Region us-west-2
 
  **To set a default region for all AWS CLI commands in the current session** 
 
-From the PowerShell command prompt, type the following command:
+From the PowerShell command prompt, type the following command\.
 
 ```
 PS > Set-DefaultAWSRegion -Region us-west-2
@@ -27,7 +27,7 @@ This setting persists only for the current session\. To apply the setting to all
 
  **To view the current default region for all AWS CLI commands** 
 
-From the PowerShell command prompt, type the following command:
+From the PowerShell command prompt, type the following command\.
 
 ```
 PS > Get-DefaultAWSRegion
@@ -39,7 +39,7 @@ us-west-2 US West (Oregon) True
 
  **To clear the current default Region for all AWS CLI commands** 
 
-From the PowerShell command prompt, type the following command:
+From the PowerShell command prompt, type the following command\.
 
 ```
 PS > Clear-DefaultAWSRegion
@@ -79,13 +79,13 @@ Some Regions might be supported but not included in the results of the `Get-AWSR
 
 ## Specifying a Custom or Nonstandard Endpoint<a name="specifying-a-custom-or-nonstandard-endpoint"></a>
 
-Specify a custom endpoint as a URL by adding the `-EndpointUrl` common parameter to your Tools for Windows PowerShell command, in the following sample format:
+Specify a custom endpoint as a URL by adding the `-EndpointUrl` common parameter to your Tools for Windows PowerShell command, in the following sample format\.
 
 ```
 PS > Some-AWS-PowerShellCmdlet -EndpointUrl "custom endpoint URL" -Other -Parameters
 ```
 
-The following is an example using the `Get-EC2Instance` cmdlet\. The custom endpoint is in the `us-west-2`, or US West \(Oregon\) Region in this example, but you can use any other supported AWS region, including regions that are not enumerated by `Get-AWSRegion`\.
+The following is an example using the `Get-EC2Instance` cmdlet\. The custom endpoint is in the `us-west-2`, or US West \(Oregon\) Region in this example, but you can use any other supported AWS Region, including regions that are not enumerated by `Get-AWSRegion`\.
 
 ```
 PS > Get-EC2Instance -EndpointUrl "https://service-custom-url.us-west-2.amazonaws.com" -InstanceID "i-0555a30a2000000e1"
