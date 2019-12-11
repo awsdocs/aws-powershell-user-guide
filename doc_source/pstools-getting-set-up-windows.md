@@ -1,11 +1,9 @@
 # Installing the AWS Tools for PowerShell on Windows<a name="pstools-getting-set-up-windows"></a>
 
-## Overview of Setup<a name="pstools-installing-windows-prerequisites"></a>
-
 A Windows\-based computer can run any of the AWS Tools for PowerShell package options: 
-+ The AWSPowerShell module
-+ The AWSPowerShell\.NetCore module
-+ The AWS\.Tools module
++ [**AWS\.Tools**](#ps-installing-awstools) \- The modularized version of AWS Tools for PowerShell\. Each AWS service is supported by its own individual, small module, with shared support modules `AWS.Tools.Common` and `AWS.Tools.Installer`\.
++ [**AWSPowerShell\.NetCore**](#ps-installing-awspowershellnetcore) \- The single, large\-module version of AWS Tools for PowerShell\. All AWS services are supported by this single, large module\.
++ [**AWSPowerShell**](#ps-installing-awswindowspowershell) \- The legacy Windows\-specific, single, large\-module version of AWS Tools for PowerShell\. All AWS services are supported by this single, large module\.
 
 The package you choose depends on the release and edition of Windows that you're running\. 
 
@@ -24,55 +22,70 @@ Setting up the AWS Tools for PowerShell involves the following high\-level tasks
 
 Ensure that you meet the requirements listed in [Prerequisites for Setting up the AWS Tools for PowerShell](pstools-getting-set-up-prereq.md)\.
 
-For a list of PowerShell versions and which versions of Windows each was introduced in, see [https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell)\.
-
-Newer versions of PowerShell, including PowerShell Core, are available as downloads from Microsoft at [https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell)\.
-
-## Install the Prerelease Version of AWS\.Tools on Windows<a name="pstools-installing-download"></a>
-
-Depending on the version of PowerShell you install, you can choose from three package options:
-+ **AWS\.Tools** \- The modularized version of AWS Tools for PowerShell that runs on either of the following configurations:
-  + PowerShell Core 6\.0 or later\.
-  + Windows PowerShell 3\.0 or later, as long as \.NET Framework 4\.7\.2 or later is also installed\.
-**Prerelease Evaluation Software**  
-The modularized AWS\.Tools version of the product is provided as prerelease software for testing and evaluation\. Because it's prerelease software, we recommend that you don't use this in a production environment\. For production environments, we recommend that you use the generally available AWSPowerShell\.NetCore\.
-+ [**AWSPowerShell\.NetCore**](#ps-installing-awspowershellnetcore) \- The monolithic version of AWS Tools for PowerShell that runs on either of the following configurations:
-  + PowerShell Core 6\.0 or later\.
-  + Windows PowerShell 3\.0 or later, as long as \.NET Framework 4\.7\.2 or later is also installed\.
-+ [**AWSPowerShell**](#ps-installing-awswindowspowershell) \- The monolithic version of AWS Tools for PowerShell that runs only on Windows, and is compatible with PowerShell 2\.0 through 5\.1\.
-
-If you already have a version of AWS Tools for PowerShell installed, we recommend that you uninstall the earlier version of AWS Tools for PowerShell first\. Follow the instructions in [Updating the AWS Tools for PowerShell on Windows](#pstools-updating)\. 
+Newer versions of PowerShell, including PowerShell Core, are available as downloads from Microsoft at [Installing various versions of PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell) on Microsoft's Web site\.
 
 ## Install AWS\.Tools on Windows<a name="ps-installing-awstools"></a>
 
-You can install the modularized version of AWS Tools for PowerShell on computers that are running Windows with Windows PowerShell versions 3 through 5\.1, or PowerShell Core 6\.0 or later\. For information about how to install PowerShell Core, see [https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell)\.
+You can install the modularized version of AWS Tools for PowerShell on computers that are running Windows with Windows PowerShell 5\.1, or PowerShell Core 6\.0 or later\. For information about how to install PowerShell Core, see [Installing various versions of PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell) on Microsoft's Web site\.
 
-To install the prerelease version of the modularized AWS\.Tools package, run the following command\.
+You can install AWS\.Tools manually, by using the `Install-Module` cmdlet, or by using the cmdlets in the `AWS.Tools.Installer` module\. The `AWS.Tools.Installer` module simplifies the installation and update of other AWS\.Tools modules\. `AWS.Tools.Installer` requires, and automatically downloads and installs an updated version of `PowerShellGet`\. The `AWS.Tools.Installer` module also automatically keeps your module versions in sync\. When you install or update to a newer version of one module, the cmdlets in the `AWS.Tools.Installer` automatically update all of your other AWS\.Tools modules to the same version\.
 
-```
-PS > Install-Module -Name AWS.Tools.Common
+**To install AWS\.Tools on Windows**
 
-Untrusted repository
-You are installing the modules from an untrusted repository. If you trust this repository, change its InstallationPolicy value by running the Set-PSRepository cmdlet. Are you sure
- you want to install the modules from 'PSGallery'?
-[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"): y
-```
+1. Start a PowerShell session\.
+**Note**  
+We recommend that you *don't* run PowerShell as an administrator with elevated permissions except when required by the task at hand\. This is because of the potential security risk and is inconsistent with the principle of least privilege\.
 
-If you are notified that the repository is "untrusted", you're asked if you want to install anyway\. Enter **y** to allow PowerShell to install the module\. Alternatively, to avoid the prompt without trusting the repository, you can run the following command\.
+1. To install the modularized AWS\.Tools package, run the following command\.
 
-```
-PS > Install-Module -Name AWS.Tools.Common -Force
-```
+   ```
+   PS > Install-Module -Name AWS.Tools.Installer
+   
+   Untrusted repository
+   You are installing the modules from an untrusted repository. If you trust this repository, change its InstallationPolicy value by running the Set-PSRepository cmdlet. Are you sure
+    you want to install the modules from 'PSGallery'?
+   [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"): y
+   ```
 
-You can now install the module for each service that you want to use\. For example, the following command installs the IAM module, again ignoring any prompt to trust the repository\.
+   If you are notified that the repository is "untrusted", it asks you if you want to install anyway\. Enter **y** to allow PowerShell to install the module\. To avoid the prompt and install the module without trusting the repository, you can run the command with the `-Force` parameter\.
 
-```
-PS > Install-Module -Name AWS.Tools.IdentityManagement -Force
-```
+   ```
+   PS > Install-Module -Name AWS.Tools.Installer -Force
+   ```
+
+1. You can now install the module for each AWS service that you want to use by using the `Install-AWSToolsModule` cmdlet\. For example, the following command installs the IAM module\. This command also installs any dependent modules that are required for the specified module to work\. For example, when you install your first AWS\.Tools service module, it also installs `AWS.Tools.Common`\. This is a shared module required by all AWS service modules\. It also removes older versions of the modules, and updates other modules to the same newer version\.
+
+   ```
+   PS > Install-AWSToolsModule AWS.Tools.EC2,AWS.Tools.S3 -CleanUp
+     Confirm
+     Are you sure you want to perform this action?
+     Performing the operation "Install-AWSToolsModule" on target "AWS Tools version 4.0.0.0".
+     [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
+   
+     Installing module AWS.Tools.Common version 4.0.0.0
+     Installing module AWS.Tools.EC2 version 4.0.0.0
+     Installing module AWS.Tools.Glacier version 4.0.0.0
+     Installing module AWS.Tools.S3 version 4.0.0.0
+   
+     Uninstalling AWS.Tools version 3.3.618.0
+     Uninstalling module AWS.Tools.Glacier
+     Uninstalling module AWS.Tools.S3
+     Uninstalling module AWS.Tools.SimpleNotificationService
+     Uninstalling module AWS.Tools.SQS
+     Uninstalling module AWS.Tools.Common
+   ```
+**Note**  
+The `Install-AWSToolsModule` cmdlet downloads all requested modules from the `PSRepository` named `PSGallery` \([https://www\.powershellgallery\.com/](https://www.powershellgallery.com/)\) and considers it a trusted source\. Use the command `Get-PSRepository -Name PSGallery` for more information about this `PSRepository`\.
+
+   By default, this command installs modules into the `$home\Documents\PowerShell\Modules` folder\. To install the AWS Tools for PowerShell for all users of a computer, you must run the following command in a PowerShell session that you started as an administrator\. This installs modules to the `$env:ProgramFiles\PowerShell\Modules` folder that is accessible by all users\.
+
+   ```
+   PS > Install-AWSToolsModule AWS.Tools.IdentityManagement -Scope AllUsers
+   ```
 
 ## Install AWSPowerShell\.NetCore on Windows<a name="ps-installing-awspowershellnetcore"></a>
 
-You can install the AWS Tools for PowerShell Core on computers that are running Windows with PowerShell version 3 through 5\.1, or PowerShell Core 6\.0 or later\. For information about how to install PowerShell Core, see [https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell)\.
+You can install the AWSPowerShell\.NetCore on computers that are running Windows with PowerShell version 3 through 5\.1, or PowerShell Core 6\.0 or later\. For information about how to install PowerShell Core, see [https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell)\.
 
 To install the AWS Tools for PowerShell Core, your computer must be running PowerShell 5\.0 or later, or running [PowerShellGet](https://www.powershellgallery.com/packages/PowerShellGet) on PowerShell 3 or later\. Run the following command\.
 
@@ -99,12 +112,12 @@ To load the AWSPowerShell\.NetCore module into a PowerShell session automaticall
 ## Install AWSPowerShell on Windows PowerShell<a name="ps-installing-awswindowspowershell"></a>
 
 You can install the AWS Tools for Windows PowerShell in one of two ways, depending on which version of Windows PowerShell you have installed:
-+ If you're running PowerShell 5\.0 or later, or have installed [PowerShellGet](https://www.powershellgallery.com/packages/PowerShellGet) on PowerShell 3 or later, you can install and update the Tools for Windows PowerShell from Microsoft's [PowerShell Gallery](https://www.powershellgallery.com/packages/AWSPowerShell) website by running the following command\.
++ If you're running PowerShell 5\.0 or later, or have installed [PowerShellGet](https://www.powershellgallery.com/packages/PowerShellGet) on PowerShell 3 or later, you can install and update AWSPowerShell from Microsoft's [PowerShell Gallery](https://www.powershellgallery.com/packages/AWSPowerShell) by running the following command\.
 
   ```
   PS > Install-Module -Name AWSPowerShell
   ```
-+ If you're running a version of PowerShell earlier than 5\.0, you can run the Tools for Windows PowerShell installer `.msi`\. To download the installer, navigate to [http://aws.amazon.com/powershell/](http://aws.amazon.com/powershell/), and then choose **AWS Tools for Windows**\.
++ If you're running a version of PowerShell earlier than 5\.0, you can run the Tools for Windows PowerShell installer `.msi`\. To download the installer, navigate to [http://aws.amazon.com/powershell/](http://aws.amazon.com/powershell/), and then choose **AWS Tools for Windows Installer**\.
 **Note**  
 You can run the installer `.msi` if you're running Windows PowerShell 5\.0 or later\. But we recommend that you use the Install\-Module cmdlet instead so that you have easier support for updating or removing the module\.
 
@@ -117,7 +130,7 @@ The Tools for Windows PowerShell are installed by default on all Windows\-based 
 
 ## Enable Script Execution<a name="enable-script-execution"></a>
 
-To load the AWS Tools for PowerShell modules, you must enable PowerShell script execution\. To enable script execution, run the `Set-ExecutionPolicy` cmdlet to set a policy of `RemoteSigned`\. For more information about execution policies, see [About Execution Policies](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies) on the Microsoft Technet website\.
+To load the AWS Tools for PowerShell modules, you must enable PowerShell script execution\. To enable script execution, run the `Set-ExecutionPolicy` cmdlet to set a policy of `RemoteSigned`\. For more information, see [About Execution Policies](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies) on the Microsoft Technet website\.
 
 **Note**  
 This is a requirement only for computers that are running Windows\. The `ExecutionPolicy` security restriction is not present on other operating systems\.
@@ -170,7 +183,7 @@ AWS releases new versions of the AWS Tools for PowerShell periodically to suppor
 PS > Get-AWSPowerShellVersion
 
 AWS Tools for PowerShell
-Version 3.3.563.1
+Version 4.0.123.0
 Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
 Amazon Web Services SDK for .NET
@@ -253,27 +266,22 @@ WSManStackVersion              3.0
 
 Periodically, as updated versions of the AWS Tools for PowerShell are released, you should update the version that you are running locally\. 
 
-Run the `Get-AWSPowerShellVersion` cmdlet to determine the version that you are running, and compare that with the version of Tools for Windows PowerShell that is available on the [PowerShell Gallery](https://www.powershellgallery.com/packages/AWSPowerShell) website\. We suggest you check every two to three weeks\. Support for new commands and AWS services is available only after you update to a version with that support\.
+### Update the Modularized AWS\.Tools<a name="update-the-tools-for-powershell"></a>
 
-### Update the Modularized Prerelease Version of AWS\.Tools<a name="update-the-tools-for-powershell"></a>
-
-Before you install a newer release of the AWS\.Tools, uninstall any existing modules\. Close any open PowerShell sessions before you uninstall the existing AWS\.Tools package\. Run the following commands to uninstall the package\.
+To upgrade your AWS\.Tools modules to the latest version, run the following command\.
 
 ```
-PS > Get-Module -Name AWS.Tools.* | Uninstall-Module
+PS > Update-AWSToolsModule -CleanUp
 ```
 
-If you see an error stating that a module can't be removed because of a dependency, re\-run the command until you no longer get the error\. This can occur if PowerShell tries to uninstall `AWS.Tools.Common` before all of the other AWS service modules are uninstalled\.
+This command updates all of the currently installed `AWS.Tools` modules and, after a successful update, removes other installed versions\.
 
-When uninstallation is finished, you can install a newer version by running the following command\.
-
-```
-PS > Install-Module -Name AWS.Tools.Common
-```
-
-You must also reinstall any of the other `AWS.Tools.*` modules that you were using\.
+**Note**  
+The `Update-AWSToolsModule` cmdlet downloads all modules from the `PSRepository` named `PSGallery` \([https://www\.powershellgallery\.com/](https://www.powershellgallery.com/)\) and considers it a trusted source\. Use the command: `Get-PSRepository -Name PSGallery` for more information on this `PSRepository`\.
 
 ### Update the Tools for PowerShell Core<a name="update-the-tools-for-powershell-core"></a>
+
+Run the `Get-AWSPowerShellVersion` cmdlet to determine the version that you are running, and compare that with the version of Tools for Windows PowerShell that is available on the [PowerShell Gallery](https://www.powershellgallery.com/packages/AWSPowerShell) website\. We suggest you check every two to three weeks\. Support for new commands and AWS services is available only after you update to a version with that support\.
 
 Before you install a newer release of AWSPowerShell\.NetCore, uninstall the existing module\. Close any open PowerShell sessions before you uninstall the existing package\. Run the following command to uninstall the package\.
 
@@ -290,6 +298,8 @@ PS > Install-Module -Name AWSPowerShell.NetCore
 After installation, run the command `Import-Module AWSPowerShell.NetCore` to load the updated cmdlets into your PowerShell session\.
 
 ### Update the Tools for Windows PowerShell<a name="update-the-tools-for-windows-powershell"></a>
+
+Run the `Get-AWSPowerShellVersion` cmdlet to determine the version that you are running, and compare that with the version of Tools for Windows PowerShell that is available on the [PowerShell Gallery](https://www.powershellgallery.com/packages/AWSPowerShell) website\. We suggest you check every two to three weeks\. Support for new commands and AWS services is available only after you update to a version with that support\.
 + If you installed by using the `Install-Module` cmdlet, run the following commands\.
 
   ```

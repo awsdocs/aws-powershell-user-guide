@@ -4,11 +4,12 @@ This topic describes significant changes to the documentation for the AWS Tools 
 
 We also update the documentation periodically in response to customer feedback\. To send feedback about a topic, use the feedback buttons next to "Did this page help you?" located at the bottom of each page\.
 
-For additional information about changes and updates to the Tools for Windows PowerShell, see the [release notes](https://aws.amazon.com/releasenotes/PowerShell)\.
+For additional information about changes and updates to the AWS Tools for PowerShell, see the [release notes](https://aws.amazon.com/releasenotes/PowerShell)\.
 
 | Change | Description | Date | 
 | --- |--- |--- |
-| [$AWSTWP; 3\.3\.563](#history-pst) | Added information about how to install and use the new AWS\.Tools\.Common module\. This new module breaks apart the older monolithic package into one shared module and one module per AWS service\. | October 18, 2019 | 
+| [AWS Tools for PowerShell Version 4](#history-pst) | Added information about version 4, including installation instructions for both [Windows](url-doc-domain;powershell/latest/userguide/pstools-getting-set-up-windows.html) and [Linux/macOS](url-doc-domain;powershell/latest/userguide/pstools-getting-set-up-linux-mac.html), and a [migration](url-doc-domain;powershell/latest/userguide/v4migration.html) topic that describes the differences from version 3 and introduces new features\. | November 21, 2019 | 
+| [AWS Tools for PowerShell 3\.3\.563](#history-pst) | Added information about how to install and use the preview version of the AWS\.Tools\.Common module\. This new module breaks apart the older monolithic package into one shared module and one module per AWS service\. | October 18, 2019 | 
 | [AWS Tools for PowerShell 3\.3\.343\.0](#history-pst) | Added information to the [Using the AWS Tools for PowerShell](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-using.html) section introducing the AWS Lambda Tools for PowerShell for PowerShell Core developers to build AWS Lambda functions\. | September 11, 2018 | 
 | [AWS Tools for Windows PowerShell 3\.1\.31\.0](#history-pst) | Added information to the [Getting Started](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-started.html) section about new cmdlets that use Security Assertion Markup Language \(SAML\) to support configuring federated identity for users\. | December 1, 2015 | 
 | [AWS Tools for Windows PowerShell 2\.3\.19](#history-pst) | Added information to the [Cmdlets Discovery and Aliases](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-discovery-aliases.html) section about the new `Get-AWSCmdletName` cmdlet that can help users more easily find their desired AWS cmdlets\. | February 5, 2015 | 

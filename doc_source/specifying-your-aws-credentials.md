@@ -89,7 +89,7 @@ There are several ways to specify credentials\. The preferred way is to identify
 On Windows, AWS credentials stored in the AWS SDK store are encrypted with the logged\-in Windows user identity\. They cannot be decrypted by using another account, or used on a device that's different from the one on which they were originally created\. To perform tasks that require the credentials of another user, such as a user account under which a scheduled task will run, set up a credential profile, as described in the preceding section, that you can use when you log in to the computer as that user\. Log in as the task\-performing user to complete the credential setup steps, and create a profile that works for that user\. Then log out and log in again with your own credentials to set up the scheduled task\.
 
 **Note**  
-Use the `-ProfileName` common parameter to specify a profile\. This parameter is equivalent to the `-StoredCredentials` parameter in earlier Tools for PowerShell releases\. For backward compatibility, `-StoredCredentials` is still supported\.
+Use the `-ProfileName` common parameter to specify a profile\. This parameter is equivalent to the `-StoredCredentials` parameter in earlier AWS Tools for PowerShell releases\. For backward compatibility, `-StoredCredentials` is still supported\.
 
 ### Default Profile \(Recommended\)<a name="default-profile-recommended"></a>
 
