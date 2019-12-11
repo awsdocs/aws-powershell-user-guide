@@ -27,4 +27,4 @@ If you use the AWS Tools for PowerShell to invoke an AWS service that transmits 
 
 By default, all data transmitted from the client computer running the AWS Tools for PowerShell and AWS service endpoints is encrypted by sending everything through an HTTPS/TLS connection\.
 
-You don't need to do anything to enable the use of HTTPS/TLS\. It is always enabled unless you explicitly disable it for an individual command by using the `--no-verify-ssl` command line option\.
+You don't need to do anything to enable the use of HTTPS/TLS\. It is always enabled\.

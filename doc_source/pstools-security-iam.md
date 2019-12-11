@@ -6,7 +6,6 @@ The only major difference is how you authenticate when using a standard IAM user
 
 The credentials used by the AWS Tools for PowerShell are typically stored in plaintext files and are ***not*** encrypted\. However, you do have an option to use the encrypted \.NET SDK credential store when you run on Windows\.
 + The `$HOME/.aws/credentials` file stores long\-term credentials required to access your AWS resources\. These include your access key ID and secret access key\. 
-+ Short\-term credentials, such as those for roles that you assume, or that are for AWS Single Sign\-On services, are cached in the `$HOME/.aws/cli/cache` and $HOME/\.aws/sso/cache folders, respectively\.
 
 **Mitigation of Risk**
 + We strongly recommend that you configure your file system permissions on the `$HOME/.aws` folder and its child folders and files to restrict access to only authorized users\.
