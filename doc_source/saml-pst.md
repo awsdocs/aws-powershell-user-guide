@@ -102,8 +102,11 @@ PS > Import-Module "C:\Program Files (x86)\AWS Tools\PowerShell\AWSPowerShell\AW
    Alternatively, you can specify a role without the prompt, by entering the `RoleARN`, `PrincipalARN`, and optional `NetworkCredential` parameters\. If the specified role is not listed in the assertion returned by authentication, the user is prompted to choose from available roles\.
 
    ```
-   PS > $params = @{ "NetworkCredential"=$credential, "PrincipalARN"="{arn:aws:iam::012345678912:saml-provider/ADFS}", "RoleARN"="{arn:aws:iam::012345678912:role/ADFS-Dev}"
-   }
+   PS > $params = @{
+            NetworkCredential = $credential
+            PrincipalARN      = 'arn:aws:iam::012345678912:saml-provider/ADFS'
+            RoleARN           = 'arn:aws:iam::012345678912:role/ADFS-Dev'
+        }
    PS > $epName | Set-AWSSamlRoleProfile @params -StoreAs SAMLDemoProfile1 -Verbose
    ```
 
