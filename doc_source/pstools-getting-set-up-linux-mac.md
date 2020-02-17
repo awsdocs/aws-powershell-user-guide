@@ -32,7 +32,10 @@ To run the AWS Tools for PowerShell Core, your computer must be running PowerShe
 
 You can install the modularized version of AWS Tools for PowerShell on computers that are running PowerShell Core 6\.0 or later\. For information about how to install PowerShell Core, see [https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell)\. 
 
-You can install AWS\.Tools manually, by using the `Install-Module` cmdlet, or by using the cmdlets in the `AWS.Tools.Installer` module\. The `AWS.Tools.Installer` module simplifies the installation and update of other AWS\.Tools modules\. `AWS.Tools.Installer` requires, and automatically downloads and installs, an updated version of `PowerShellGet`\. The `AWS.Tools.Installer` module also automatically keeps your module versions in sync\. When you install or update to a newer version of one module, the cmdlets in the `AWS.Tools.Installer` automatically update all of your other AWS\.Tools modules to the same version\.
+You can install AWS\.Tools in one of three ways:
++ Using the cmdlets in the `AWS.Tools.Installer` module\. The `AWS.Tools.Installer` module simplifies the installation and update of other AWS\.Tools modules\. `AWS.Tools.Installer` requires, and automatically downloads and installs, an updated version of `PowerShellGet`\. The `AWS.Tools.Installer` module also automatically keeps your module versions in sync\. When you install or update to a newer version of one module, the cmdlets in the `AWS.Tools.Installer` automatically update all of your other AWS\.Tools modules to the same version\.
++ Installing each service module from PowerShell Gallery using the `Install-Module` cmdlet\.
++ Downloading the modules as a [ZIP archive](https://sdk-for-net.amazonwebservices.com/ps/v4/latest/AWS.Tools.zip) and extracting them in one of the module directories\. You can discover your module directories by printing the value of the `$Env:PSModulePath` variable.
 
 **To install AWS\.Tools on Linux or macOS**
 
@@ -44,7 +47,7 @@ You can install AWS\.Tools manually, by using the `Install-Module` cmdlet, or by
 **Note**  
 We recommend that you *don't* run PowerShell as an administrator with elevated permissions except when required by the task at hand\. This is because of the potential security risk and is inconsistent with the principle of least privilege\.
 
-1. To install the modularized AWS\.Tools package, run the following command\.
+1. To install the modularized AWS\.Tools package using the AWS\.Tools\.Installer module, run the following command\.
 
    ```
    PS > Install-Module -Name AWS.Tools.Installer
@@ -93,6 +96,10 @@ The `Install-AWSToolsModule` cmdlet downloads all requested modules from the `PS
 
 ## Install AWSPowerShell\.NetCore on Linux or macOS<a name="install-netcore-on-linux-macos"></a>
 
+You can install AWSPowerShell\.NetCore in one of two ways:
++ Installing from PowerShell Gallery using the `Install-Module` cmdlet\.
++ Downloading the module as a [ZIP archive](https://sdk-for-net.amazonwebservices.com/ps/v4/latest/AWSPowerShell.NetCore.zip) and extracting it in one of the module directories\. You can discover your module directories by printing the value of the `$Env:PSModulePath` variable.
+
 To upgrade to a newer release of AWSPowerShell\.NetCore, follow the instructions in [Updating the AWS Tools for PowerShell on Linux or macOS](#pstools-updating-linux)\. Uninstall earlier versions of AWSPowerShell\.NetCore first\.
 
 Start a PowerShell Core session by running the following command\.
@@ -104,7 +111,7 @@ $ pwsh
 **Note**  
 We recommend that you *don't* start PowerShell by running `sudo pwsh` to run PowerShell with elevated, administrator rights\. This is because of the potential security risk and is inconsistent with the principle of least privilege\.
 
-To install the AWSPowerShell\.NetCore single\-module package, run the following command\.
+To install the AWSPowerShell\.NetCore single\-module package from PowerShell Gallery, run the following command\.
 
 ```
 PS > Install-Module -Name AWSPowerShell.NetCore

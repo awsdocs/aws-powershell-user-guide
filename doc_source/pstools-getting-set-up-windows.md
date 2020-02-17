@@ -28,7 +28,10 @@ Newer versions of PowerShell, including PowerShell Core, are available as downlo
 
 You can install the modularized version of AWS Tools for PowerShell on computers that are running Windows with Windows PowerShell 5\.1, or PowerShell Core 6\.0 or later\. For information about how to install PowerShell Core, see [Installing various versions of PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell) on Microsoft's Web site\.
 
-You can install AWS\.Tools manually, by using the `Install-Module` cmdlet, or by using the cmdlets in the `AWS.Tools.Installer` module\. The `AWS.Tools.Installer` module simplifies the installation and update of other AWS\.Tools modules\. `AWS.Tools.Installer` requires, and automatically downloads and installs an updated version of `PowerShellGet`\. The `AWS.Tools.Installer` module also automatically keeps your module versions in sync\. When you install or update to a newer version of one module, the cmdlets in the `AWS.Tools.Installer` automatically update all of your other AWS\.Tools modules to the same version\.
+You can install AWS\.Tools in one of three ways:
++ Using the cmdlets in the `AWS.Tools.Installer` module\. The `AWS.Tools.Installer` module simplifies the installation and update of other AWS\.Tools modules\. `AWS.Tools.Installer` requires, and automatically downloads and installs, an updated version of `PowerShellGet`\. The `AWS.Tools.Installer` module also automatically keeps your module versions in sync\. When you install or update to a newer version of one module, the cmdlets in the `AWS.Tools.Installer` automatically update all of your other AWS\.Tools modules to the same version\.
++ Installing each service module from PowerShell Gallery using the `Install-Module` cmdlet\.
++ Downloading the modules as a [ZIP archive](https://sdk-for-net.amazonwebservices.com/ps/v4/latest/AWS.Tools.zip) and extracting them in one of the module folders\. You can discover your module folders by printing the value of the `$Env:PSModulePath` variable.
 
 **To install AWS\.Tools on Windows**
 
@@ -87,7 +90,11 @@ The `Install-AWSToolsModule` cmdlet downloads all requested modules from the `PS
 
 You can install the AWSPowerShell\.NetCore on computers that are running Windows with PowerShell version 3 through 5\.1, or PowerShell Core 6\.0 or later\. For information about how to install PowerShell Core, see [https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell)\.
 
-To install the AWS Tools for PowerShell Core, your computer must be running PowerShell 5\.0 or later, or running [PowerShellGet](https://www.powershellgallery.com/packages/PowerShellGet) on PowerShell 3 or later\. Run the following command\.
+You can install AWSPowerShell\.NetCore in one of two ways:
++ Installing from PowerShell Gallery using the `Install-Module` cmdlet\.
++ Downloading the module as a [ZIP archive](https://sdk-for-net.amazonwebservices.com/ps/v4/latest/AWSPowerShell.NetCore.zip) and extracting it in one of the module directories\. You can discover your module directories by printing the value of the `$Env:PSModulePath` variable.
+
+To install the AWSPowerShell\.NetCore from the PowerShell Gallery, your computer must be running PowerShell 5\.0 or later, or running [PowerShellGet](https://www.powershellgallery.com/packages/PowerShellGet) on PowerShell 3 or later\. Run the following command\.
 
 ```
 PS > Install-Module -name AWSPowerShell.NetCore
@@ -111,18 +118,16 @@ To load the AWSPowerShell\.NetCore module into a PowerShell session automaticall
 
 ## Install AWSPowerShell on Windows PowerShell<a name="ps-installing-awswindowspowershell"></a>
 
-You can install the AWS Tools for Windows PowerShell in one of two ways, depending on which version of Windows PowerShell you have installed:
-+ If you're running PowerShell 5\.0 or later, or have installed [PowerShellGet](https://www.powershellgallery.com/packages/PowerShellGet) on PowerShell 3 or later, you can install and update AWSPowerShell from Microsoft's [PowerShell Gallery](https://www.powershellgallery.com/packages/AWSPowerShell) by running the following command\.
+You can install AWSPowerShell in one of three ways:
++ Installing from PowerShell Gallery using the `Install-Module` cmdlet\.
++ Downloading the module as a [ZIP archive](https://sdk-for-net.amazonwebservices.com/ps/v4/latest/AWSPowerShell.zip) and extracting it in one of the module directories\. You can discover your module directories by printing the value of the `$Env:PSModulePath` variable.
++ Running the [Tools for Windows PowerShell installer](https://sdk-for-net.amazonwebservices.com/latest/AWSToolsAndSDKForNet.msi). This method of installing AWSPowerShell is deprecated and we recommend that you use `Install-Module` instead.
+
+You can install the AWSPowerShell from the PowerShell Gallery if you're running PowerShell 5\.0 or later, or have installed [PowerShellGet](https://www.powershellgallery.com/packages/PowerShellGet) on PowerShell 3 or later\. You can install and update AWSPowerShell from Microsoft's [PowerShell Gallery](https://www.powershellgallery.com/packages/AWSPowerShell) by running the following command\.
 
   ```
   PS > Install-Module -Name AWSPowerShell
   ```
-+ If you're running a version of PowerShell earlier than 5\.0, you can run the Tools for Windows PowerShell installer `.msi`\. To download the installer, navigate to [http://aws.amazon.com/powershell/](http://aws.amazon.com/powershell/), and then choose **AWS Tools for Windows Installer**\.
-**Note**  
-You can run the installer `.msi` if you're running Windows PowerShell 5\.0 or later\. But we recommend that you use the Install\-Module cmdlet instead so that you have easier support for updating or removing the module\.
-
-  The installer includes the most recent versions of the AWS SDK for \.NET assemblies for the \.NET 3\.5 and 4\.5 Frameworks\. If you have Visual Studio 2013 or 2015 or later installed, the installer can also install the [AWS Toolkit for Visual Studio](https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/welcome.html)\.
-
 To load the AWSPowerShell module into a PowerShell session automatically, add the previous `import-module` cmdlet to your PowerShell profile\. For more information about editing your PowerShell profile, see [About Profiles](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-6) in the PowerShell documentation\.
 
 **Note**  
