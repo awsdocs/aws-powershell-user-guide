@@ -22,7 +22,7 @@ The AWS Tools for PowerShell are available as the following three distinct packa
 
 [ ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/powershell/latest/userguide/images/ZIP%20Archive-AWS.Tools-yellow.png) ](https://sdk-for-net.amazonwebservices.com/ps/v4/latest/AWS.Tools.zip)
 
-This version of AWS Tools for PowerShell is the recommended version for any computer running PowerShell in a production environment\. Because it's modularized, you need to download and load only the modules for the services you want to use\. This reduces download times, memory usage, and enables auto\-importing of AWS\.Tools cmdlets with the need to manually call `Import-Module` first\.
+This version of AWS Tools for PowerShell is the recommended version for any computer running PowerShell in a production environment\. Because it's modularized, you need to download and load only the modules for the services you want to use\. This reduces download times, memory usage, and enables auto\-importing of AWS\.Tools cmdlets without the need to manually call `Import-Module` first\.
 
 This is the latest version of AWS Tools for PowerShell and runs on all supported operating systems, including Windows, Linux, and macOS\. This package provides one installation module, `AWS.Tools.Installer`, one common module, `AWS.Tools.Common`, and one module for each AWS service, for example, `AWS.Tools.EC2`, `AWS.Tools.IAM`, `AWS.Tools.S3`, and so on\.
 
