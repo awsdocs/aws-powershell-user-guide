@@ -50,7 +50,7 @@ $ipPermissions = New-Object Amazon.EC2.Model.IpPermission
 $ipPermissions.IpProtocol = "tcp"
 $ipPermissions.FromPort = 22
 $ipPermissions.ToPort = 22
-ipPermissions.IpRanges = $cidrBlocks
+$ipPermissions.IpRanges = $cidrBlocks
 Grant-EC2SecurityGroupIngress -GroupName myPSSecurityGroup -IpPermissions $ipPermissions
 ```
 
