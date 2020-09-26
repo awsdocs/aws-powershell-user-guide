@@ -1,18 +1,20 @@
-# aws-powershell-user-guide
+## [User guide](doc_source/index.md) for the AWS Tools for PowerShell
 
+To view this documentation, start with the [Index](doc_source/index.md).
 
-This repository contains source content for the official [AWS Tools for Powershell User Guide](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-welcome.html).
+This repository contains the open source version of the official [AWS Tools for PowerShell User Guide](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-welcome.html).
 
+The GitHub repository for the AWS Tools for PowerShell is at https://github.com/aws/aws-tools-for-powershell
 
 ## Reporting issues
 
 You can use the [Issues](https://github.com/awsdocs/aws-powershell-user-guide/issues) section of this repository to report problems in the documentation. *When
 submitting an issue, please indicate*:
 
-* what page (a URL or filename is best) the issue occurs on.
+* What page (a URL or filename is best) the issue occurs on.
 
-* what the issue is, using as much detail as you can provide. For many issues, this might be as
-  simple as "The page has a typo; the word 'complie' in the third paragraph shoud be 'compile'." If
+* What the issue is, using as much detail as you can provide. For many issues, this might be as
+  simple as "The page has a typo; the word 'complie' in the third paragraph should be 'compile'." If
   the issue is more complex, please describe it with enough detail that it's clear to the AWS
   documentation team what the problem is.
 
@@ -20,7 +22,7 @@ submitting an issue, please indicate*:
 ## Contributing fixes and updates
 
 
-To contribute your own documentation fixes or updates, please use the Github-standard procedures for
+To contribute your own documentation fixes or updates, please use the GitHub-standard procedures for
 [forking the repository](https://help.github.com/articles/fork-a-repo/) and submitting a [pull request](https://help.github.com/articles/using-pull-requests/)
 
 
