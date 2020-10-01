@@ -2,7 +2,7 @@
 
 A Windows\-based computer can run any of the AWS Tools for PowerShell package options: 
 + [**AWS\.Tools**](#ps-installing-awstools) \- The modularized version of AWS Tools for PowerShell\. Each AWS service is supported by its own individual, small module, with shared support modules `AWS.Tools.Common` and `AWS.Tools.Installer`\.
-+ [**AWSPowerShell\.NetCore**](#ps-installing-awspowershellnetcore) \- The single, large\-module version of AWS Tools for PowerShell\. All AWS services are supported by this single, large module\.
++ [**AWSPowerShell\.NetCore**](#ps-installing-awspowershellnetcore) \- The single, large\-module version of AWS Tools for PowerShell\. All AWS services are supported by this single, large module\. Be aware that this module is too large to use with an [AWS Lambda](https://aws.amazon.com/lambda/) function.
 + [**AWSPowerShell**](#ps-installing-awswindowspowershell) \- The legacy Windows\-specific, single, large\-module version of AWS Tools for PowerShell\. All AWS services are supported by this single, large module\.
 
 The package you choose depends on the release and edition of Windows that you're running\. 
