@@ -9,6 +9,6 @@ Security is a shared responsibility between AWS and you\. The [shared responsibi
 This documentation helps you understand how to apply the shared responsibility model when using the AWS Tools for PowerShell\. The following topics show you how to configure the AWS Tools for PowerShell to meet your security and compliance objectives\. You also learn how to use the AWS Tools for PowerShell to help you to monitor and secure your AWS resources\. 
 
 **Topics**
-+ [Data Protection in the AWS Tools for PowerShell](pstools-security-data-protection.md)
++ [Data protection in the AWS Tools for PowerShell](pstools-security-data-protection.md)
 + [Identity and Access Management for the AWS Tools for PowerShell](pstools-security-iam.md)
 + [Compliance Validation for the AWS Tools for PowerShell](pstools-security-compliance-validation.md)

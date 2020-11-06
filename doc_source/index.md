@@ -48,7 +48,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Amazon SQS, Amazon SNS and Tools for Windows PowerShell](pstools-sqs-queue-sns-topic.md)
    + [CloudWatch from the AWS Tools for Windows PowerShell](pstools-cw.md)
 + [Security in the AWS Tools for PowerShell](pstools-security.md)
-   + [Data Protection in the AWS Tools for PowerShell](pstools-security-data-protection.md)
+   + [Data protection in the AWS Tools for PowerShell](pstools-security-data-protection.md)
    + [Identity and Access Management for the AWS Tools for PowerShell](pstools-security-iam.md)
    + [Compliance Validation for the AWS Tools for PowerShell](pstools-security-compliance-validation.md)
 + [Document History](history-pst.md)
