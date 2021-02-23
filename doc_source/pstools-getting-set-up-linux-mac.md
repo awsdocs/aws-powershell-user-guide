@@ -25,8 +25,8 @@ To install AWS Tools for PowerShell on a Linux or macOS computer, you can choose
 Ensure that you meet the requirements listed on [Prerequisites for Setting up the AWS Tools for PowerShell](pstools-getting-set-up-prereq.md)\.
 
 To run the AWS Tools for PowerShell Core, your computer must be running PowerShell Core 6\.0 or later\. 
-+ For a list of the supported Linux versions and for information about how to install PowerShell Core 6\.0 or later on a Linux\-based computer, see [Installing PowerShell Core on Linux](https://docs.microsoft.com/en-us/powershell/scripting/setup/installing-powershell-core-on-linux?view=powershell-6) on Microsoft's website\. Some Linux\-based operating systems, such as Arch, Kali, and Raspbian, are not officially supported, but have varying levels of community support\.
-+ For a list of supported macOS versions and for information about how to install PowerShell Core 6\.0 on macOS 10\.12 or later, see [Installing PowerShell Core on macOS](https://docs.microsoft.com/en-us/powershell/scripting/setup/installing-powershell-core-on-macos) on Microsoft's website\.
++ For a list of supported Linux platform releases and for information about how to install the latest version of PowerShell on a Linux\-based computer, see [Installing PowerShell on Linux](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-linux) on Microsoft's website\. Some Linux\-based operating systems, such as Arch, Kali, and Raspbian, are not officially supported, but have varying levels of community support\.
++ For information about supported macOS versions and about how to install the latest version of PowerShell on macOS, see [Installing PowerShell on macOS](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-macos) on Microsoft's website\.
 
 ## Install AWS\.Tools on Linux or macOS<a name="install-aws.tools-on-linux-macos"></a>
 
