@@ -47,7 +47,7 @@ PS > Clear-DefaultAWSRegion
 
  **To view a list of all available AWS Regions** 
 
-From the PowerShell command prompt, type the following command\. Note that the third column identifies which Region is the default for your current session\.
+From the PowerShell command prompt, type the following command\. The third column in the sample output identifies which Region is the default for your current session\.
 
 ```
 PS > Get-AWSRegion
@@ -56,26 +56,15 @@ Region         Name                      IsShellDefault
 ------         ----                      --------------
 ap-east-1      Asia Pacific (Hong Kong)  False
 ap-northeast-1 Asia Pacific (Tokyo)      False
-ap-northeast-2 Asia Pacific (Seoul)      False
-ap-south-1     Asia Pacific (Mumbai)     False
-ap-southeast-1 Asia Pacific (Singapore)  False
-ap-southeast-2 Asia Pacific (Sydney)     False
-ca-central-1   Canada (Central)          False
-eu-central-1   EU Central (Frankfurt)    False
-eu-north-1     EU North (Stockholm)      False
-eu-west-1      EU West (Ireland)         False
-eu-west-2      EU West (London)          False
-eu-west-3      EU West (Paris)           False
-me-south-1     Middle East (Bahrain)     False
-sa-east-1      South America (Sao Paulo) False
-us-east-1      US East (Virginia)        False
+...
 us-east-2      US East (Ohio)            False
 us-west-1      US West (N. California)   False
 us-west-2      US West (Oregon)          True
+...
 ```
 
 **Note**  
-Some Regions might be supported but not included in the results of the `Get-AWSRegion` cmdlet\. An example is the Asia Pacific \(Osaka\) Region \(`ap-northeast-3`\)\. If you are not able to specify a Region by adding the `-Region` parameter, try specifying the region in a custom endpoint instead, as shown in the following section\.
+Some Regions might be supported but not included in the output of the `Get-AWSRegion` cmdlet\. For example, this is sometimes true of Regions that are not yet global\. If you're not able to specify a Region by adding the `-Region` parameter to a command, try specifying the Region in a custom endpoint instead, as shown in the following section\.
 
 ## Specifying a Custom or Nonstandard Endpoint<a name="specifying-a-custom-or-nonstandard-endpoint"></a>
 
