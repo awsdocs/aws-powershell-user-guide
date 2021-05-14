@@ -51,6 +51,6 @@ You can also view IAM users and groups with the AWS Management Console
 +  [http://console\.aws\.amazon\.com/iam/home?\#s=Groups](https://console.aws.amazon.com/iam/home?#s=Groups) \[Groups View\]
 
 ## See Also<a name="pstools-seealso-iam-users"></a>
-+  [Using the AWS Tools for Windows PowerShell](pstools-using.md) 
++  [Using the AWS Tools for PowerShell](pstools-using.md) 
 +  [Adding a New User to Your AWS Account \(IAM User Guide\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_SettingUpUser.html) 
 +  [CreateGroup \(IAM Service Reference\)](https://docs.aws.amazon.com/IAM/latest/APIReference/API_API_CreateGroup.html) 

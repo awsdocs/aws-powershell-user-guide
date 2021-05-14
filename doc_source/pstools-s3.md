@@ -16,6 +16,6 @@ The commands shown here assume that you have set default credentials and a defau
 There is currently no Amazon S3 API for renaming a bucket or object, and therefore, no single Tools for Windows PowerShell cmdlet for performing this task\. To rename an object in S3, we recommend that you copy the object to one with a new name, by running the [Copy\-S3Object](https://docs.aws.amazon.com/powershell/latest/reference/items/Copy-S3Object.html) cmdlet, and then delete the original object by running the [Remove\-S3Object](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-S3Object.html) cmdlet\.
 
 ## See Also<a name="see-also"></a>
-+  [Using the AWS Tools for Windows PowerShell](pstools-using.md) 
++  [Using the AWS Tools for PowerShell](pstools-using.md) 
 +  [Hosting a Static Website on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html) 
 +  [Amazon S3 Console](https://console.aws.amazon.com/s3/home) 

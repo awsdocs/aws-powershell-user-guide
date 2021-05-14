@@ -37,7 +37,7 @@ PS > Get-AWSService
   CmdletNounPrefix : PCA
   ModuleName : AWS.Tools.ACMPCA
   SDKAssemblyVersion : 3.3.101.56
-  ServiceName : AWS Certificate Manager Private Certificate Authority
+  ServiceName : Certificate Manager Private Certificate Authority
 
   Service : AlexaForBusiness
   CmdletNounPrefix : ALXB

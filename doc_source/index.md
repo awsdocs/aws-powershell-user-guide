@@ -1,7 +1,7 @@
 # AWS Tools for PowerShell User Guide
 
 -----
-*****Copyright &copy;  Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -28,14 +28,14 @@ Amazon's trademarks and trade dress may not be used in
    + [Cmdlet Discovery and Aliases](pstools-discovery-aliases.md)
    + [Pipelining and $AWSHistory](pstools-pipelines.md)
    + [Configuring Federated Identity with the AWS Tools for PowerShell](saml-pst.md)
-+ [Using the AWS Tools for Windows PowerShell](pstools-using.md)
++ [Using the AWS Tools for PowerShell](pstools-using.md)
    + [Amazon S3 and Tools for Windows PowerShell](pstools-s3.md)
       + [Create an Amazon S3 Bucket, Verify Its Region, and Optionally Remove It](pstools-s3-bucket-create.md)
       + [Configure an Amazon S3 Bucket as a Website and Enable Logging](pstools-s3-create-website.md)
       + [Upload Objects to an Amazon S3 Bucket](pstools-s3-upload-object.md)
       + [Delete Amazon S3 Objects and Buckets](pstools-s3-delete-website.md)
       + [Upload In-Line Text Content to Amazon S3](pstools-s3-upload-in-line-text.md)
-   + [IAM and Tools for Windows PowerShell](pstools-iam.md)
+   + [IAM and Tools for PowerShell](pstools-iam.md)
       + [Create New IAM Users and Groups](pstools-iam-new-user-group.md)
       + [Set an IAM Policy for an IAM User](pstools-iam-policy.md)
       + [Set an Initial Password for an IAM User](pstools-iam-set-pw.md)

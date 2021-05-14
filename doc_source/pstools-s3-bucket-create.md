@@ -29,6 +29,6 @@ PS > Remove-S3Bucket -BucketName website-example
 Note that the bucket removal process can take some time to finish\. If you try to re\-create a same\-named bucket immediately, the `New-S3Bucket` cmdlet can fail until the old one is completely gone\.
 
 ## See Also<a name="pstools-seealso-s3-bucket-create"></a>
-+  [Using the AWS Tools for Windows PowerShell](pstools-using.md) 
++  [Using the AWS Tools for PowerShell](pstools-using.md) 
 +  [Put Bucket \(Amazon S3 Service Reference\)](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUT.html) 
 +  [AWS PowerShell Regions for Amazon S3](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) 

@@ -13,6 +13,6 @@ myNewUser                                                   11/20/2012 4:23:05 P
 Use the `Update-IAMLoginProfile` cmdlet to change the password for an IAM user\.
 
 ## See Also<a name="pstools-seealso-iam-pw"></a>
-+  [Using the AWS Tools for Windows PowerShell](pstools-using.md) 
++  [Using the AWS Tools for PowerShell](pstools-using.md) 
 +  [Managing Passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html) 
 +  [CreateLoginProfile](https://docs.aws.amazon.com/IAM/latest/UserGuide/API_CreateLoginProfile.html) 

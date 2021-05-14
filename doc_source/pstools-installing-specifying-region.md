@@ -4,7 +4,7 @@ There are two ways to specify the AWS Region to use when running AWS Tools for P
 + Use the `-Region` common parameter on individual commands\.
 + Use the `Set-DefaultAWSRegion` command to set a default Region for all commands\.
 
-Many AWS cmdlets fail if the Tools for Windows PowerShell can't figure out what Region to use\. Exceptions include cmdlets for [Amazon S3](pstools-s3.md), Amazon SES, and [AWS Identity and Access Management \(IAM \)](pstools-iam.md), which automatically default to a global endpoint\.
+Many AWS cmdlets fail if the Tools for Windows PowerShell can't figure out what Region to use\. Exceptions include cmdlets for [Amazon S3](pstools-s3.md), Amazon SES, and [IAM and Tools for PowerShell](pstools-iam.md), which automatically default to a global endpoint\.
 
  **To specify the region for a single AWS command** 
 

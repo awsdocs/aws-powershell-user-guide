@@ -172,7 +172,7 @@ PowerShell Core typically loads modules automatically whenever you run a cmdlet 
 
 ## Initialize Your PowerShell Session<a name="linux-config-init"></a>
 
-When you start PowerShell on a Linux\-based or macOS\-based system after you have installed the AWS Tools for PowerShell, you must run [Initialize\-AWSDefaultConfiguration](https://docs.aws.amazon.com/powershell/latest/reference/items/Initialize-AWSDefaultConfiguration.html) to specify which AWS access key to use\. For more information about `Initialize-AWSDefaultConfiguration`, see [Using AWS Credentials](specifying-your-aws-credentials.md)\. 
+When you start PowerShell on a Linux\-based or macOS\-based system after you have installed the AWS Tools for PowerShell, you must run [Initialize\-AWSDefaultConfiguration](https://docs.aws.amazon.com/powershell/latest/reference/items/Initialize-AWSDefaultConfiguration.html) to specify which AWS access key to use\. For more information about `Initialize-AWSDefaultConfiguration`, see [Using AWS Credentials](specifying-your-aws-credentials.md)\.
 
 **Note**  
 In earlier \(before 3\.3\.96\.0\) releases of the AWS Tools for PowerShell, this cmdlet was named `Initialize-AWSDefaults`\.
@@ -184,7 +184,7 @@ AWS releases new versions of the AWS Tools for PowerShell periodically to suppor
 ```
 PS > Get-AWSPowerShellVersion
 
-AWS Tools for PowerShell
+Tools for PowerShell
 Version 4.0.123.0
 Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
@@ -200,47 +200,6 @@ This software includes third party software subject to the following copyrights:
 ```
 
 To see a list of the supported AWS services in the current version of the tools, add the `-ListServiceVersionInfo` parameter to a [Get\-AWSPowerShellVersion](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-AWSPowerShellVersion.html) cmdlet\.
-
-```
-PS > Get-AWSPowerShellVersion -ListServiceVersionInfo
-
-AWS Tools for PowerShell
-Version 4.0.123.0
-Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-
-Amazon Web Services SDK for .NET
-Core Runtime Version 3.3.103.22
-Copyright 2009-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-
-Release notes: https://github.com/aws/aws-tools-for-powershell/blob/master/CHANGELOG.md
-
-This software includes third party software subject to the following copyrights:
-- Logging from log4net, Apache License
-[http://logging.apache.org/log4net/license.html]
-
-
-Service                                               Noun Prefix API Version
--------                                               ----------- -----------
-AWS Amplify                                           AMP         2017-07-25
-AWS App Mesh                                          AMSH        2019-01-25
-AWS AppStream                                         APS         2016-12-01
-AWS AppSync                                           ASYN        2017-07-25
-AWS Auto Scaling Plans                                ASP         2018-01-06
-AWS Batch                                             BAT         2016-08-10
-AWS Budgets                                           BGT         2016-10-20
-AWS Certificate Manager                               ACM         2015-12-08
-AWS Certificate Manager Private Certificate Authority PCA         2017-08-22
-AWS Cloud Directory                                   CDIR        2017-01-11
-AWS Cloud HSM                                         HSM         2014-05-30
-AWS Cloud HSM V2                                      HSM2        2017-04-28
-AWS Cloud9                                            C9          2017-09-23
-AWS CloudFormation                                    CFN         2010-05-15
-AWS CloudTrail                                        CT          2013-11-01
-AWS CodeBuild                                         CB          2016-10-06
-AWS CodeCommit                                        CC          2015-04-13
-
-...
-```
 
 To determine the version of PowerShell that you are running, enter `$PSVersionTable` to view the contents of the `$PSVersionTable` [automatic variable](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_automatic_variables?view=powershell-6)\.
 
@@ -296,5 +255,5 @@ After installation, run the command `Import-Module AWSPowerShell.NetCore` to loa
 
 ## Related Information<a name="pstools-seealso-setup"></a>
 +  [Getting Started with the AWS Tools for Windows PowerShell](pstools-getting-started.md) 
-+  [Using the AWS Tools for Windows PowerShell](pstools-using.md) 
++  [Using the AWS Tools for PowerShell](pstools-using.md) 
 +  [AWS Account and Access Keys](pstools-appendix-sign-up.md) 

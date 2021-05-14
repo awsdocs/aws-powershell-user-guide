@@ -18,9 +18,9 @@ The AWS Tools for PowerShell are available as the following three distinct packa
 
 ## Maintenance and support for SDK major versions<a name="sdks-major-versions-maintenance-support"></a>
 
-For information about maintenance and support for SDK major versions and their underlying dependencies, see the following in the [AWS SDKs and Tools Shared Configuration and Credentials Reference Guide](https://docs.aws.amazon.com/credref/latest/refdocs/overview.html):
-+ [AWS SDKs and Tools Maintenance Policy](https://docs.aws.amazon.com/credref/latest/refdocs/maint-policy.html)
-+ [AWS SDKs and Tools Version Support Matrix](https://docs.aws.amazon.com/credref/latest/refdocs/version-support-matrix.html)
+For information about maintenance and support for SDK major versions and their underlying dependencies, see the following in the [AWS SDKs and Tools Reference Guide](https://docs.aws.amazon.com/sdkref/latest/guide/overview.html):
++ [AWS SDKs and tools maintenance policy](https://docs.aws.amazon.com/sdkref/latest/guide/maint-policy.html)
++ [AWS SDKs and tools version support matrix](https://docs.aws.amazon.com/sdkref/latest/guide/version-support-matrix.html)
 
 ## AWS\.Tools \- A Modularized Version of AWS Tools for PowerShell<a name="pwsh_structure_pstools"></a>
 
@@ -70,5 +70,5 @@ This section explains how to install the AWS Tools for PowerShell\. It includes 
 ** [Getting Started with the AWS Tools for Windows PowerShell](pstools-getting-started.md) **  
 This section describes the fundamentals of using the AWS Tools for PowerShell, such as specifying credentials and AWS Regions, finding cmdlets for a particular service, and using aliases for cmdlets\.
 
-** [Using the AWS Tools for Windows PowerShell](pstools-using.md) **  
+** [Using the AWS Tools for PowerShell](pstools-using.md) **  
 This section includes information about using the AWS Tools for PowerShell to perform some of the most common AWS tasks\.

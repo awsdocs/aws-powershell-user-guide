@@ -35,6 +35,6 @@ In 1\.1 and newer versions of the AWS Tools for PowerShell, you can add the `-De
 Unless you add the `-Force` parameter, AWS Tools for PowerShell prompts you for confirmation before the cmdlet runs\.
 
 ## See Also<a name="pstools-seealso-amazon-s3-delete-website"></a>
-+  [Using the AWS Tools for Windows PowerShell](pstools-using.md) 
++  [Using the AWS Tools for PowerShell](pstools-using.md) 
 +  [Delete Object \(Amazon S3 API Reference\)](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectDELETE.html) 
 +  [DeleteBucket \(Amazon S3 API Reference\)](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketDELETE.html) 

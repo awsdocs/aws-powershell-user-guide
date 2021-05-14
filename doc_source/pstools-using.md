@@ -1,17 +1,17 @@
-# Using the AWS Tools for Windows PowerShell<a name="pstools-using"></a>
+# Using the AWS Tools for PowerShell<a name="pstools-using"></a>
 
 **Topics**
 + [PowerShell File Concatenation Encoding](#powershell-file-concatenation-encoding)
 + [Returned Objects for the PowerShell Tools](#returned-objects-for-the-powershell-tools)
 + [[Amazon EC2](pstools-ec2.md)](#using-ec2)
 + [[Amazon S3](pstools-s3.md)](#using-s3)
-+ [[AWS Identity and Access Management](pstools-iam.md)](#using-iam)
-+ [[AWS Lambda and Lambda Tools for PowerShell](pstools-lambda.md)](#using-lambda)
++ [[IAM and AWS Tools for PowerShell](pstools-iam.md)](#using-iam)
++ [[AWS Lambda and AWS Tools for PowerShell](pstools-lambda.md)](#using-lambda)
 + [[Amazon SNS and Amazon SQS](pstools-sqs-queue-sns-topic.md)](#using-sns)
 + [[CloudWatch](pstools-cw.md)](#using-cw)
 + [See Also](#see-also)
 + [Amazon S3 and Tools for Windows PowerShell](pstools-s3.md)
-+ [IAM and Tools for Windows PowerShell](pstools-iam.md)
++ [IAM and Tools for PowerShell](pstools-iam.md)
 + [Amazon EC2 and Tools for Windows PowerShell](pstools-ec2.md)
 + [AWS Lambda and AWS Tools for PowerShell](pstools-lambda.md)
 + [Amazon SQS, Amazon SNS and Tools for Windows PowerShell](pstools-sqs-queue-sns-topic.md)
@@ -62,7 +62,7 @@ The section walks through the steps required to create a static website hosted i
 + Delete objects from an Amazon S3 bucket\.
 + Designate an Amazon S3 bucket as a website\.
 
-## [AWS Identity and Access Management](pstools-iam.md)<a name="using-iam"></a>
+## [IAM and AWS Tools for PowerShell](pstools-iam.md)<a name="using-iam"></a>
 
 This section demonstrates basic operations in AWS Identity and Access Management \(IAM\) including how to:
 + Create an IAM group\.
@@ -71,7 +71,7 @@ This section demonstrates basic operations in AWS Identity and Access Management
 + Specify a policy for an IAM user\.
 + Set a password and credentials for an IAM user\.
 
-## [AWS Lambda and Lambda Tools for PowerShell](pstools-lambda.md)<a name="using-lambda"></a>
+## [AWS Lambda and AWS Tools for PowerShell](pstools-lambda.md)<a name="using-lambda"></a>
 
 This section provides a brief overview of the AWS Lambda Tools for PowerShell module and describes the required steps for setting up the module\.
 

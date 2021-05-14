@@ -75,6 +75,6 @@ http://website-example.s3-website-us-west-1.amazonaws.com
 ```
 
 ### See Also<a name="pstools-seealso-amazon-s3-test-website"></a>
-+  [Using the AWS Tools for Windows PowerShell](pstools-using.md) 
++  [Using the AWS Tools for PowerShell](pstools-using.md) 
 +  [Put Object \(Amazon S3 API Reference\)](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUT.html) 
 +  [Canned ACLs \(Amazon S3 API Reference\)](https://docs.aws.amazon.com/AmazonS3/latest/dev/ACLOverview.html#CannedACL) 

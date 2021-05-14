@@ -13,7 +13,6 @@ CmdletName        ServiceOperation    ServiceName                    CmdletNounP
 ----------        ----------------    -----------                    ----------------
 Get-EC2Instance   DescribeInstances   Amazon Elastic Compute Cloud   EC2
 Get-GMLInstance   DescribeInstances   Amazon GameLift Service        GML
-Get-OPSInstance   DescribeInstances   AWS OpsWorks                   OPS
 ```
 
 The `-ApiOperation` parameter is the default parameter, so you can omit the parameter name\. The following example is equivalent to the previous one:
@@ -64,11 +63,6 @@ Edit-EFSMountTargetSecurityGroup              ModifyMountTargetSecurityGroups   
 Get-EFSMountTargetSecurityGroup               DescribeMountTargetSecurityGroups           Amazon Elastic File System         EFS
 Join-ELBSecurityGroupToLoadBalancer           ApplySecurityGroupsToLoadBalancer           Elastic Load Balancing             ELB
 Set-ELB2SecurityGroup                         SetSecurityGroups                           Elastic Load Balancing V2          ELB2
-Get-EMLInputSecurityGroup                     DescribeInputSecurityGroup                  AWS Elemental MediaLive            EML
-Get-EMLInputSecurityGroupList                 ListInputSecurityGroups                     AWS Elemental MediaLive            EML
-New-EMLInputSecurityGroup                     CreateInputSecurityGroup                    AWS Elemental MediaLive            EML
-Remove-EMLInputSecurityGroup                  DeleteInputSecurityGroup                    AWS Elemental MediaLive            EML
-Update-EMLInputSecurityGroup                  UpdateInputSecurityGroup                    AWS Elemental MediaLive            EML
 Enable-RDSDBSecurityGroupIngress              AuthorizeDBSecurityGroupIngress             Amazon Relational Database Service RDS
 Get-RDSDBSecurityGroup                        DescribeDBSecurityGroups                    Amazon Relational Database Service RDS
 New-RDSDBSecurityGroup                        CreateDBSecurityGroup                       Amazon Relational Database Service RDS

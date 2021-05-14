@@ -1,6 +1,6 @@
 # Installing the AWS Tools for PowerShell on Windows<a name="pstools-getting-set-up-windows"></a>
 
-A Windows\-based computer can run any of the AWS Tools for PowerShell package options: 
+A Windows\-based computer can run any of the AWS Tools for PowerShell package options:
 + [**AWS\.Tools**](#ps-installing-awstools) \- The modularized version of AWS Tools for PowerShell\. Each AWS service is supported by its own individual, small module, with shared support modules `AWS.Tools.Common` and `AWS.Tools.Installer`\.
 + [**AWSPowerShell\.NetCore**](#ps-installing-awspowershellnetcore) \- The single, large\-module version of AWS Tools for PowerShell\. All AWS services are supported by this single, large module\.
 + [**AWSPowerShell**](#ps-installing-awswindowspowershell) \- The legacy Windows\-specific, single, large\-module version of AWS Tools for PowerShell\. All AWS services are supported by this single, large module\.
@@ -192,13 +192,13 @@ AWS releases new versions of the AWS Tools for PowerShell periodically to suppor
 ```
 PS > Get-AWSPowerShellVersion
 
-AWS Tools for PowerShell
-Version 4.0.123.0
-Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+Tools for PowerShell
+Version 4.1.11.0
+Copyright 2012-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
 Amazon Web Services SDK for .NET
-Core Runtime Version 3.3.103.22
-Copyright 2009-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+Core Runtime Version 3.7.0.12
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
 Release notes: https://github.com/aws/aws-tools-for-powershell/blob/master/CHANGELOG.md
 
@@ -211,46 +211,22 @@ You can also add the `-ListServiceVersionInfo` parameter to a [Get\-AWSPowerShel
 
 ```
 PS > Get-AWSPowerShellVersion -ListServiceVersionInfo
+...
 
-AWS Tools for Windows PowerShell
-Version 3.3.96.0
-Copyright 2012-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-
-Amazon Web Services SDK for .NET
-Core Runtime Version 3.3.14.0
-Copyright 2009-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-
-Release notes: https://aws.amazon.com/releasenotes/PowerShell
-
-This software includes third party software subject to the following copyrights:
-- Logging from log4net, Apache License
-[http://logging.apache.org/log4net/license.html]
-
-
-Service                            Noun Prefix Version
--------                            ----------- -------
-AWS AppStream                       APS         2016-12-01
-AWS Batch                           BAT         2016-08-10
-AWS Budgets                         BGT         2016-10-20
-AWS Certificate Manager             ACM         2015-12-08
-AWS Cloud Directory                 CDIR        2016-05-10
-AWS Cloud HSM                       HSM         2014-05-30
-AWS CloudFormation                  CFN         2010-05-15
-AWS CloudTrail                      CT          2013-11-01
-AWS CodeBuild                       CB          2016-10-06
-AWS CodeCommit                      CC          2015-04-13
-AWS CodeDeploy                      CD          2014-10-06
-AWS CodePipeline                    CP          2015-07-09
-AWS CodeStar                        CST         2017-04-19
-AWS Config                          CFG         2014-11-12
-AWS Cost and Usage Report           CUR         2017-01-06
-AWS Data Pipeline                   DP          2012-10-29
-AWS Database Migration Service      DMS         2016-01-01
-AWS Device Farm                     DF          2015-06-23
-AWS Direct Connect                  DC          2012-10-25
-AWS Directory Service               DS          2015-04-16
-AWS Elastic Beanstalk               EB          2010-12-01
-
+Service                            Noun Prefix Module Name                       SDK
+                                                                                 Assembly
+                                                                                 Version
+-------                            ----------- -----------                       -----------
+Alexa For Business                 ALXB        AWS.Tools.AlexaForBusiness        3.7.0.11
+Amplify Backend                    AMPB        AWS.Tools.AmplifyBackend          3.7.0.11
+Amazon API Gateway                 AG          AWS.Tools.APIGateway              3.7.0.11
+Amazon API Gateway Management API  AGM         AWS.Tools.ApiGatewayManagementApi 3.7.0.11
+Amazon API Gateway V2              AG2         AWS.Tools.ApiGatewayV2            3.7.0.11
+Amazon Appflow                     AF          AWS.Tools.Appflow                 3.7.1.4
+Amazon Route 53                    R53         AWS.Tools.Route53                 3.7.0.12
+Amazon Route 53 Domains            R53D        AWS.Tools.Route53Domains          3.7.0.11
+Amazon Route 53 Resolver           R53R        AWS.Tools.Route53Resolver         3.7.1.5
+Amazon Simple Storage Service (S3) S3          AWS.Tools.S3                      3.7.0.13
 ...
 ```
 
@@ -316,12 +292,12 @@ Run the `Get-AWSPowerShellVersion` cmdlet to determine the version that you are 
   PS > Uninstall-Module -Name AWSPowerShell -AllVersions
   PS > Install-Module -Name AWSPowerShell
   ```
-+ If you installed by using the `.msi` package installer:
++ If you installed by using the `.msi` package installer or by using a downloaded ZIP file:
 
-  1. Download the most recent version of the MSI package from [AWS Tools for Windows PowerShell](https://aws.amazon.com/powershell/)\. Compare the package version number in the MSI file name with the version number you get when you run the `Get-AWSPowerShellVersion` cmdlet\.
+  1. Download the most recent version from the [Tools for PowerShell](https://aws.amazon.com/powershell/) web site\. Compare the package version number in the downloaded file name with the version number you get when you run the `Get-AWSPowerShellVersion` cmdlet\.
 
   1. If the download version is a higher number than the version you have installed, close all Tools for Windows PowerShell consoles\.
 
-  1. Install the newer version of the Tools for Windows PowerShell by running the MSI package you downloaded\.
+  1. Install the newer version of the Tools for Windows PowerShell\.
 
 After installation, run `Import-Module AWSPowerShell` to load the updated cmdlets into your PowerShell session\. Or run the custom AWS Tools for PowerShell console from your **Start** menu\.

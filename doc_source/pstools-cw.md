@@ -22,7 +22,7 @@ Note the following:
 + The value that you use to initialize `$dat.Value` can be either a string value enclosed in quotes, or a numeric value \(no quotes\)\. The example shows a string value\.
 
 ## See Also<a name="see-also"></a>
-+  [Using the AWS Tools for Windows PowerShell](pstools-using.md) 
++  [Using the AWS Tools for PowerShell](pstools-using.md) 
 +  [AmazonCloudWatchClient\.PutMetricData](https://docs.aws.amazon.com/sdkfornet/v3/apidocs/items/CloudWatch/MCloudWatchPutMetricDataPutMetricDataRequest.html) \(\.NET SDK Reference\)
 +  [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) \(Service API Reference\)
 +  [Amazon CloudWatch Console](https://console.aws.amazon.com/cloudwatch/home) 

@@ -51,7 +51,7 @@ PS > Set-AWSCredential `
 The AWS SDK store must be maintained manually\. If you later change credentials on the service—for example, by using the [IAM console](https://console.aws.amazon.com/iam/home)—running a command with the locally stored credentials fails with the following error message:
 
 ```
-The AWS Access Key Id you provided does not exist in our records.
+The Access Key Id you provided does not exist in our records.
 ```
 
 You can update a profile by repeating the `Set-AWSCredential` command for the profile, and passing it the new access and secret keys\.

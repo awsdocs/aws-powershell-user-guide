@@ -31,6 +31,6 @@ Amazon.IdentityManagement.Model.PutUserPolicyResponse
 ```
 
 ## See Also<a name="pstools-seealso-iam-policy"></a>
-+  [Using the AWS Tools for Windows PowerShell](pstools-using.md) 
++  [Using the AWS Tools for PowerShell](pstools-using.md) 
 +  [Using Windows PowerShell "Here\-Strings"](http://technet.microsoft.com/en-us/library/ee692792.aspx) 
 +  [PutUserPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_PutUserPolicy.html) 

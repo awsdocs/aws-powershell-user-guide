@@ -13,6 +13,6 @@ ResponseXml    :
 ```
 
 ## See Also<a name="pstools-seealso-s3-create-website"></a>
-+  [Using the AWS Tools for Windows PowerShell](pstools-using.md) 
++  [Using the AWS Tools for PowerShell](pstools-using.md) 
 +  [Put Bucket Website \(Amazon S3 API Reference\)](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTwebsite.html) 
 +  [Put Bucket ACL \(Amazon S3 API Reference\)](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTacl.html) 
