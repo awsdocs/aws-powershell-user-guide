@@ -6,9 +6,9 @@ Your existing scripts should continue to work after upgrading to the new version
 
 This section describes the changes and explains how they might impact your scripts\.
 
-## New Fully Modularized AWS\.Tools Version<a name="migrate-aws-tools"></a>
+## New Fully Modularized `AWS.Tools` Version<a name="migrate-aws-tools"></a>
 
-The AWSPowerShell\.NetCore and AWSPowerShell packages were "monolithic"\. This meant that all of the AWS services were supported in the same module, making it very large, and growing larger as each new AWS service and feature was added\. The new AWS\.Tools package is broken up into smaller modules that give you the flexibility to download and install only those that you require for the AWS services that you use\. The package includes a shared `AWS.Tools.Common` module that is required by all of the other modules, and an `AWS.Tools.Installer` module that simplifies installing, updating, and removing modules as needed\.
+The AWSPowerShell\.NetCore and AWSPowerShell packages were "monolithic"\. This meant that all of the AWS services were supported in the same module, making it very large, and growing larger as each new AWS service and feature was added\. The new `AWS.Tools` package is broken up into smaller modules that give you the flexibility to download and install only those that you require for the AWS services that you use\. The package includes a shared `AWS.Tools.Common` module that is required by all of the other modules, and an `AWS.Tools.Installer` module that simplifies installing, updating, and removing modules as needed\.
 
 This also enables auto\-importing of cmdlets on first call, without having to first call `Import-module`\. However, to interact with the associated \.NET objects before calling a cmdlet, you must still call `Import-Module` to let PowerShell know about the relevant \.NET types\. 
 
@@ -29,7 +29,7 @@ PS > Get-EC2Instance -Filter $filter -Select Reservations.Instances.InstanceId
 
 ## New `Get-AWSService` cmdlet<a name="migrate-get-awsservice"></a>
 
-To help you discover the names of the modules for each AWS service in the AWS\.Tools collection of modules, you can use the `Get-AWSService` cmdlet\.
+To help you discover the names of the modules for each AWS service in the `AWS.Tools` collection of modules, you can use the `Get-AWSService` cmdlet\.
 
 ```
 PS > Get-AWSService
@@ -110,7 +110,7 @@ PS > Get-S3Object -BucketName mybucket -Select S3Objects.Key |
 
 Earlier versions of AWS Tools for PowerShell enabled you to use the `-MaxItems` parameter to specify the maximum number of objects returned in the final output\.
 
-This behavior is removed from AWS\.Tools\.
+This behavior is removed from `AWS.Tools`\.
 
 This behavior is deprecated in AWSPowerShell\.NetCore and AWSPowerShell, and will be removed from those versions in a future release\.
 
@@ -172,13 +172,13 @@ PS > Get-EC2Region -Region us-west-2
 
 Earlier versions of PowerShell bound the value `us-west-2` to the `-RegionName` static parameter instead of the `-Region` dynamic parameter\. Likely, this could confuse users\.
 
-## AWS\.Tools Declares and Enforces Manadatory Parameters<a name="migrate-mandatoryparams"></a>
+## `AWS.Tools` Declares and Enforces Manadatory Parameters<a name="migrate-mandatoryparams"></a>
 
-The AWS\.Tools\.\* modules now declare and enforce mandatory cmdlet parameters\. When an AWS Service declares that a parameter of an API is required, PowerShell prompts you for the corresponding cmdlet parameter if you didn't specify it\. This applies only to AWS\.Tools\. To ensure backward compatibility, this does not apply to AWSPowerShell\.NetCore or AWSPowerShell\.
+The `AWS.Tools.*` modules now declare and enforce mandatory cmdlet parameters\. When an AWS Service declares that a parameter of an API is required, PowerShell prompts you for the corresponding cmdlet parameter if you didn't specify it\. This applies only to `AWS.Tools`\. To ensure backward compatibility, this does not apply to AWSPowerShell\.NetCore or AWSPowerShell\.
 
 ## All Parameters Are Nullable<a name="migrate-nullableparams"></a>
 
-You can now assign `$null` to value type parameters \(numbers and dates\)\. This change should not affect existing scripts\. This enables you to bypass the prompt for a mandatory parameter\. Mandatory parameters are enforced in AWS\.Tools only\.
+You can now assign `$null` to value type parameters \(numbers and dates\)\. This change should not affect existing scripts\. This enables you to bypass the prompt for a mandatory parameter\. Mandatory parameters are enforced in `AWS.Tools` only\.
 
 If you run the following example using version 4, it effectively bypasses client\-side validation because you provide a "value" for each mandatory parameter\. However, the Amazon EC2 API service call fails because the AWS service still requires that information\.
 

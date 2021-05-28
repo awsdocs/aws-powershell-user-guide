@@ -47,8 +47,8 @@ Amazon.IdentityManagement.... {myNewUser}                   False
 ```
 
 You can also view IAM users and groups with the AWS Management Console
-+  [http://console\.aws\.amazon\.com/iam/home?\#s=Users](https://console.aws.amazon.com/iam/home?#s=Users) \[Users View\]
-+  [http://console\.aws\.amazon\.com/iam/home?\#s=Groups](https://console.aws.amazon.com/iam/home?#s=Groups) \[Groups View\]
++  [Users View](https://console.aws.amazon.com/iam/home#/users)
++  [Groups View](https://console.aws.amazon.com/iamv2/home?#/groups)
 
 ## See Also<a name="pstools-seealso-iam-users"></a>
 +  [Using the AWS Tools for PowerShell](pstools-using.md) 

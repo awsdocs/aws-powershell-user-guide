@@ -1,7 +1,7 @@
 # Installing the AWS Tools for PowerShell on Windows<a name="pstools-getting-set-up-windows"></a>
 
 A Windows\-based computer can run any of the AWS Tools for PowerShell package options:
-+ [**AWS\.Tools**](#ps-installing-awstools) \- The modularized version of AWS Tools for PowerShell\. Each AWS service is supported by its own individual, small module, with shared support modules `AWS.Tools.Common` and `AWS.Tools.Installer`\.
++ [**`AWS.Tools`**](#ps-installing-awstools) \- The modularized version of AWS Tools for PowerShell\. Each AWS service is supported by its own individual, small module, with shared support modules `AWS.Tools.Common` and `AWS.Tools.Installer`\.
 + [**AWSPowerShell\.NetCore**](#ps-installing-awspowershellnetcore) \- The single, large\-module version of AWS Tools for PowerShell\. All AWS services are supported by this single, large module\.
 + [**AWSPowerShell**](#ps-installing-awswindowspowershell) \- The legacy Windows\-specific, single, large\-module version of AWS Tools for PowerShell\. All AWS services are supported by this single, large module\.
 
@@ -24,22 +24,22 @@ Ensure that you meet the requirements listed in [Prerequisites for Setting up th
 
 Newer versions of PowerShell, including PowerShell Core, are available as downloads from Microsoft at [Installing various versions of PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell) on Microsoft's Web site\.
 
-## Install AWS\.Tools on Windows<a name="ps-installing-awstools"></a>
+## Install `AWS.Tools` on Windows<a name="ps-installing-awstools"></a>
 
 You can install the modularized version of AWS Tools for PowerShell on computers that are running Windows with Windows PowerShell 5\.1, or PowerShell Core 6\.0 or later\. For information about how to install PowerShell Core, see [Installing various versions of PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell) on Microsoft's Web site\.
 
-You can install AWS\.Tools in one of three ways:
-+ Using the cmdlets in the AWS\.Tools module\. The `AWS.Tools.Installer` module simplifies the installation and update of other AWS\.Tools modules\. The `AWS.Tools.Installer` requires, automatically downloads and installs, an updated version of `PowerShellGet`\. The `AWS.Tools.Installer` module and automatically keeps your module versions in sync\. When you install or update to a newer version of one module, the cmdlets in the `AWS.Tools.Installer` automatically update all of your other AWS\.Tools modules to the same version\.
-+ Downloading the modules from [AWS\.Tools\.zip](https://sdk-for-net.amazonwebservices.com/ps/v4/latest/AWS.Tools.zip) and extracting them in one of the module folders\. You can discover your module folders by printing the value of the `$Env:PSModulePath` variable\.
+You can install `AWS.Tools` in one of three ways:
++ Using the cmdlets in the `AWS.Tools` module\. The `AWS.Tools.Installer` module simplifies the installation and update of other `AWS.Tools` modules\. The `AWS.Tools.Installer` requires, automatically downloads and installs, an updated version of `PowerShellGet`\. The `AWS.Tools.Installer` module and automatically keeps your module versions in sync\. When you install or update to a newer version of one module, the cmdlets in the `AWS.Tools.Installer` automatically update all of your other `AWS.Tools` modules to the same version\.
++ Downloading the modules from `[AWS\.Tools\.zip](https://sdk-for-net.amazonwebservices.com/ps/v4/latest/AWS.Tools.zip)` and extracting them in one of the module folders\. You can discover your module folders by printing the value of the `$Env:PSModulePath` variable\.
 + Installing each service module from the PowerShell Gallery using the `Install-Module` cmdlet, as described in the following procedure\.
 
-**To install AWS\.Tools on Windows using the Install\-Module cmdlet**
+**To install `AWS.Tools` on Windows using the Install\-Module cmdlet**
 
 1. Start a PowerShell session\.
 **Note**  
 We recommend that you *don't* run PowerShell as an administrator with elevated permissions except when required by the task at hand\. This is because of the potential security risk and is inconsistent with the principle of least privilege\.
 
-1. To install the modularized AWS\.Tools package, run the following command\.
+1. To install the modularized `AWS.Tools` package, run the following command\.
 
    ```
    PS > Install-Module -Name AWS.Tools.Installer
@@ -56,7 +56,7 @@ We recommend that you *don't* run PowerShell as an administrator with elevated p
    PS > Install-Module -Name AWS.Tools.Installer -Force
    ```
 
-1. You can now install the module for each AWS service that you want to use by using the `Install-AWSToolsModule` cmdlet\. For example, the following command installs the IAM module\. This command also installs any dependent modules that are required for the specified module to work\. For example, when you install your first AWS\.Tools service module, it also installs `AWS.Tools.Common`\. This is a shared module required by all AWS service modules\. It also removes older versions of the modules, and updates other modules to the same newer version\.
+1. You can now install the module for each AWS service that you want to use by using the `Install-AWSToolsModule` cmdlet\. For example, the following command installs the IAM module\. This command also installs any dependent modules that are required for the specified module to work\. For example, when you install your first `AWS.Tools` service module, it also installs `AWS.Tools.Common`\. This is a shared module required by all AWS service modules\. It also removes older versions of the modules, and updates other modules to the same newer version\.
 
    ```
    PS > Install-AWSToolsModule AWS.Tools.EC2,AWS.Tools.S3 -CleanUp
@@ -252,9 +252,9 @@ WSManStackVersion              3.0
 
 Periodically, as updated versions of the AWS Tools for PowerShell are released, you should update the version that you are running locally\. 
 
-### Update the Modularized AWS\.Tools<a name="update-the-tools-for-powershell"></a>
+### Update the Modularized `AWS.Tools`<a name="update-the-tools-for-powershell"></a>
 
-To upgrade your AWS\.Tools modules to the latest version, run the following command\.
+To upgrade your `AWS.Tools` modules to the latest version, run the following command\.
 
 ```
 PS > Update-AWSToolsModule -CleanUp
