@@ -1,4 +1,4 @@
-# What Are the AWS Tools for PowerShell?<a name="pstools-welcome"></a>
+# What are the AWS Tools for PowerShell?<a name="pstools-welcome"></a>
 
 The AWS Tools for PowerShell are a set of PowerShell modules that are built on the functionality exposed by the AWS SDK for \.NET\. The AWS Tools for PowerShell enable you to script operations on your AWS resources from the PowerShell command line\. 
 
@@ -22,7 +22,7 @@ For information about maintenance and support for SDK major versions and their u
 + [AWS SDKs and tools maintenance policy](https://docs.aws.amazon.com/sdkref/latest/guide/maint-policy.html)
 + [AWS SDKs and tools version support matrix](https://docs.aws.amazon.com/sdkref/latest/guide/version-support-matrix.html)
 
-## `AWS.Tools` \- A Modularized Version of AWS Tools for PowerShell<a name="pwsh_structure_pstools"></a>
+## `AWS.Tools` \- A modularized version of the AWS Tools for PowerShell<a name="pwsh_structure_pstools"></a>
 
 [ ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/powershell/latest/userguide/images/PowerShell%20Gallery-AWS.Tools-blue.png) ](https://www.powershellgallery.com/packages/AWS.Tools.Common) [ ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/powershell/latest/userguide/images/ZIP-Archive-AWS.Tools-yellow.png) ](https://sdk-for-net.amazonwebservices.com/ps/v4/latest/AWS.Tools.zip)
 
@@ -40,7 +40,7 @@ You can install this version of AWS Tools for PowerShell on computers that are r
 
 Throughout this guide, when we need to specify this version only, we refer to it by its module name: *`AWS.Tools`*\.
 
-## AWSPowerShell\.NetCore \- A Single\-Module Version of AWS Tools for PowerShell<a name="pwsh_structure_pscore"></a>
+## AWSPowerShell\.NetCore \- A single\-module version of the AWS Tools for PowerShell<a name="pwsh_structure_pscore"></a>
 
 [ ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/powershell/latest/userguide/images/PowerShell-Gallery-AWSPowerShell.NetCore-blue.png) ](https://www.powershellgallery.com/packages/AWSPowerShell.NetCore/) [ ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/powershell/latest/userguide/images/ZIP-Archive-AWSPowerShell.NetCore-yellow.png)](https://sdk-for-net.amazonwebservices.com/ps/v4/latest/AWSPowerShell.NetCore.zip)
 
@@ -52,7 +52,7 @@ You can install this version of AWS Tools for PowerShell on computers that are r
 
 Throughout this guide, when we need to specify this version only, we refer to it by its module name: *AWSPowerShell\.NetCore*\.
 
-## AWSPowerShell \- A Single\-Module Version for Windows PowerShell<a name="pwsh_structure_psoldwin"></a>
+## AWSPowerShell \- A single\-module version for Windows PowerShell<a name="pwsh_structure_psoldwin"></a>
 
 [ ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/powershell/latest/userguide/images/PowerShell-Gallery-AWSPowerShell-blue.png) ](https://www.powershellgallery.com/packages/AWSPowerShell/) [ ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/powershell/latest/userguide/images/ZIP-20Archive-AWSPowerShell-yellow.png)](https://sdk-for-net.amazonwebservices.com/ps/v4/latest/AWSPowerShell.zip)
 
@@ -60,7 +60,7 @@ This version of AWS Tools for PowerShell is compatible with and installable on o
 
 Throughout this guide, when we need to specify this version only, we refer to it by its module name: *AWSPowerShell*\.
 
-## How to Use This Guide<a name="how-to-use-this-guide"></a>
+## How to use this guide<a name="how-to-use-this-guide"></a>
 
 The guide is divided into the following major sections\.
 

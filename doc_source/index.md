@@ -14,7 +14,7 @@ Amazon's trademarks and trade dress may not be used in
 
 -----
 ## Contents
-+ [What Are the AWS Tools for PowerShell?](pstools-welcome.md)
++ [What are the AWS Tools for PowerShell?](pstools-welcome.md)
 + [Installing the AWS Tools for PowerShell](pstools-getting-set-up.md)
    + [Prerequisites for Setting up the AWS Tools for PowerShell](pstools-getting-set-up-prereq.md)
    + [Installing the AWS Tools for PowerShell on Windows](pstools-getting-set-up-windows.md)

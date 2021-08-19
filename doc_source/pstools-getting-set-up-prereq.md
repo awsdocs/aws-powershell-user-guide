@@ -38,5 +38,4 @@ Confirm
 Are you sure you want to perform this action?
 Performing the operation "Remove-IAMAccessKey (DeleteAccessKey)" on target "AKIAIOSFODNN7EXAMPLE".
 [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): y
-PS >
 ```
