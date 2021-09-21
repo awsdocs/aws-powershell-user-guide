@@ -21,7 +21,7 @@ This section provides examples of using the AWS Tools for PowerShell to access A
 
 ## PowerShell File Concatenation Encoding<a name="powershell-file-concatenation-encoding"></a>
 
-Some cmdlets in the AWS Tools for PowerShell edit existing files or records that you have in AWS\. An example is `Edit-R53ResourceRecordSet`, which calls the [ChangeResourceRecordSets](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html) API for Amazon Route 53 \.
+Some cmdlets in the AWS Tools for PowerShell edit existing files or records that you have in AWS\. An example is `Edit-R53ResourceRecordSet`, which calls the [ChangeResourceRecordSets](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html) API for Amazon Route 53 \.
 
 When you edit or concatenate files in PowerShell 5\.1 or older releases, PowerShell encodes the output in UTF\-16, not UTF\-8\. This can add unwanted characters and create results that are not valid\. A hexadecimal editor can reveal the unwanted characters\.
 
