@@ -18,6 +18,9 @@ If you specify `0.0.0.0/0`, you are enabling traffic from any IP addresses in th
 
 ## Creating a Security Group for EC2\-Classic<a name="get-ec2securitygroup"></a>
 
+**Warning**  
+We are retiring EC2\-Classic on August 15, 2022\. We recommend that you migrate from EC2\-Classic to a VPC\. For more information, see **Migrate from EC2\-Classic to a VPC** in the [Amazon EC2 User Guide for Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html) or the [Amazon EC2 User Guide for Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/vpc-migrate.html)\. Also see the blog post [EC2\-Classic Networking is Retiring – Here's How to Prepare](http://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/)\.
+
 The following example uses the `New-EC2SecurityGroup` cmdlet to create a security group for `EC2-Classic`\.
 
 ```
