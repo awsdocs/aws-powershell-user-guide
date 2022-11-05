@@ -1,22 +1,5 @@
 # Using the AWS Tools for PowerShell<a name="pstools-using"></a>
 
-**Topics**
-+ [PowerShell File Concatenation Encoding](#powershell-file-concatenation-encoding)
-+ [Returned Objects for the PowerShell Tools](#returned-objects-for-the-powershell-tools)
-+ [[Amazon EC2](pstools-ec2.md)](#using-ec2)
-+ [[Amazon S3](pstools-s3.md)](#using-s3)
-+ [[IAM and AWS Tools for PowerShell](pstools-iam.md)](#using-iam)
-+ [[AWS Lambda and AWS Tools for PowerShell](pstools-lambda.md)](#using-lambda)
-+ [[Amazon SNS and Amazon SQS](pstools-sqs-queue-sns-topic.md)](#using-sns)
-+ [[CloudWatch](pstools-cw.md)](#using-cw)
-+ [See Also](#see-also)
-+ [Amazon S3 and Tools for Windows PowerShell](pstools-s3.md)
-+ [IAM and Tools for PowerShell](pstools-iam.md)
-+ [Amazon EC2 and Tools for Windows PowerShell](pstools-ec2.md)
-+ [AWS Lambda and AWS Tools for PowerShell](pstools-lambda.md)
-+ [Amazon SQS, Amazon SNS and Tools for Windows PowerShell](pstools-sqs-queue-sns-topic.md)
-+ [CloudWatch from the AWS Tools for Windows PowerShell](pstools-cw.md)
-
 This section provides examples of using the AWS Tools for PowerShell to access AWS services\. These examples help demonstrate how to use the cmdlets to perform actual AWS tasks\.
 
 ## PowerShell File Concatenation Encoding<a name="powershell-file-concatenation-encoding"></a>
@@ -91,3 +74,12 @@ This section provides an example of how to publish custom data to CloudWatch\.
 
 ## See Also<a name="see-also"></a>
 +  [Getting Started with the AWS Tools for Windows PowerShell](pstools-getting-started.md) 
+
+## Topics<a name="w22aac12c23"></a>
++ [Amazon S3 and Tools for Windows PowerShell](pstools-s3.md)
++ [IAM and Tools for PowerShell](pstools-iam.md)
++ [Amazon EC2 and Tools for Windows PowerShell](pstools-ec2.md)
++ [AWS Lambda and AWS Tools for PowerShell](pstools-lambda.md)
++ [Amazon SQS, Amazon SNS and Tools for Windows PowerShell](pstools-sqs-queue-sns-topic.md)
++ [CloudWatch from the AWS Tools for Windows PowerShell](pstools-cw.md)
++ [Using the ClientConfig parameter in cmdlets](pstools-clientconfig.md)

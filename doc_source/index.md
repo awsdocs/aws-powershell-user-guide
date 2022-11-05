@@ -4,13 +4,13 @@
 *****Copyright &copy; Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
-Amazon's trademarks and trade dress may not be used in 
-     connection with any product or service that is not Amazon's, 
-     in any manner that is likely to cause confusion among customers, 
-     or in any manner that disparages or discredits Amazon. All other 
-     trademarks not owned by Amazon are the property of their respective
-     owners, who may or may not be affiliated with, connected to, or 
-     sponsored by Amazon.
+Amazon's trademarks and trade dress may not be used in
+connection with any product or service that is not Amazon's,
+in any manner that is likely to cause confusion among customers,
+or in any manner that disparages or discredits Amazon. All other
+trademarks not owned by Amazon are the property of their respective
+owners, who may or may not be affiliated with, connected to, or
+sponsored by Amazon.
 
 -----
 ## Contents
@@ -47,6 +47,7 @@ Amazon's trademarks and trade dress may not be used in
    + [AWS Lambda and AWS Tools for PowerShell](pstools-lambda.md)
    + [Amazon SQS, Amazon SNS and Tools for Windows PowerShell](pstools-sqs-queue-sns-topic.md)
    + [CloudWatch from the AWS Tools for Windows PowerShell](pstools-cw.md)
+   + [Using the ClientConfig parameter in cmdlets](pstools-clientconfig.md)
 + [Security in the AWS Tools for PowerShell](pstools-security.md)
    + [Data protection in the AWS Tools for PowerShell](pstools-security-data-protection.md)
    + [Identity and Access Management for the AWS Tools for PowerShell](pstools-security-iam.md)

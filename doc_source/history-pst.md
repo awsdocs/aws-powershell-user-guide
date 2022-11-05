@@ -8,6 +8,7 @@ For additional information about changes and updates to the AWS Tools for PowerS
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Using the ClientConfig parameter in cmdlets](pstools-clientconfig.md) | Added information about support for the ClientConfig parameter\. | October 28, 2022 | 
 | [Launch an Amazon EC2 Instance Using Windows PowerShell](pstools-ec2-launch.md) | Added notes about retiring EC2\-Classic\. | July 26, 2022 | 
 | [AWS Tools for PowerShell Version 4](#history-pst) | Added information about version 4, including installation instructions for both [Windows](url-doc-domain;powershell/latest/userguide/pstools-getting-set-up-windows.html) and [Linux/macOS](url-doc-domain;powershell/latest/userguide/pstools-getting-set-up-linux-mac.html), and a [migration](url-doc-domain;powershell/latest/userguide/v4migration.html) topic that describes the differences from version 3 and introduces new features\. | November 21, 2019 | 
 | [AWS Tools for PowerShell 3\.3\.563](#history-pst) | Added information about how to install and use the preview version of the `AWS.Tools.Common` module\. This new module breaks apart the older monolithic package into one shared module and one module per AWS service\. | October 18, 2019 | 
