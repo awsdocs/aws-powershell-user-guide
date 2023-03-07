@@ -75,7 +75,7 @@ This section provides an example of how to publish custom data to CloudWatch\.
 ## See Also<a name="see-also"></a>
 +  [Getting Started with the AWS Tools for Windows PowerShell](pstools-getting-started.md) 
 
-## Topics<a name="w22aac12c23"></a>
+## Topics<a name="w2aac12c23"></a>
 + [Amazon S3 and Tools for Windows PowerShell](pstools-s3.md)
 + [IAM and Tools for PowerShell](pstools-iam.md)
 + [Amazon EC2 and Tools for Windows PowerShell](pstools-ec2.md)
