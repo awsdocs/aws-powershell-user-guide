@@ -27,7 +27,7 @@ To better support pipelining, output from AWS cmdlets is not reshaped to include
 
 Although most users probably won't need this data, it can be useful for diagnostic purposes, because you can see exactly what was sent to and received from the underlying AWS service calls made by the cmdlet\.
 
-Starting with version 1\.1, this data and more is now available in a new shell variable named `$AWSHistory`\. This variable maintains a record of AWS cmdlet invocations and the service responses that were received for each invocation\. Optionally, this history can be configured to also record the service requests that each cmdlet made\. Additional useful data, such as the overall execution time of the cmdlet, can also be obtained from each entry\. Requests and responses that contain any sensitive data aren't recorded by default for security reasons, the history can be configured to override this behaviour if needed\.
+Starting with version 1\.1, this data and more is now available in a new shell variable named `$AWSHistory`\. This variable maintains a record of AWS cmdlet invocations and the service responses that were received for each invocation\. Optionally, this history can be configured to also record the service requests that each cmdlet made\. Additional useful data, such as the overall execution time of the cmdlet, can also be obtained from each entry\. For security reasons, requests and responses that contain sensitive data aren't recorded by default\. However, the history can be configured to override this behavior if needed\. For more information, see the `Set-AWSHistoryConfiguration` cmdlet shown below\.
 
 Each entry in the `$AWSHistory.Commands` list is of type `AWSCmdletHistory`\. This type has the following useful members:
 
@@ -65,7 +65,9 @@ A cmdlet invocation can hold zero or more service request and response entries\.
 PS > Set-AWSHistoryConfiguration -MaxCmdletHistory <value> -MaxServiceCallHistory <value> -RecordServiceRequests -IncludeSensitiveData
 ```
 
-The `-MaxCmdletHistory` parameter sets the maximum number of cmdlets that can be tracked at any time\. A value of 0 turns off recording of AWS cmdlet activity\. The `-MaxServiceCallHistory` parameter sets the maximum number of service responses \(and/or requests\) that are tracked for each cmdlet\. The `-RecordServiceRequests` parameter, if specified, turns on tracking of service requests for each cmdlet\. The `-IncludeSensitiveData` parameter, if specified, turns on tracking of service responses (and requests if they are tracked) with sensitive data for each cmdlet\. All parameters are optional\.
+All parameters are optional\.
+
+The `MaxCmdletHistory` parameter sets the maximum number of cmdlets that can be tracked at any time\. A value of 0 turns off recording of AWS cmdlet activity\. The `MaxServiceCallHistory` parameter sets the maximum number of service responses \(and/or requests\) that are tracked for each cmdlet\. The `RecordServiceRequests` parameter, if specified, turns on tracking of service requests for each cmdlet\. The `IncludeSensitiveData` parameter, if specified, turns on tracking of service responses and requests \(if tracked\) that contain sensitive data for each cmdlet\.
 
 If run with no parameters, `Set-AWSHistoryConfiguration` simply turns off any prior request recording, leaving the current list sizes unchanged\.
 
