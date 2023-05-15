@@ -32,7 +32,7 @@ An IAM user can have only two access keys at any one time\. If you attempt to cr
 You can use the `Remove-IAMAccessKey` cmdlet to delete a set of credentials for an IAM user\. You must specify both the `UserName` and the `AccessKeyId`\.  
 
 ```
-PS > Remove-IAMAccessKey -UserName alice -AccessKeyId -AccessKeyId AKIAIOSFODNN7EXAMPLE
+PS > Remove-IAMAccessKey -UserName alice -AccessKeyId AKIAIOSFODNN7EXAMPLE
 
 Confirm
 Are you sure you want to perform this action?

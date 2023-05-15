@@ -1,6 +1,6 @@
 # What are the AWS Tools for PowerShell?<a name="pstools-welcome"></a>
 
-The AWS Tools for PowerShell are a set of PowerShell modules that are built on the functionality exposed by the AWS SDK for \.NET\. The AWS Tools for PowerShell enable you to script operations on your AWS resources from the PowerShell command line\.\.
+The AWS Tools for PowerShell are a set of PowerShell modules that are built on the functionality exposed by the AWS SDK for \.NET\. The AWS Tools for PowerShell enable you to script operations on your AWS resources from the PowerShell command line\.
 
 The cmdlets provide an idiomatic PowerShell experience for specifying parameters and handling results even though they are implemented using the various AWS service HTTP query APIs\. For example, the cmdlets for the AWS Tools for PowerShell support PowerShell pipelining—that is, you can pipe PowerShell objects in and out of the cmdlets\.
 
